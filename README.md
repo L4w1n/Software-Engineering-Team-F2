@@ -9,7 +9,7 @@ Ziel ist es, das Selbstmanagement zu verbessern und ein besseres Gleichgewicht z
 - Verknüpfung von Aufgaben mit dem Energielevel
 - Analyse und Visualisierung der Daten
   
-# Vorlage Projektstruktur & Dokumente
+## Vorlage Projektstruktur & Dokumente
 
 Das Repository enthält die Vorlage einer Projektstruktur und Template-Dokumente
 im AsciiDoc-Format. Dies wird für die Bearbeitung der Projektdokumentation in
