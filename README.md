@@ -1,3 +1,14 @@
+# EnergyBalance
+
+## Beschreibung
+EnergyBalance ist eine Anwendung für Studierende, die ihnen hilft, ihr Stress- und Energielevel im Alltag zu verfolgen.  
+Ziel ist es, das Selbstmanagement zu verbessern und ein besseres Gleichgewicht zwischen Studium und Freizeit zu erreichen.
+
+## Funktionen
+- Erfassung von Stress und Energie
+- Verknüpfung von Aufgaben mit dem Energielevel
+- Analyse und Visualisierung der Daten
+  
 # Vorlage Projektstruktur & Dokumente
 
 Das Repository enthält die Vorlage einer Projektstruktur und Template-Dokumente
@@ -10,7 +21,7 @@ Software Engineering I und II benötigt. Im Detail sind das:
 
 > [!NOTE]
 > Dieses Repository enthält keinen Code.
-
+> 
 **Inhaltsverzeichnis**
 
 - [Projektstruktur](#projektstruktur)
