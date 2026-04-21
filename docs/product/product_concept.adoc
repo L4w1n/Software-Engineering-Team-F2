@@ -1,5 +1,5 @@
-= Produktkonzept: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+= Produktkonzept: {EnergyBalance}
+Vince Hohfeld <vince.hohfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al jawabreh <omar.al.jawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomàs.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoang.son.david.tran@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad Alissa Alijasim <anwar.ahmad.alissa.alijasim@stud.htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -19,10 +19,7 @@ _Warum wird dieses Produkt gebaut? Welches Problem existiert heute, und warum is
 Dieser Abschnitt beschreibt den Ausgangszustand und den Handlungsbedarf — ohne bereits eine
 Lösung zu nennen. 3–5 Sätze genügen._
 
-[Hier die Ausgangssituation und den Handlungsbedarf beschreiben. Beispiel:
-„Studierende an der Hochschule haben heute keinen zentralen Überblick über verfügbare
-Lernräume. Die Suche nach freien Plätzen kostet täglich wertvolle Zeit und führt zu Frust.
-Eine einfache, mobil nutzbare Lösung fehlt bisher."]
+Studierende stehen im Alltag häufig unter hoher mentaler und zeitlicher Belastung, ohne einen klaren Überblick über ihr eigenes Energielevel und Stressverhalten zu haben. Aufgaben, Prüfungen und Verpflichtungen werden meist isoliert betrachtet, wodurch Zusammenhänge zwischen Belastung und Leistungsfähigkeit schwer erkennbar sind. Das wiederum führt oft zu Überforderung, ineffizientem Zeitmanagement und fehlenden Erholungsphasen.
 
 == Produktvision
 
@@ -33,13 +30,13 @@ nicht wesentlich verändern._
 === Visions-Statement
 
 ____
-Für [Zielgruppe],
-die [Problem oder Bedarf],
-ist [Produktname]
-ein [Produktkategorie],
-das [zentraler Nutzen].
-Im Gegensatz zu [Alternative]
-bietet unser Produkt [entscheidender Unterschied].
+Für [Studierende],
+die [ihre mentale und zeitliche Belastung im Studienalltag besser verstehen und steuern möchten],
+ist [EnergyBalance]
+ein [Selbstmanagement- und Tracking-Tool],
+das [Transaprend über Energielevel, Stress und Aufgaben schafft].
+Im Gegensatz zu [To-Do oder Kalender-Apps]
+bietet unser Produkt [die Möglichkeit, Belastung und Wohlbefinden aktiv zu analysieren und daraus individuelle Verbesserungen abzuleiten].
 ____
 
 //Beispiel: Für Studierende der HTWD, die zu wenig Zeit in der Mittagspause zum Essen haben, ist Flying Burger ein  Lieferdient für Burger, der per Drohne liefert. Anders als landgestützte Lieferdienste kann unser Produkt durchs Fenster direkt in den Hörsaal liefern.
@@ -49,7 +46,8 @@ NOTE: Das Visions-Statement kann im Team mit der „Elevator Pitch"-Methode oder
 === Zielbild
 
 _Optional: Beschreibe in 2–4 Sätzen, wie die Welt mit diesem Produkt aussieht. Was hat sich für die Nutzer:innen verändert?_
-//[Hier das Zielbild beschreiben]
+
+Studierende nutzen EnergyBalance als festen Bestandteil ihres Alltags, um ihre Belastung bewusst wahrzunehmen und langfristig besser zu steuern. Sie erkennen Muster in ihrem Verhalten, vermeiden Überbelastung und planen ihre Aufgaben realistischer unter Berücksichtigung ihres Energielevels. Das Ergebnis ist ein ausgewogenes Verhältnis zwischen Produktivität und Wohlbefinden, sowie eine nachhaltige Verbesserung der Selbstorganisation im Studium.
 
 
 == Produktpositionierung
@@ -61,14 +59,14 @@ _Wer sind die Zielgruppen, und wie positioniert sich das Produkt im Vergleich zu
 |===
 | Zielgruppe | Beschreibung
 
-| [z. B. Studierende]
-| [Kurzbeschreibung: Wer sind sie? Was ist ihre Motivation?]
+| [Studierende]
+| [Studierende, die ihre mentale und zeitliche Belastung im Studienalltag besser verstehen und steuern möchten. Ihre Motivation besteht darin, Überforderung zu vermeiden, produktiver zu arbeiten und gleichzeitig ihr Wohlbefinden zu verbessern.]
 
-| [z. B. Lehrende]
-| [Kurzbeschreibung]
+| [Studienanfänger]
+| [Studienanfänger, die Schwierigkeiten haben, sich an die neue Struktur und Anforderungen des Studiums anzupassen. Sie benötigen Unterstützung bei der Selbstorganisation und beim Aufbau gesunder Arbeitsgewohnheiten.]
 
-| [Weitere Zielgruppe]
-| [Kurzbeschreibung]
+| [Studienberater/Coaches(optional)]
+| [Beratende Personen, die Studierende bei der Bewältigung ihres Studienalltags unterstützen. Sie nutzen aggregierte Daten, um gezielt Hilfestellungen zu geben und Überlastung frühzeitig zu erkennen.]
 |===
 
 NOTE: Ausführliche Beschreibungen der Nutzenden — Personas, Nutzungskontext,
@@ -80,17 +78,17 @@ typische Aufgaben — sind im link:ux_concept.adoc[UX-Konzept] dokumentiert.
 |===
 | Alternative | Beschreibung | Warum unser Produkt besser passt
 
-| [z. B. E-Mail-Anfrage an Sekretariat]
-| [Wie lösen Nutzer:innen das Problem heute?]
-| [Worin liegt unser Vorteil?]
+| [Klassische To-Do-Apps (z.B. Kalender, Notizen-App)]
+| [Nutzer organisieren ihre Aufgaben und Termine über Kalender oder To-Do-Listen. Dabei werden jedoch ausschließlich Aufgaben erfasst, ohne die persönliche Belastung oder das Energielevel zu berücksichtigen.]
+| [EnergyBalance geht über die reine Aufgabenorganisation hinaus, indem es zusätzlich das invidivuelle Energielevel und Stressverhalten erfasst. Dadurch können Zusammenhänge zwischen Aufgaben und Belastung erkannt und aktiv gesteuert werden.]
 
-| [z. B. Aushang an schwarzem Brett]
-| [Beschreibung]
-| [Unterschied]
+| [Eigenes Bauchgefühl/ keine systematische Erfassung]
+| [Viele Studierende verlassen sich auf ihr subjektives Empfinden, um ihre Belastung einzuschätzen. Eine strukturierte Dokumentation oder Analyse findet nicht statt.]
+| [EnergyBalance ermöglicht eine objektive und langfristige Analyse durch kontinuierliches tracking. Muster und Überlastungssituationen werden sichtbar, die sonst eher unbemerkt bleiben würden.]
 
-| [Weitere Alternative]
-| [Beschreibung]
-| [Unterschied]
+| [Fitness- und Gesundheits-Apps (z.B. Fitbit, Apple Health)]
+| [Einige Apps erfassen allgemeine Gesundheitsdaten wie Schlaf oder Bewegung, sind jedoch nicht speziell auf den Stress im Studienalltag und akademische Anforderungen ausgerichtet.]
+| [EnergyBalance ist gezielt auf den Kontext Studium zugeschnitten und verknüpft Belastung direkt mit Aufgaben, Lernphasen und Verpflichtungen. Dadurch entsteht ein konkreter Mehrwert für Studierende.]
 |===
 
 
@@ -103,25 +101,25 @@ erklärt, warum bestimmte Entscheidungen getroffen wurden.
 |===
 | Stakeholder | Rolle / Interesse | Erwartungen an das Produkt | Einfluss
 
-| [z. B. Hochschulverwaltung]
-| [Betreiber der Infrastruktur; will Raumauslastung optimieren]
-| [Auslastungsberichte, DSGVO-Konformität]
+| [Studierende]
+| [möchten ihre Belastung, Energielevel und ihren Studienalltag besser verstehen und optimieren]
+| [Einfache Bedienung, schnelle Eingabe von Daten, aussagekräftige Auswertungen und konkrete Verbesserungsvorschläge]
 | Hoch
 
-| [z. B. Studierende]
-| [Hauptnutzer:innen; wollen schnell freie Plätze finden]
-| [Einfache Bedienung, mobiler Zugang]
+| [Studienberater/Coaches]
+| [Unterstützen Studierende bei Problemen im Studium und möchten frühzeitig Überlastung erkennen]
+| [Zugriff auf aggregierte Daten (nur mit Zustimmung), verständliche Auswertungen und Hinweise auf kritische Entwicklungen]
+| Niedrig
+
+| [Hochschule/Verwaltung]
+| [Interesse an der Förderung des Studienerfolgs und der Reduktion von Studienabbrüchen]
+| [Datenschutz (DSGVO), annonymisierte und saubere Architektur. Einhaltung der SMART-Methode]
 | Mittel
 
-| [z. B. Lehrende]
-| [Nutzen Räume für Lehrveranstaltungen; wollen Konflikte vermeiden]
-| [Sichtbarkeit ihrer Buchungen]
-| Mittel
-
-| [Weiterer Stakeholder]
-| [Beschreibung]
-| [Erwartungen]
-| [Hoch / Mittel / Niedrig]
+| [Dozent]
+| [Profitieren ovn besser organisierten und weniger überlasteten Studierenden]
+| [Indirekte Verbesserung der Studienleistung und Teilnahme]
+| [Niedrig]
 |===
 
 == Hauptfunktionen
@@ -134,25 +132,29 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 |===
 | Nutzerbedarf | Hauptfunktion | Priorität
 
-| Studierende wollen schnell sehen, welche Räume gerade frei sind.
-| Echtzeit-Übersicht freier Lernräume
+| Studierende wollen ihr tägliches Energielevel und Stressempfinden einfach erfassen können.
+| Erfassung von Energielevel und Stresswerten (Tracking)
 | Hoch
 
-| Nutzer:innen wollen einen Raum für einen bestimmten Zeitraum reservieren.
-| Raumbuchung mit Zeitfenster
+| Studierende wollen ihre Aufgaben und Verpflichtungen mit ihrer Belastung verknüpfen.
+| Verknüpfung von Aufgaben, Terminen und Belastungsdaten
 | Hoch
 
-| Nutzer:innen wollen ihre aktiven Buchungen verwalten.
-| Buchungsübersicht & Stornierung
+| Studierende wollen ihre Belastung über die Zeit analysieren und Muster erkennen.
+| Visualisierung und Analyse von Energie- und Stressverläufen
+| Hoch
+
+| Studierende wollen frühzeitig erkennen, wenn sie überlastet sidn.
+| Frühwarnsystem bei kritischen Belastungswerten
 | Mittel
 
-| Verwaltung will die Auslastung der Räume analysieren.
-| Auslastungsberichte für Administratoren
-| Niedrig
+| Studierende wollen konkrete Verbesserungsvorschläge für ihren Alltag erhalten.
+| Personalisierte Empfehlungen zur Anpassung von Arbeits- und Lernverhalten
+| Mittel
 
-| [Nutzerbedarf]
-| [Hauptfunktion]
-| [Hoch / Mittel / Niedrig]
+| Studierende wollen ihre Entwicklung reflektieren und bewerten.
+| Datenverwaltung und optionale Freigabe für Hochschulverwaltung/Studienberater/Coaches
+| Niedrig
 |===
 
 NOTE: Die Reihenfolge entspricht einer ersten groben Priorisierung und wird im Rahmen
@@ -178,20 +180,23 @@ technischen Entscheidungen, die sich daraus ergeben — ohne sie hier zu wiederh
 | Qualitätsziel | Beschreibung | Messkriterium
 
 | Benutzbarkeit
-| Das Produkt ist ohne Einarbeitung nutzbar.
-| Neue Nutzer:innen finden die Kernfunktion innerhalb von 2 Minuten ohne Hilfe.
-
+| Das Produkt soll intuitiv und ohne lange Einarbeitung nutzbar sein.
+| Neue Nutzer können innerhalb von 2 Minuten ein Energielevel erfassen.
 | Performance
-| Das Produkt reagiert schnell auf Nutzerinteraktionen.
-| Seitenladezeit unter 2 Sekunden bei normaler Netzwerkverbindung.
+| Das System soll schnell auf Eingaben und Abfragen reagieren.
+| Ladezeiten unter 2 Sekunden bei normalen Nutzerinteraktionen.
 
 | Verfügbarkeit
-| Das Produkt ist während der Hochschulöffnungszeiten zuverlässig erreichbar.
-| Verfügbarkeit ≥ 99 % während Betriebszeiten.
+| Das System soll zuverlässig nutzbar sein.
+| Verfügbarkeit ≥ 99 % während Nutzungszeiten.
 
-| [Qualitätsziel]
-| [Beschreibung]
-| [Messkriterium]
+| Datensicherheit
+| Sensible Nutzerdaten müssen geschützt gespeichert werden.
+| Zugriff nur auf Authentifizierung, keine unverschlüsselte Datenspeicherung.
+
+| Verständlichkeit
+| Die dargestellten Auswertungen müssen leicht interpretierbar sein.
+| Nutzer verstehen Diagramme ohne zusätzliche Erklärungen.
 |===
 
 === Einschränkungen
@@ -203,21 +208,21 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 |===
 | Einschränkung | Beschreibung | Kategorie
 
-| Betrieb auf Hochschulinfrastruktur
-| Das System muss auf den vorhandenen Servern der Hochschule betrieben werden können.
-| Technisch
+| Projektlaufzeit
+| Das Produkt muss innerhalb von zwei Semestern umgesetzt werden.
+| Zeitlich
 
 | DSGVO-Konformität
 | Personenbezogene Daten dürfen nur gemäß DSGVO verarbeitet und gespeichert werden.
 | Rechtlich
 
-| Projektlaufzeit
-| Das Produkt muss innerhalb eines Semesters (ca. 4 Monate) lieferbar sein.
-| Zeitlich
+| Hochschulkontext
+| Das System ist auf Studierende und deren Alltag ausgerichtet.
+| Organisatorisch
 
-| [Einschränkung]
-| [Beschreibung]
-| [Technisch / Rechtlich / Organisatorisch / Zeitlich]
+| Technische Infrastruktur
+| Einsatz gängiger Webtechnologien (bestehend aus:Frontend/Backend) ohne Spezialhardware.
+| Technisch
 |===
 
 
@@ -228,7 +233,7 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 | Version | Datum | Änderung
 
 | 1.0
-| [Datum]
+| [15.04.2026]
 | Initiale Version nach Kick-off-Workshop
 
 |===

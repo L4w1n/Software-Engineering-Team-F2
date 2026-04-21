@@ -1,17 +1,17 @@
-= Teamcharta: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+= Teamcharta: {EnergyBalance}
+Vince Hohfeld <vince.hohfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al jawabreh <omar.al.jawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomàs.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoang.son.david.tran@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad Alissa Alijasim <anwar.ahmad.alissa.alijasim@stud.htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 :version: 1.0
 
 == Über uns
-_Hier können Sie einen Teamnamen und ggf. ein Motto oder eine kurze Beschreibung hinzufügen, um die Identität Ihres Teams zu stärken._
+Wir sind ein studentisches Entwicklungsteam aus den Studiengängen: Wirtschatsinformatik, Allgemeine Informatik und Verwaltungsinformatik. Der Auftrag ist die Entwicklung einer nutzerzentrierten Softwarelösung. Dabei liegt unser Fokus darauf, reale Probleme aus dem Studienalltag zu identifizieren und mit einer praxisnahen Anwendung zu lösen.
 
 == Zweck
 
 *Was bauen wir, und warum?*
 
-_Hier die Produktvision und den Projektzweck in 2–3 Sätzen beschreiben._
+Mit EnergyBalance entwickeln wir eine Anwendung, die Studierende dabei unterstützt, ihre mentale und zeitliche Belastung im Studienalltag bewusst zu erfassen, zu analysieren und aktiv zu steuern. Ziel ist es, Zusammenhänge zwischen Aufgaben, Stress und Energielevel sichtbar zu machen, um Überbelastung frühzeitig zu erkenn nund eine bessere Balance zwischen Produktivität und Wohlbefinden zu erreichen. 
 
 == Rollen
 
@@ -20,19 +20,22 @@ _Hier die Produktvision und den Projektzweck in 2–3 Sätzen beschreiben._
 | Rolle | Person
 
 | Product Owner
-| [Name]
+| Vince Hohfeld
 
 | Scrum Master
-| [Name]
+| Armando Stefanow
 
 | Tech Lead footnote:[optionale Rolle, aber empfohlen, um technische Entscheidungen zu koordinieren]
-| [Name]
+| Hoang Son David Tran
 
 | Entwickler:innen
-| [Namen]
+| Tomàs Kuna, Omar Al Jawabreh
+
+| Dokumentation
+| Lewin Hantzsch und Anwar Ahmad Alissa Alijasim
 
 | Stakeholder (Hauptansprechpartner)
-| [Name]
+| Marlene Winter
 |===
 
 
@@ -43,29 +46,29 @@ _Hier die Produktvision und den Projektzweck in 2–3 Sätzen beschreiben._
 | Ereignis | Wann | Dauer | Moderation
 
 | Standup (Daily / Weekly)
-| [z. B. täglich 09:30]
-| [z. B. 15 min]
-| [Rolle / Person]
+| [nach Bedarf]
+| [15 min]
+| [fordernde Person/Rolle]
 
 | Sprint Planning
-| [z. B. montags, Sprintstart]
-| [z. B. 2 h]
-| [Rolle / Person]
+| [Sobald der aktuelle Sprint abgeschlossen ist.]
+| [erstmal adhoc und mit der Zeit eine konkrete Zeit]
+| [Scrum Master]
 
 | Sprint Review
-| [z. B. freitags, Sprintende]
-| [z. B. 1 h]
-| [Rolle / Person]
+| [Montags nach Sprintende]
+| [0,5- 1 Stunde]
+| [Dokumentation]
 
 | Retrospektive
-| [z. B. freitags, nach Review]
-| [z. B. 1 h]
-| [Rolle / Person]
+| [Nach dem Feedback]
+| [30 min]
+| [PO/Scrum Master/Tech Lead]
 
 | Backlog Refinement
-| [z. B. mittwochs, wöchentlich]
-| [z. B. 1 h]
-| [Rolle / Person]
+| [Montagstreff oder nach Bedarf asynchron am Donnerstag]
+| [30min]
+| [PO/Tech Lead/Entwickler]
 |===
 
 == Kommunikation
@@ -75,22 +78,22 @@ _Hier die Produktvision und den Projektzweck in 2–3 Sätzen beschreiben._
 | Thema | Vereinbarung
 
 | Primärer Kanal
-| [z. B. Discord – #projektname]
+| [z. B. Discord – #projektname:SE_Projekt-Team_F2]
 
 | Entscheidungsprotokoll
 | [z. B. Wiki oder per Asciidoc in Ordner <Ordnername>]
 
 | Erwartete Reaktionszeit
-| [z. B. innerhalb von 4 Stunden während Kernzeit]
+| [innerhalb von 24 Stunden. Im Notfall 48 Stunden.]
 
 | Kernarbeitszeit
 | [z. B. 09:00 – 16:00 Uhr]
 
 | Videokonferenz-Tool
-| [z. B. Teams / Discord / Google Meet]
+| [Discord-Voice-Channel]
 
 | Asynchrone Abstimmung
-| [z. B. kurze Statusupdates im Issue-Diskussion]
+| [Discord]
 |===
 
 == Arbeitsweise
@@ -99,11 +102,12 @@ _Hier die Produktvision und den Projektzweck in 2–3 Sätzen beschreiben._
 _Eine User Story ist bereit für die Entwicklung, wenn:_
 
 // Hier können die Kriterien individuell angepasst werden, z. B.:
-* [ ] Die Akzeptanzkriterien sind klar und vollständig beschrieben
+* [ ] Die Akzeptanzkriterien sind klar und vollständig beschrieben (INVEST-Prinzip)
 * [ ] Der Aufwand wurde vom Team geschätzt
 * [ ] Abhängigkeiten sind identifiziert und geklärt
 * [ ] Designs / Mockups sind vorhanden (falls relevant)
-* [ ] [Weitere Kriterien ergänzen]
+* [ ] Testbarkeit der Akzeptanzkriterien ist gegeben.
+* [ ] Größe der Story identifizieren und ggf. in kleinere Stories aufteilen
 
 === Definition of Done (DoD)
 _Eine User Story gilt als fertig, wenn:_
@@ -115,8 +119,9 @@ _Eine User Story gilt als fertig, wenn:_
 * [ ] Die Funktionalität wurde im Staging-System getestet
 * [ ] Dokumentation wurde aktualisiert (falls erforderlich)
 * [ ] Der Product Owner hat die Story abgenommen
-* [ ] [Weitere Kriterien ergänzen]
-
+* [ ] Akzeptanzkriterien sind erfüllt und getestet.
+* [ ] Feature integriert, kein isolierter Code mehr vorhanden.
+* [ ] keine Bugs mehr offen mit Priorität Hoch, die durch die Story verursacht wurden.
 === Code & Versionierung
 
 [cols="1,2", options="header"]
@@ -130,21 +135,22 @@ _Eine User Story gilt als fertig, wenn:_
 | [z. B. mind. 1 Approval, kein Merge ohne grüne Pipeline]
 
 | Merge-Berechtigung
-| [z. B. jedes Teammitglied nach Approval]
+| [Jedes Teammitglied nach Approval]
 
 | Commit-Konventionen
-| [z. B. Conventional Commits]
+| [Conventional Commits]
 |===
 
 == Teamvereinbarungen
 
 _Diese Vereinbarungen haben wir gemeinsam getroffen:_
 
-. [z. B. Wir gehen respektvoll und offen miteinander um.]
-. [z. B. Wir sprechen Probleme frühzeitig an, anstatt sie zu ignorieren.]
-. [z. B. Fehler sind Lernchancen – wir suchen keine Schuldigen.]
-. [z. B. Meetings beginnen pünktlich; wer verhindert ist, gibt rechtzeitig Bescheid.]
-. [z. B. Entscheidungen werden dort dokumentiert, wo alle sie finden können.]
+. Respektvoller Umgang und offene Kommunikation.
+. Probleme werden persönlich angesprochen und nicht über Chat oder Dritte diskutiert.
+. Fehler sind Lernchancen und keine Schuldzuweisungen.
+. Meetings beginnen pünktlich. Verhinderungen werden rechtzeitig kommuniziert. Termine die das Treffen verhindern, werden im Voraus angekündigt (z.B. Arzttermine).
+. Entscheidungen werden dort dokumentiert, wo alle sie finden können. Jeder hat das Recht Entscheidungen zu hinterfragen und Verbesserungsvorschläge einzubringen.
+. Keiner wird unterdrückt oder ausgeschlossen. Alle Teammitglieder haben die gleichen Rechte und Pflichten.
 
 
 _Nächste Überprüfung: [Datum / Sprint] — Diese Charta wird regelmäßig in der Retrospektive aktualisiert._
