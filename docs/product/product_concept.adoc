@@ -153,6 +153,10 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 | Mittel
 
 | Studierende wollen ihre Entwicklung reflektieren und bewerten.
+| Reflektions- und Feedbackfunktionen (z.B. Tages-/Wochenbewertungen)
+| Niedrig
+
+| Studierende wollen ihre Daten sicher verwalten und optional teilen.
 | Datenverwaltung und optionale Freigabe für Hochschulverwaltung/Studienberater/Coaches
 | Niedrig
 |===
