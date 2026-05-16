@@ -31,19 +31,19 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 | [22 Jahre]
 
 | *Zitat*
-| _„[Ein prägnanter Satz, der ihre Haltung oder ihr Problem auf den Punkt bringt.]"_
+| _„[Ich merke oft erst zu spät, dass alles zu viel wird.]"_
 
 | *Ziele*
-| [Was will diese Person erreichen? Was motiviert sie?]
+| [Max will seine Aufgaben besser planen um Stress frühzeitig zu erkennen und zu vermeiden.]
 
 | *Frustrationen*
-| [Was hindert sie heute daran, ihre Ziele zu erreichen?]
+| [Er nutzt Kalender und To-do-Listen, sieht dort aber nicht, wie belastend einzelne Aufgaben für ihn wirklich sind.]
 
 | *Verhalten & Kontext*
-| [Wie und wann nutzt sie digitale Produkte? Welche Geräte? Welche Erfahrung?]
+| [Er nutzt hauptsächlich sein Smartphone zwischen Vorlesungen, in der Bahn oder abends zu Hause. Eingaben müssen schnell und einfach sein.]
 
 | *Bezug zum Produkt*
-| [Warum ist dieses Produkt für sie relevant? Was ist ihr primärer Nutzen?]
+| [EnergyBalance hilft Max, täglich Energielevel und Stress zu erfassen und diese Werte mit Aufgaben zu verknüpfen.]
 |===
 
 === Persona 2: [Name]
