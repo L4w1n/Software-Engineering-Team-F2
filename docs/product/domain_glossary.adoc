@@ -19,28 +19,645 @@ Technische Implementierungsdetails gehören nicht hierher!
 |===
 | Begriff / Abkürzung | Definition | Synonyme / Abgrenzungen
 
-| Bestellung
-| Eine vom Nutzer ausgelöste Anforderung, ein oder mehrere Produkte zu erwerben.
-  Eine Bestellung durchläuft verschiedene Status (offen, bezahlt, versendet, abgeschlossen).
-| Auftrag; nicht zu verwechseln mit „Warenkorb" (noch nicht abgeschlossen)
+
+| Abweichung
+| Unterschied zwischen einem aktuellen Wert und einem Referenzwert, z.B. der persönlichen Baseline.
+| Synonym: Differenz, Abweichungswert. Abgrenzung: Eine Abweichung kann erhöht oder verringert sein. [US-021]
+
+| Aktivitätsdaten
+| Gespeicherte Daten zu körperlichen Aktivität, mindestens Aktivitätstyp, Dauer und Datum.
+| Synonyme: Bewegungsdaten, Aktivitätsinformationen. Abgrenzung: Aktivitätsdaten sind Kontextdaten, keine Stress- oder Energiewerte. [US-048].
+
+| Analyse
+| Auswertung vorhandener Daten, um Muster, Trends, Warnungen, Ursachen oder Empfehlungen abzuleiten.
+| Synonyme: Auswertung, Datenanalyse. Abgrenzung: Analyse ist nicht dasselbe wie Datenerfassung. [US-024]
+
+| Analyseansicht
+| Bereich der Anwendung, in dem gespeicherte Daten ausgewertet und visualisiert werden.
+| Abgrenzung: Nicht Eingabeseite; dient der Auswertung, nicht der Erfassung. [US-005 und US-006] 
+
+| Analysefunktion
+| Funktion, die Daten auswertet, z.B. für Trends, Warnungen oder Empfehlungen.
+| Synonym: Auswertungsfunktion. Abgrenzung: Datenerfassung bleibt auch ohne Analysefunktion möglich. [US-036]
+
+| Analyseoption
+| Einstellung, mit der festgelegt wird, welche Daten in Analysen berücksichtigt werden.
+| Synonyme: Analyseeinstellung, Auswertungsoption. [US-035]
+
+| Analysierte Daten
+| Daten, die für Auswertungen, Empfehlungen oder Analysen verwendet werden.
+| Synonyme: ausgewertete Daten. Abgrenzung: Nicht alle gespeicherten Daten müssen analysiert werden. [US-035]
+
+| Angemeldete Nutzer
+| Nutzer, der sich erfolgreich angemeldet hat und Zugriff auf seine eigenen Daten erhält.
+| Synonym: eingeloggter Nutzer. Abgrenzung: Nicht Gastnutzer. [US-033].
+
+| Anmeldung
+| Vorang, bei dem ein Nutzer mit gültigen Zugangsdaten Zugriff auf sein Benutzerkonto erhält.
+| Synonyme: Login, sichere Anmeldung. [US-054]
+
+| Aufgabe
+| Verpflichtung oder Tätigkeit eines Studierenden, die erfasst, geplant und mit Belastung oder Stresswerten verknüpft werden kann.
+| Synonyme: To-Do, Tätigkeit. [US-037]
+
+| Aufgabendaten
+| Gespeicherte Informationen zu Aufgaben, die für Analyse, Zeitplanung oder Ursachenbestimmung genutzt werden.
+| Synonyme: Aufgabeninformationen. Abgrenzung: Aufgabe = fachliches Objekt. Aufgabendaten = gespeicherte Information dazu. [US-025].
+
+| Aufgabenkategorie
+| Thematische Einordnung einer Aufgabe
+| Synonyme: Kategorie. Abgrenzung: Kategorie beschreibt Art/Thema; Priorität beschreibt Wichtigkeit. [US-038]
+
+| Aufgabenplanung
+| Planung von Aufgaben anhand von Zeitaufwand, Deadline, Priorität und Belastung
+| Synonyme: Zeitplanung, Planung, Abgrenzung: Aufgabenplanung ist konkreter als allgemeine Zeitplanung. [US-040]
+
+| Ausgeschlossene Daten
+| Daten, die aufgrund einer Nutzereinstellung nicht in Analysen berücksichtigt werden.
+| Synonyme: nicht berücksichtigte Daten. Abgrenzung: Die Daten werden nicht gelöscht, sondern nur nicht analysiert. [US-035]
+
+| Auslöser der Warnung
+| Fachlicher Grund, warum eine Warnung erzeugt wurde.
+| Synonyme: Warnungsgrund, Ursache der Warnung. [US-020 und US-022]
+
+| Baseline
+| Persönlicher Referenzwert oder Referenzbereich für typische Stress- und Energiewerte.
+| Synonyme: Normalwert, Referenzwert, normales Niveau. [US-016]
+
+| Baseline-Ermittlung
+| Berechnung oder Festlegung einer persönlichen Baseline aus vorhandenen Daten.
+| Synonyme: Baseline-Berechnung. [US-018]
+
+| Baseline-Vergleich
+| Vergleich aktueller Stress- oder Energiewerte mit der persönlichen Baseline.
+| Synonym: Vergleich mit persönlicher Baseline. [US-042]
+
+| Belastung
+| Mentale oder zeitliche Beanspruchung eines Studierenden durch Aufgaben, Termine, Stress, Energie oder Kontextfaktoren
+| Abgrenzung: Belastung ist komplexer als Stresslevel. Stresslevel ist ein Messwert zur Belastung. [US-009].
+
+| Belastungsdaten 
+| Daten, die zur Bewertung der Belastung eines Studierenden verwendet werden.
+| Synonyme: Belastungswerte, Belastungsinformationen.
+
+| Belastungsspitze
+| Plötzlicher oder außergewöhnlich hoher Belastungswert, der kritisch sein kann.
+| Synonyme: Belastungspeak, kritischer Belastungswert. [US-020].
+
+| Belastungstreiber
+| Faktor, Aufgabe oder Kontext, der die Belastung eines Studierenden erhöht oder wesentlich beeinflusst.
+| Synonyme: Stressursache, Einflussfaktor. [US-025]
+
+| Belastungstrend
+| Entwicklung der Belastung über einen Zeitraum.
+| Synonyme: Belastungsentwicklung, Abgrenzung: Spezieller als allgemeiner Trend. [US-024]
+
+| Benachrichtigung
+| Meldung innerhalb der App, die über Hinweise, Warnungen oder wichtige Veränderungen informiert.
+| Synonyme: Meldung, Nachricht, Hinweise und Warnungen sind Arten von Benachrichtigungen. [US-011]
+
+| Benachrichtigungseinstellung
+| Nutzereinstellung, mit der Benachrichtigungen aktiviert, deaktiviert oder gefiltert werden.
+| Synonyme: Benachrichtigungskonfiguration. [US-015]
+
+| Benachrichtigungshistorie
+| Sammlung vergangener Benachrichtigungen, die chronologisch angezeigt werden.
+| Synonyme: Historie, vergangene Benachrichtigungen [US-014]
+
+| Benachrichtigungstyp
+| Kategorie einer Benachrichtigung, z.B. Warnung oder Hinweis
+| Synonym: Benachrichtigungskategorie. [US-013]
+
+| Benutzerkonto
+| Persönlicher Account eines Studierenden, dem gespeicherte Daten zugeordnet sind.
+| Synonyme: Nutzerkonto, Account. [US-053]
+
+| Benutzerprofil
+| Bereich oder Datensatz eines Benutzerkontos, in dem Profilinformationen und Einstellungen verwaltet werden.
+| Synonyme: Profil, Nutzerprofil. [US-055]
+
+| Bewertungsskala
+| Skala, mit der eine Tagesbewertun oder Reflexion strukturiert erfasst wird.
+| Abgrenzung: Nicht Stressskala oder Energieskala. [US-028]
+
+| Datenabruf
+| Laden gespeicherter Daten, damit diese erneut eingesehen oder verwendet werden können.
+| Synonyme: Daten laden, Abruf gespeicherter Daten. [US-050]
+
+| Datenexport
+| Export gespeicherter Nutzerdaten in einem wählbaren Datenformat.
+| Synonyme: Export. Abgrenzung: Export kopiert Daten; er löscht oder verändert die Originaldaten nicht. [US-057]
+
+| Datenfreigabe
+| Kontrollierte Weitergabe ausgewählter Daten an andere Personen oder Anwendungen
+| Synonyme: Daten teilen, Freigabe. [US-059]
+
+| Datenkategorie
+| Gruppe von Daten, die getrennt betrachtet, ausgewählt oder exportiert werden kann
+| Synonym: Datentyp. Für den Export eher Datenkategorie, für Datenschutz eher Datentyp. [US-058].
+
+| Datenpunkt
+| Einzelner Wert oder Messpunkt innerhalb eines Diagramms.
+| Synonyme: Messpunkt, Diagrammpunkt. [US-007]
+
+| Datenspeicherung
+| Funktion, durch die erfasste Daten dauerhaft erhalten bleiben.
+| Synonyme: Speicherung, Persistenz. [US-049]
+
+| Datenschutzübersicht
+| Übersicht, in der Nutzer sehen können, welche Daten gespeichert werden und wo sie gespeichert sind.
+| Synonyme: Datenschutzansicht. Abgrenzung: Nicht Datenschutzerklärung. [US-033]
+
+| Datenschutzeinstellung
+| Einstellung, mit der Nutzer festlegen, wie ihre Daten verwendet, analysiert oder geschützt werden.
+| Synonyme: Datenschutzoption, Privatsphäre-Einstellung. [US-035]
+
+| Datentyp
+| Kategorie gespeicherter Daten, z.B. Stressdaten, Energiedaten, Reflexionsdaten oder Aufgaben.
+| Synonym: Datenkategorie. [US-033]
+
+| Datum
+| Kalendertag, dem ein Eintrag, eine Aufgabe, Reflexion oder Aktivität zugeordnet ist.
+| Abgrenzung: Datum beschreibt einen Tag; Zeitraum beschreibt eine Spanne. [US-007]
+
+| Dauer
+| Zeitliche Länge einer Aktivität, Phase oder eines Schlafs.
+| Synonym: Zeitdauer. Abgrenzung: Dauer beschreibt Länge; Zeitpunkt beschreibt Lage. [US-047]
+
+| Dauerhafte Speicherung
+| Speicherung, bei der Daten nach Schließen oder Neustart der Anwendung erhalten bleiben.
+| Synonyme: persistente Speicherung. [US-049]
+
+| Deadline
+| Frist, bis zu der eine Aufgabe erledigt sein soll oder muss
+| Synonyme: Frist, Abgabetermin. [US-024]
+
+| Detailinformationen
+| Zusätzliche Information zu einem ausgewählten Datenpunkt, z.B. Datum, Stresslevel und Energielevel.
+| Synonyme: Detaildaten, Zusatzinformationen [US-007]
+
+| Durchschnittswert
+| Berechneter Mittelwert aus vorhandenen Stress- oder Energiedaten für einen Zeitraum
+| Synonyme: Mittelwert, Durchschnitt. [US-041]
+
+| Einführungsphase
+| Anfangszeitraum der Nutzung, in dem daten gesammelt werden, um eine Baseline zu ermitteln.
+| Synonyme: Startphase. Nicht mit Lernphase verwechseln. [US-018]
+
+| Eingabeseite
+| Bereich, in dem Stress- und Energielevel erfasst werden.
+| Abgrenzung: Nicht Analyseansicht. [US-001]
+
+| Energielevel
+| Subjektiver Wert, mit dem ein Studierender seine aktuelle Energie oder Leistungsfähigkeit einschätzt.
+| Synonyme: Energiewert, Energiedaten. Energielevel = fachlicher Zustand; Energiewert = konkreter gespeicherter Wert. [US-002]
+
+| Energiedaten
+| Gesamtheit erfasster Energiewerte
+| Synonyme: Energiewerte. Abgrenzung: Sammlung mehrerer Werte. [US-023]
+
+| Energiewert
+| Konkreter gespeicherter Wert eines Energielevels.
+| Abgrenzung: Energielevel beschreibt das Empfinden; Energiewert ist der erfasste Wert. [US-002]
+
+| Empfehlung
+| Allgemeiner Vorschlag de Systems, der aus analysierten Daten abgeleitet wird.
+| Abgrenzung: Handlungsempfehlung ist eine konkrete, umsetzbare Empfehlung. [US-023 und US-026]
+
+| Empfehlungsbeschreibung
+| Verständliche Beschreibung einer Empfehlung.
+| Abgrenzung: Beschreibung erklärt, was empfohlen wird; Erklärung erklärt, warum. [US-023]
+
+| Empfehlungsfeedback
+| Rückmeldung des Studierenden zu einer Empfehlung
+| Synonyme: Feedback zu Empfehlungen, Rückmeldungen [US-027]
+
+| Empfehlungsgrundlage
+| Daten und Faktoren, auf denen eine Empfehlung basiert
+| Synonyme: Datengrundlage, Grundlage einer Empfehlung. [US-026]
+
+| Empfehlungssystem
+| Systembereich, der aus Daten Empfehlungen erzeugt.
+| Abgrenzung: Fachlicher Systembereich, keine technische Implementierung. [US-023 bis US-026]
+
+| Erkannter Trend
+| Vom System identifizierte Entwicklung in Stress-, Energie- und Belastungswerten.
+| Abgrenzung: Ergebnis der Trend-Erkennung. [US-019]
+
+| Externe Speicherung
+| Speicherung von Daten außerhalb der lokalen App-Umgebung. 
+| Synonym: extern gespeichert. Abgrenzung: Gegenteil von lokaler Speicherung. [US-033]
+| Exportauswahl
+| Auswahl der Datenkategorien und Zeiträume, die beim Export berücksichtigt werden.
+| Synonyme: zu exportierende Daten. [US-058]
+
+| Exportdatei
+| Datei, die beim Datenexport erzeugt wird und ausgewählte Daten enthält
+| Synonym: exportierte Datei. [US-057]
+
+| Exportierte Daten
+| Daten, die bereits in eine Exportdatei übertragen wurden.
+| Abgrenzung: Kopie gespeicherter Daten [US-059]
+
+| Exportzeitraum
+| Zeitraum, aus dem Daten beim Export berücksichtigt werden.
+| Abgrenzung: Nicht automatisch derselbe Analysezeitraum. [US-058]
+
+| Fehlende Daten
+| Daten, die erwartet werden aber nicht vorhanden sind.
+| Abgrenzung: Nicht dasselbe wie gelöschte Daten. [US-050]
+
+| Feedbackstatus
+| Sichtbarer Zustand, ob zu einer Empfehlung bereits Feedback abgegeben wurde.
+| Synonym: Rückmeldestatus. [US-027]
+
+| Filter
+| Auswahlkriterium, mit dem angezeigte Daten eingeschränkt werden.
+| Synonym: Filteroption. Abgrenzung: Filter verändert die Anzeige, nicht die gespeicherten Daten. [US-045]
+
+| Freitext-Notiz
+| Frei formulierter Text zu einer Reflexion oder einem besonderen Ereignis
+| Synonyme: Notiz, Kommentar. [US-032]
+
+| Gastnutzer
+| Nutzer, der die App ohne Registrierung und Benutzerkonto verwendet.
+| Synonym: Gast. [US-056]
+
+| Gastnutzung
+| Nutzung der App ohne Registrierung oder Benutzerkonto
+| Synonyme: Gastmodus, Nutzung ohne Account. [US-056]
+
+| Gegenmaßnahme
+| Handlung, mit der ein Studierender auf eine Warnung oder Belastung reagieren kann.
+| Synonyme: Maßnahme, Reaktion. Abgrenzung: Eine Handlungsempfehlung ist ein konkreter Vorschlag des Systems. [US-021]
+
+| Gespeicherte Daten
+| Alle Daten, die vom System über den Studierenden abgelegt werden.
+| Synonyme: gespeicherte Informationen, gespeicherte Nutzerdaten. [US-033]
+
+| Handlungsempfehlung
+| Konkreter Vorschlag des Systems, der Studierenden helfen soll, Verhalten oder Alltag anzupassen. 
+| Synonyme: Empfehlung, Vorschlag. [US-023]
+
+| Hinweis
+| Allgemeine Benachrichtigung mit geringerer Dringlichkeit als eine Warnung.
+| Abgrenzung: Hinweis informiert; Warnung zeigt eine kritische Situation an. [US-011]
+
+| Individuelles Verhalten
+| Persönliches Nutzungs- oder Belastungsverhalten, an dem zukünftige Empfehlungen ausgerichtet werden können.
+| Synonym: persönliches Verhalten. [US-027]
+
+| Instabile Phase
+| Zeitraum, indem Werte stark schwanken oder auffällig ungleichmäßig verlaufen.
+| Synonyme: auffällige Phase, instabiler Zeitraum. [US-044]
+
+| Kategorie
+| Allgemeine Einordnung eines Elements, z.B. Aufgabe, Phase oder Benachrichtigung.
+| Abgrenzung: Bei Aufgabe besser "Aufgabenkategorie", bei Phasen besser "Phasenkategorie". [US-038]
+
+| Kontextdaten
+| Ergänzende Daten über die Situation des Studierenden, die bei Analysen berücksichtigt werden können.
+| Synonyme: Bewegung, Aktivität. [US-048]
+
+| Kontinuirlicher Anstieg
+| Entwicklung, bei der ein Wert über mehrere tage fortlaufend steigt.
+| Synonyme: steigender Trend, dauerhafter Anstieg. [US-019]
+
+| Kritischer Schwellenwert
+| Grenzwert, ab dem ein Wert als kritisch gilt und eine Warnung ausgelöst werden kann.
+| Synonyme: Grenzwert, Warnschwelle. [US-020]
+
+| Kritischer Trend
+| Trend, der als problematisch eingestuft wird und eine Warnung auslösen kann.
+| Abgrenzung: Nicht jeder Trend ist kritisch. [US-019]
+
+| Lernphase
+| Zeitraum, in dem der Studierende lernt und der als Kontextinformationen genutzt werden kann.
+| Synonym: Lernzeit. [US-047]
+
+| Lokale Daten
+| Daten, die lokal auf dem Gerät oder in der lokalen App-Umgebung gespeichert sind.
+| Synonyme: lokal gespeicherte Daten. [US-034]
+
+| Lokale Nutzung
+| Nutzung der App, bei der Daten lokal gehalten werden
+| Abgrenzung: Nicht identisch mit Offline-Nutzung: lokale Nutzung kann auch ohne Benutzerkonto stattfinden. [US-056]
+
+| Messwert
+| Einzelner erfasster Stress- oder Energiewert
+| Synonyme: Wert, Datenwert. Abgrenzung: Ein Eintrag kann meherere Messwerte enthalten. [US-006]
+
+| Monat
+| Vordefinierter Zeitraum zur längerfristigen Analyse.
+| Abgrenzung: Zeitraumoption, keine eigene Kernentität. [US-006]
+
+| Monatsansicht
+| Ansicht, die Daten für einen Monat darstellt.
+| Synonym: Monatsübersicht. [US-043]
+
+| Muster
+| Wiederkehrende Auffälligkeit in Reflexions-, Stress-, Energie- und Verhaltensdaten.
+| Synonyme: Auffälligkeit, wiederkehrende Muster. [US-030]
+
+| Nachvollziehbarkeit
+| Eigenschaft, dass Nutzer verstehen können, warum Warnungen oder Empfehlungen erzeugt wurden.
+| Synonyme: Transparenz, Erklärbarkeit. [US-022]
+
+| Niedriges Energielevel
+| Zustand, bei dem das Energielevel unter das normale oder persönliche Niveau fällt.
+| Synonyme: niedriger Energiewert, Energieabfall. [US-021]
 
 | Nutzer
-| Eine Person, die das System aktiv verwendet. Nutzer müssen registriert und eingeloggt
-  sein, um Bestellungen aufzugeben.
-| Anwender, Benutzer; abzugrenzen von „Administrator"
+| Person, die die Anwendung verwendet.
+| Synonym: Studierender, User.
 
-| Produkt
-| Ein im System angebotener Artikel, der bestellt werden kann. Ein Produkt hat eine
-  Bezeichnung, einen Preis und eine Verfügbarkeit.
-| Artikel, Ware
+| Nutzerdaten
+| Daten, die vom Studierenden erfasst oder durch seine Nutzung erzeugt werden.
+| Synonym: Benutzerdaten. [US-041]
 
-| [Begriff]
-| [Präzise, fachliche Definition in 1–3 Sätzen]
-| [Synonyme oder Abgrenzungen zu ähnlichen Begriffen]
+| Onboarding
+| Geführter Einstieg in die App, bei dem grundlegende Informationen oder Einstellungen eingerichtet werden.
+| Synonyme: Einführung, Einrichtungsprozess. [US-017]
 
-| [Begriff]
-| [Präzise, fachliche Definition in 1–3 Sätzen]
-| [Synonyme oder Abgrenzungen zu ähnlichen Begriffen]
+| Onboarding-Fortschritt
+| Sichtbare Anzeige des Fortschritts innerhalb des Onboardings
+| Synonym: Fortschritt. [US-017]
+
+| Onboarding-Schritt
+| Einzelner Abschnitt innerhalb des Onboarding-Prozesses.
+| Abgrenzung: Teil des Onboardings. [US-017]
+
+| Persönliche Baseline
+| Individueller Referenzwert eines Studierenden für Stress- oder Energielevel.
+| Synonyme: persönlicher Normaltwert, normales Niveau. [US-021]
+
+| Persönliche Informationen
+| Daten, die sich auf den Studierenden beziehen.
+| Synonym: personenbezogene Informationen. [US-033]
+
+| Phase
+| Allgemeiner Zeitraum mit einer bestimmten Bedeutung oder Kategorie, z.B. Lernen oder Arbeiten
+| Synonym: Zeitabschnitt. Lernphase und Arbeitsphase sind konkrete Ausprägungen. [US-047]
+
+| Phasenkategorie
+| Einordnung einer Phase, z.B. Lernen oder Arbeiten
+| Abgrenzung: Nicht mit Aufgabenkategorie verwechseln. [US-047]
+
+| Planungsvorschlag
+| Empfehlung zur Anpassung der Zeitplanung.
+| Synonyme: Zeitplanungsvorschlag, Vorschlag zur Planung [US-024]
+
+| Priorität
+| Einstufung der Wichtigkeit oder Dringlichkeit einer Aufgabe.
+| Synonyme: Wichtigkeit, Dringlickeit, Abgrenzung: Nicht dasselbe wie Kategorie. [US-038]
+
+| Prioritätsstufe
+| Konkreter Wert einer Priorität, z.B. niedrig, mittel oder hoch.
+| Synonym: Prioritätswert. [US-038]
+
+| Profilinformation
+| Einzelne Information im Benutzerprofil
+| Synonyme: Profildaten. [US-055]
+
+| Reflexion
+| bewusste rückblickende Bewertung oder Einordnung des eigenen Tages, der eigenen Wahrnehmung oder Entwicklung. 
+| Synonyme: Selbstreflexion, Rückblick. [US-028]
+
+| Reflexionsantwort
+| Antwort des Studierenden auf eine Leitfrage innerhalb einer Reflexion
+| Synonym: Antwort [US-031]
+
+| Reflexionsdaten
+| Gespeicherte Daten aus einer Reflexion
+| Synonyme: Reflexionseinträge
+
+| Registrierung
+| Vorgang, bei dem ein Studierender ein Benutzerkonto erstellt.
+| Synonyme: Kontoerstellung. Abgrenzung: Registrierung ist nicht Anmeldung. [US-053]
+
+| Schlafdaten
+| Erfasste Informationen über den Schlaf, mindestens Schlafdauer und Datum
+| Synonyme: Schlafinformationen, Schlafdaten sind Kontextdaten. [US-046]
+
+| Schlafdauer
+| Dauer des Schlafs für einen bestimmten Tag oder Zeitraum
+| Synonym: Schlafzeit. [US-046]
+
+| Schwankung
+| Auffällige Veränderung von Werten innerhalb eines Zeitraums.
+| Synonyme: Wertschwankung, Fluktuation. [US-044]
+
+| Sensible Daten
+| Besonders schützenswerte Daten, bei deren Verarbeitung oder Weitergabe besondere Vorsicht nötig ist.
+| Synonyme: sensible Informationen. [US-059]
+
+| Sensible Nutzerdaten
+| Persönliche oder schützenswerte Nutzerdaten des Studierenden.
+| Synonyme: sensible Daten, schützenswerte Daten. [US-052]
+
+| Serverseitige Daten
+| Daten, die außerhalb des Geräts auf einem Server gespeichert sind.
+| Synonyme: Serverdaten, extern gespeicherte Daten. [US-034]
+
+| Sitzung
+| Zeitraum, in dem ein angemeldeter Nutzer die App aktiv verwendet.
+| Synonym: Session, Nutzungssitzung. [US-054].
+
+| Skalenwert
+| Einzelner auswählbarer Wert innerhalb einer Stress- oder Energieskala.
+| Abgrenzung: Skalenwert = konkreter Wert; Skala = Bewertungssystem. [US-001]
+
+| Speicherdauer
+| Zeitraum, für den Daten gespeichert bleiben.
+| Abgrenzung: In den User Storys eher implizit durch gespeicherte Daten und Historie relevant. [US-014]
+
+| Speicherort
+| Ort oder Bereich, an dem Daten gespeichert werden, z.B. lokal oder extern.
+| Abgrenzung: Fachlicher Begriff für Transparenz, keine technische Speicherbeschreibung. [US-033]
+
+| Stimmungsauswahl
+| Auswahlmöglichkeit, mit der der Studierende seine Stimmung dokumentiert.
+| Synonyme: Stimmung, Mood-Auswahl [US-028]
+
+| Stressdaten
+| Gesamtheit erfasster Stresswerte
+| Synonyme: Stresserte [US-039]
+
+| Stresslevel
+| Subjektiver Wert, mit dem der Studierende seinen aktuellen Stresszustand einschätzt.
+| Synonyme: Stresswert, Stressdaten, Stresslevel = fachlicher Zustand; Stresswert = konkreter gespeicherter Wert. [US-001]
+
+| Stressskala
+| Skala zur Auswahl eines Stresslevels.
+| Abgrenzung: Stressskala ist das Bewertungssystem; Stresslevel ist der ausgewählte Zustand. [US-001]
+
+| Stressursache
+| Möglicher Auslöser oder Einflussfaktor, der zu erhöhtem Stress beiträgt.
+| Synonyme: Ursache für Stress, Belastungstreiber. [US-025]
+
+| Stressverlauf
+| Zeitliche Entwicklung gespeicherter Stresswerte
+| Abgrenzung: Betrachtet Stresswerte, nicht Energielevel. [US-005]
+
+| Stresswert
+| Konkreter gespeicherter Wert eines Stresslevels.
+| Abgrenzung: Stresslevel = subjektiver Zustand; Stresswert = gespeicheter Zahlen-/Skalenwert. [US-001]
+
+| Studierender
+| Primärer Nutzer der Anwendung, der Daten erfasst, reflektiert und auswertet.
+| Synonym: Nutzer, User. [In den User Storys: "Als Studierender"]
+
+| Subjektive Wahrnehmung
+| Persönliche Einschätzung des Studierenden zu Tag, Belastung oder Wohlbefinden
+| Synonyme: persönliche Wahrnehmung, Selbsteinschätzung [US-028]
+
+| Synchronisation
+| Abgleich lokal gespeicherter Daten mit extern gespeicherten Daten.
+| Synonym: Datenabgleich, Sync. [US-051]
+
+| Tagesbewertung
+| Rückblickende Bewertung eines abgeschlossenen Tages.
+| Synonyme: Tagesreflexion, Tag bewerten. [US-028]
+
+| Tag
+| Kleinster vordefinierter Zeitraum zur Analyse oder Reflexion
+| Abgrenzung: Ein Tag ist ein Zeitraum, nicht automatisch ein Datenpunkt. [US-006]
+
+| Tagesansicht
+| Ansicht, die Daten für einen Tag darstellt.
+| Synonym: Tagesübersicht. [US-043]
+
+| Tagesverlauf
+| Darstellung gespeicherter Werte eines Tages
+| Synonym: Verlauf. [US-001]
+
+| Teilen-Bestätigung
+| Sicherheitsabfrage vor dem Teilen sensibler Daten.
+| Synonyme: Freigabebestätigung, Bestätigung vor Datenfreigabe. [US-059]
+
+| Termin
+| Zeitlich festgelegte Verpflichtung oder Ereignis
+| Synonyme: Ereignis, Kalendertermin. Abgrenzung: Eine Aufgabe muss nicht zwingend ein Termin sein. [US-037]
+
+| Transparenz 
+| Nachvollziehbarkeit darüber, welche Daten gespeichert oder verwendet werden.
+| Synonym: Einsicht, Nachvollziehbarkeit. [US-033]
+
+| Trend
+| Erkennbare Entwicklung von Werten über mehrere Tage, z.B. steigend, fallend oder stabil.
+| Synonyme: Entwicklung, Tendenz. [US-008]
+
+| Trend-Erkennung
+| Fachliche Logik, mit der erkannt wird, ob Werte fallen, steigen oder stabil bleiben.
+| Synonyme: Trenderkennung, Trendanalyse. [US-019]
+
+| Trendinformation
+| Angezeigte Information darüber, ob sich Werte steigend, fallend oder stabil entwickeln.
+| Abgrenzung: Ergebnis der Trend-Erkennung. [US-008]
+
+| Typisches Energielevel
+| Persönlicher Normalwert des Energielevels.
+| Synonyme: Energie-Baseline, persönlicher Energiewert. [US-016]
+
+| Typisches Stresslevel
+| Persönlicher Normalwert des Stresslevels.
+| Synonyme: Stress-Baseline, persönlicher Stresswert. [US-016]
+
+| Unberechtigter Zugriff
+| Zugriff auf Daten ohne Erlaubnis oder Berechtigung.
+| Synonyme: unbefugter Zugriff. [US-052]
+
+| Vergleich
+| Gegenüberstellung von Daten, z.B. Reflexionsdaten mit Messwerten.
+| Synonyme: Abgleich, Gegenüberstellung. [US-029]
+
+| Vergleichsansicht
+| Ansicht, in der mehrere Zeiträume oder Werte gegenübergestellt werden.
+| Synonym: Vergleichsübersicht. [US-042]
+
+| Vergleichswert
+| Wert, der zum Vergleich mit einer Baseline oder einem anderen Zeitraum verwendet wird.
+| Synonyme: Referenzwert, Vergleichsdaten. [US-042]
+
+| Verknüpfung
+| Fachliche Zuordnung zwischen zwei Datenbereichen, z.B. Aufgabe und Stresswert.
+| Synonyme: Zuordnung, Verbindung. [US-039]
+
+| Verschlüsselte Speicherung
+| Speicherung sensibler Daten in geschützter Form.
+| Synonym: geschützte Speicherung. Abgrenzung: Fachlich relevant wegen Datenschutz, ohne technische Details auszuführen. [US-052]
+
+| Vollständige Löschung
+| Entfernen aller zu einem Nutzer gehörenden Daten.
+| Synonyme: Datenlöschung, endgültige Löschung. [US-034]
+
+| Warnung
+| Kritische Benachrichtigung, die auf eine problematische Situation aufmerksam macht.
+| Abgrenzung: Warnung ist stärker als Hinweis. [US-019]
+
+| Warnungserklärung
+| Verständliche Begründung, warum eine Warnung erzeugt wurde.
+| Synonyme: Erklärung, Begründung der Warnung. [US-022]
+
+| Warnungsregel
+| Fachliche Regel, nach der entschieden wird, waurm eine Warnung erzeugt wurde.
+| Synonyme: Erklärung, Begründung der Warnung. [US-022]
+
+| Woche
+| Vordefinierter Zeitraum, typischerweise sieben Tage.
+| Abgrenzung: Analysezeitraum, nicht automatisch Kalenderwoche. [US-006]
+
+| Wochenansicht
+| Ansicht, die Daten oder Reflexionen über eine Woche zusammenfasst.
+| Synonym: Wochenübersicht. [US-030]
+
+| Wochenreflexion
+| Rückblickende Betrachtung einer Woche, um Entwicklungen, Trends oder Muster zu erkennen.
+| Synonym: Woche reflektieren. [US-030]
+
+| Wohlbefinden
+| Subjektiver Zustand des Studierenden, beeinflusst durch Stress, Energie, Schlaf, Aktivität und weitere Faktoren
+| Synonym: Befinden. Abgrenzung: Breiter als Stresslevel oder Energielevel. [US-048]
+
+| Zeitaufwand
+| Geschätzte oder erfasst Zeit, die für eine Aufgabe benötigt wird.
+| Synonym: Aufwand, Bearbeitungszeit. [US-040]
+
+| Zeitliche Zuordnung
+| Zuordnung von Daten anhand ihrer zeitlichen Nähe oder desselben Zeitraums
+| Synonym: zeitbezogene Verknüpfung. [US-039]
+
+| Zeitplanung 
+| Planung von Aufgaben, Deadlines und Belastung über einen Zeitraum hinweg.
+| Synonyme: Tagesplanung, Aufgabenplanung. [US-024]
+
+| Zeitraum
+| Ausgewählter Analysebereich, für den Daten angezeigt oder ausgewertet werden.
+| Synonyme: Zeitspanne, Analysezeitraum. [US-006]
+
+| Zeitraumfilter 
+| Filter, der Daten nach einem ausgewählten Zeitraum einschränkt.
+| Synonyme: Zeitfilter, Filter nach Zeitraum. [US-045]
+
+| Zeitraumvergleich
+| Vergleich von Entwicklungen oder Werten über verschiedene Zeiträume hinweg.
+| Synonyme: Vergleich über Zeiträume, Periodenvergleich. [US-043]
+
+| Zeitpunkt 
+| Konkrete zeitliche Lage eines Ereignisses, einer Phase oder eines Eintrags
+| Synonyme: Startzeit, Zeitangabe. Abgrenzung: Zeitpunkt ist nicht Dauer. [US-047]
+
+| Zugriff
+| Möglichkeit, gespeicherte Daten einzusehen oder zu verwenden.
+| Synonym: Datenzugriff. [US-054]
+
+| Zugangsdaten 
+| Daten, mit denen sich ein Nutzer anmeldet, typischerweise E-Mail-Adresse und Passwort.
+| Synonyme: Login-Daten, Anmeldedaten. [US-054]
+
+| Zusammenhang
+| Fachlich erkannte oder dargestellte Beziehung zwischen Daten, z.B. Stress, Energie, Aufgaben und Kontext.
+| Synonyme: Beziehung, Korrelation. "Korrelation" nur nutzen, wenn statistisch gemeint. [US-009]
 |===
 
 
@@ -56,26 +673,102 @@ Es beschreibt die Realität des Problemraums, nicht die Datenbankstruktur._
 [plantuml, domain-model, svg]
 ....
 @startuml
-' Beispiel — bitte durch das echte Domänenmodell ersetzen
+' Initiales Domänenmodell für EnergyBalance
+' Fachliche Sicht: zentrale Konzepte, Attribute, Assoziationen und Multiplizitäten
 
-entity Nutzer {
+left to right direction
+
+entity Studierender {
   Name
-  E-Mail
+  EMail
 }
 
-entity Bestellung {
-  Bestellnummer
+entity Eintrag {
   Datum
-  Status
+  Stresswert
+  Energiewert
 }
 
-entity Produkt {
-  Bezeichnung
-  Preis
+entity Aufgabe {
+  Titel
+  Beschreibung
+  Datum
+  Deadline
+  Zeitaufwand
+  Prioritaet
+  Kategorie
 }
 
-Nutzer "1" --> "0..*" Bestellung : gibt auf
-Bestellung "1" --> "1..*" Produkt : enthält
+entity Reflexion {
+  Datum
+  Bewertung
+  Stimmung
+  Notiz
+}
+
+entity Baseline {
+  TypischerStresswert
+  TypischerEnergiewert
+  ErmitteltAm
+}
+
+entity Kontextdatum {
+  Datum
+  Dauer
+  Typ
+  Kategorie
+}
+
+entity Zeitraum {
+  Startdatum
+  Enddatum
+  Typ
+}
+
+entity Analyse {
+  DurchschnittStress
+  DurchschnittEnergie
+  Trend
+  Schwankung
+}
+
+entity Warnung {
+  Typ
+  Ausloeser
+  Beschreibung
+  Zeitpunkt
+}
+
+entity Empfehlung {
+  Titel
+  Beschreibung
+  Grundlage
+  ErzeugtAm
+}
+
+entity Datenexport {
+  Dateiformat
+  ErstelltAm
+}
+
+entity Datenkategorie {
+  Name
+}
+
+Studierender "1" *-- "0..*" Eintrag : besitzt
+Studierender "1" *-- "0..*" Aufgabe : besitzt
+Studierender "1" *-- "0..*" Reflexion : besitzt
+Studierender "1" *-- "0..1" Baseline : besitzt
+Studierender "1" *-- "0..*" Kontextdatum : besitzt
+
+Studierender "1" -- "0..*" Analyse : hat
+Analyse "1" --> "1" Zeitraum : bezieht sich auf
+Analyse "1" --> "0..*" Warnung : erzeugt
+Analyse "1" --> "0..*" Empfehlung : erzeugt
+
+Studierender "1" *-- "0..*" Datenexport : erstellt
+Datenexport "1" --> "1" Zeitraum : umfasst
+Datenexport "1" --> "1..*" Datenkategorie : enthaelt
 
 @enduml
 ....
@@ -91,17 +784,41 @@ Kurze Erläuterung zu den im Modell enthaltenen Entitäten.
 |===
 | Entität | Beschreibung
 
-| Nutzer
-| [Beschreibung der Entität und ihrer Rolle im System]
+| Studierender 
+| Zentrale Person im Domänenmodell. Der Studierende erfasst Stress- und Energiewerte, Aufgaben, Reflexionen und Kontextdaten. Alle persönlichen Daten und Auswertungen werden ihm fachlich zugeordnet.
 
-| Bestellung
-| [Beschreibung der Entität und ihrer Rolle im System]
+| Eintrag
+| Dokumentiert Stress- und Energiewerte zu einem bestimmten Datum. Einträge bilden die Grundlage für Verläufe, Analysen, Warnungen und Empfehlungen.
 
-| Produkt
-| [Beschreibung der Entität und ihrer Rolle im System]
+| Aufgabe
+| Beschreibt eine Verpflichtung oder Tätigkeit des Studierenden. Aufgaben können mit Datum, Deadline, Zeitaufwand, Priorität und Kategorie beschrieben werden und helfen, Belastungstreiber zu erkennen.
 
-| [Weitere Entität]
-| [Beschreibung]
+| Reflexion
+| Subjektive Bewertung eines Tages oder Zeitraums durch den Studierenden. Diese kann Bewertung, Stimmung und Notiz enthalten und ergänzt die gemessenen Stress- und Energiewerte um persönliche Wahrnehmung.
+
+| Baseline 
+| Persönlicher Referenzwert für typische Stress- und Energiewerte eines Studierenden. Diese dient als Grundlage, um Abweichungen und auffällige Entwicklungen zu erkennen.
+
+| Kontextdaten 
+| Ergänzende Information über Einflussfaktoren wie Schlaf, körperliche Aktivität oder Lern- und Arbeitsphasen. Kontextdaten helfen, Stress- und Energieverläufe besser zu interpretieren.
+
+| Analyse 
+| Fachliche Auswertung vorhandener daten. Eine Analyse kann Durchschnittswerte, Trends und Schwankungen ermitteln und bildet die Grundlage für Warnungen und Empfehlungen.
+
+| Warnung 
+| Kritischer Hinweis an den Studierenden, wenn auffällige oder problematische Entwicklungen erkannt werden, zum Beispiel steigendes Stresslevel oder ein niedriges Energielevel.
+
+| Empfehlung 
+| Vorschlag zur Verbesserung von Verhalten, Zeitplanung oder Belastungssteuerung. Empfehlungen basieren auf analysierten Daten und sollen den Studierenden bei der Selbststeuerung unterstützen.
+
+| Zeitraum 
+| Zeitlicher Bereich, auf den sich eine Analyse oder ein Datenexport bezieht. Ein Zeitraum kann zum Beispiel Tag, Woche oder Monat sein.
+
+| Datenexport 
+| Fachliches Konzept zum Export ausgewählter Daten. Ein Datenexport bezieht sich auf einen Zeitraum und enthält bestimmte Datenkategorien.
+
+| Datenkategorie
+| Gruppe von Daten, die bei einem Export ausgewählt werden kann, zum Beispiel Stressdaten, Energiedaten, Aufgaben oder Reflexionen.
 |===
 
 === Beschreibung der Beziehungen
@@ -112,20 +829,65 @@ Beschreibung der wichtigsten Beziehungen zwischen den Entitäten, sofern diese b
 |===
 | Von | Zu | Kardinalität | Bedeutung
 
-| Nutzer
-| Bestellung
+| Studierender 
+| Eintrag
 | 1 zu 0..*
-| Ein Nutzer kann keine oder mehrere Bestellungen aufgeben.
+| Ein Studierender kann keine, einen oder viele Einträge besitzen. Jeder Eintrag gehört genau zu einem Studierenden.
 
-| Bestellung
-| Produkt
+| Studierender
+| Aufgabe
+| 1 zu 0..*
+| Ein Studierender kann mehrere Aufgaben verwalten. Jede Aufgabe ist genau einem Studierenden zugeordnet.
+
+| Studierender
+| Reflexion
+| 1 zu 0..*
+| Ein Studierender kann mehrere Reflexionen erfassen. Jede Reflexion gehört genau zu einem Studierenden.
+
+| Studierender 
+| Baseline
+| 1 zu 0..1
+| Ein Studierender kann keine oder eine aktuelle Baseline besitzen. Die Baseline ist optional, da diese erst nach einer Einführungsphase oder initialen Festlegung vorhanden sein kann.
+
+| Studierender 
+| Kontextdaten
+| 1 zu 0..*
+| Ein Studierender kann mehrere Analysen besitzen oder durchführen lassen. Jede Analyse gehört genau zu einem Studierenden.
+
+| Studierender
+| Analyse
+| 1 zu 0..*
+| ein Studierender kann meherere Analysen besitzen oder durchführen lassen. Jede Analyse gehört zu genau einem Studierenden.
+
+| Analyse
+| Warnung
+| 1 zu 0..*
+| Eine Analyse kann keine, eine oder mehrere Empfehlungen erzeugen. Empfehlungen entstehen auf GRundlage ausgewerteter Daten.
+
+| Analyse
+| Empfehlung
+| 1 zu 0..*
+| Eine Analyse kann keine, eine oder mehrere Empfehlungen erzeugen. Empfehlungen entstehen auf Grundlage ausgewerteter Daten.
+
+| Analyse
+| Zeitraum
+| 1 zu 1
+| Jede Analyse bezieht sich auf genau einen Zeitraum. Dadurch ist klar, für welchen zeitlichen Bereich Werte, Trends oder Schwankungen betrachtet werden.
+
+| Studierender
+| Datenexport
+| 1 zu 0..*
+| Ein Studierender kann mehrere Datenexporte erstellen. Jeder Export gehört zu genau einem Studierenden.
+
+| Datenexport
+| Zeitraum
+| 1 zu 1
+| Jeder Datenexport bezieht sich auf genau einen Zeitraum, aus dem Daten exportiert werden.
+
+| Datenexport
+| Datenkategorie
 | 1 zu 1..*
-| Eine Bestellung enthält mindestens ein Produkt.
-
-| [Entität]
-| [Entität]
-| [z. B. 0..* zu 1]
-| [Beschreibung der Beziehung in natürlicher Sprache]
+| Ein Datenexport enthält mindestens eine Datenkategorie. Dadurch kann der Studierende gezielt auswählen, welche Daten exportiert werden.
 |===
 
 _Dieses Dokument wird kontinuierlich gepflegt. Änderungen an Fachbegriffen oder Beziehungen
