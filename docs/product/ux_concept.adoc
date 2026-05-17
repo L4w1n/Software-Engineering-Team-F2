@@ -60,18 +60,16 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 | _„[Ich weiß oft nicht, ob ich zu wenig mache oder mich schon überlaste.]"_
 
 | *Ziele*
-| [- Eine gesunde Lernroutine entwickeln
-   - Besser einschätzen können, wie viel Arbeit realistisch ist
-   - Sich im Studium besser organisieren]
+| [Sie möchte eine gesunde Lernroutine aufbauen, ihre Arbeitsbelastung realistischer einschätzen und sich im Studium besser organisieren können.]
 
 | *Frustrationen*
-| [Frustrationen]
+| [Sie hat Schwierigkeiten, ihren Lernaufwand realistisch einzuschätzen und sich im Studium effektiv selbst zu organisieren.]
 
 | *Verhalten & Kontext*
-| [Verhalten & Kontext]
+| [Maja nutzt digitale Tools täglich und arbeitet hauptsächlich mobil am Smartphone oder Tablet. Er benötigt klare Visualisierungen und einfache Funktionen.]
 
 | *Bezug zum Produkt*
-| [Bezug zum Produkt]
+| [EnergyBalance unterstützt sie dabei, ihre Belastung besser einzuschätzen, Lernphasen zu planen und gesunde Gewohnheiten aufzubauen.]
 |===
 
 NOTE: Für jedes Projekt sind 2–4 Personas ausreichend. Mehr Personas verwässern
