@@ -84,8 +84,7 @@ _Der Nutzungskontext gemäß DIN EN ISO 9241-11 beschreibt die Lebenswirklichkei
 | Aspekt | Beschreibung
  
 | Benutzer
-| [Eigenschaften, Kenntnisse, Erfahrung, Motivation der Nutzenden.
-(Verweis auf Personas für ausführliche Beschreibungen)]
+| [Hauptsächlich Studierende mit unterschiedlicher Erfahrung in Selbstorganisation.]
  
 | Ziele & Aufgaben
 | [Was wollen Nutzende erreichen?
