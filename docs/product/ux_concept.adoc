@@ -196,6 +196,49 @@ stop
 
 ---
 
+=== [Flow 2: Aufgaben mit Belastung verknüpfen]
+
+_Dieser Flow beschreibt, wie Aufgaben mit Stress und Energie verbunden werden._
+
+[plantuml, error-flow, svg]
+....
+@startuml
+skinparam monochrome true
+
+start
+:Aufgabe erstellen;
+:Titel und Deadline eingeben;
+:Geschätzte Belastung auswählen;
+:Mit Lernphase verknüpfen;
+if (Belastung kritisch?) then (ja)
+ :Warnhinweis anzeigen;
+ :Pausen oder Anpassung empfehlen;
+else (nein)
+ :Aufgabe speichern;
+endif
+:Aufgabe in Übersicht anzeigen;
+stop
+
+@enduml
+....
+[cols="1,1,2", options="header"]
+|===
+| Schritt | Beteiligte Persona | Anmerkung
+
+| Aufgabe erstellen
+| Max (Student)
+| Vergleichbar mit To-do-App
+
+| Belastung einschätzen
+| Max
+| Verknüpfung zwischen Aufgaben und Stress
+
+| Warnhinweise
+| Max
+| Frühzeitige Prävention von Überlastung
+|===
+---
+
 === [Flow 3: Analyse & Empfehlungen]
 
 _Dieser Flow zeigt die Analysefunktionen und personalisierte Empfehlungen._
