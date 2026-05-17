@@ -117,14 +117,23 @@ _Was könnte die Akzeptanz oder Nutzung des Produkts beeinträchtigen?_
 |===
 | Hürde / Risiko | Mögliche Reaktion im Design
 
-| [z. B. Datenschutzbedenken bei Registrierungspflicht]
-| [z. B. Gastzugang für erste Nutzung anbieten]
+| [Datenschutzbedenken bei sensiblen Daten]
+| [Transparente Datenschutzhinweise und vollständige Kontrolle über Datenfreigaben]
 
-| [z. B. Schlechte WLAN-Verfügbarkeit in Gebäudeteilen]
-| [z. B. Offline-Ansicht für zuletzt geladene Daten]
+| [Zu hoher Eingabeaufwand]
+| [Check-ins in weniger als einer Minute]
 
-| [Weitere Hürde]
-| [Reaktion]
+| [Gefahr der Überforderung durch zu viele Funktionen]
+| [Klare Struktur und Fokus auf Kernfunktionen]
+
+| [Fehlende Motivation zur langfristigen Nutzung]
+| [Erinnerungen, Wochenrückblicke und sichtbarer Mehrwert]
+
+| [Unverständliche Diagramme]
+| [Einfache Visualisierung mit kurzen Erklärungen]
+
+| [Unterschiedliche Stressfaktoren zwischen Nutzenden]
+| [Hohe Personalisierbarkeit der Eingaben]
 |===
 
 == Systemweite Interaktionsflüsse
