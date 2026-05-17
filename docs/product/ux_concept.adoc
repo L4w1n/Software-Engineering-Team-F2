@@ -363,8 +363,11 @@ wird begründet, damit sie nicht aus Unwissenheit verletzt wird._
 | Schriftgröße
 | Keine Schrift unter 14px; Nutzer:innen können Systemschriftgröße nutzen
 
-| [Weiterer Aspekt]
-| [Anforderung]
+| Diagramme
+| Informationen zusätzlich textlich erklären
+
+| Sprache
+| Verständliche und nicht-technische Formulierungen
 |===
 
 
