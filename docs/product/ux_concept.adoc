@@ -46,21 +46,23 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 | [EnergyBalance hilft Max, täglich Energielevel und Stress zu erfassen und diese Werte mit Aufgaben zu verknüpfen.]
 |===
 
-=== Persona 2: [Name]
+=== Persona 2: [Maja Schneider]
 
 [cols="1,3"]
 |===
 | *Rolle*
-| [z. B. Verwaltungsangestellte, zuständig für Raumvergabe]
+| [Studienanfängerin im 1.Semester]
 
 | *Alter*
-| [z. B. 45 Jahre]
+| [18 Jahre]
 
 | *Zitat*
-| _„[Prägnantes Zitat]"_
+| _„[Ich weiß oft nicht, ob ich zu wenig mache oder mich schon überlaste.]"_
 
 | *Ziele*
-| [Ziele]
+| [- Eine gesunde Lernroutine entwickeln
+   - Besser einschätzen können, wie viel Arbeit realistisch ist
+   - Sich im Studium besser organisieren]
 
 | *Frustrationen*
 | [Frustrationen]
