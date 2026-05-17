@@ -196,9 +196,9 @@ stop
 
 ---
 
-=== [Flow 2: Aufgaben mit Belastung verknüpfen]
+=== [Flow 3: Analyse & Empfehlungen]
 
-_Dieser Flow beschreibt, wie Aufgaben mit Stress und Energie verbunden werden._
+_Dieser Flow zeigt die Analysefunktionen und personalisierte Empfehlungen._
 
 [plantuml, error-flow, svg]
 ....
@@ -206,17 +206,16 @@ _Dieser Flow beschreibt, wie Aufgaben mit Stress und Energie verbunden werden._
 skinparam monochrome true
 
 start
-:Aufgabe erstellen;
-:Titel und Deadline eingeben;
-:Geschätzte Belastung auswählen;
-:Mit Lernphase verknüpfen;
-if (Belastung kritisch?) then (ja)
- :Warnhinweis anzeigen;
- :Pausen oder Anpassung empfehlen;
+:Analysebereich öffnen;
+:Energie- und Stressdiagramme anzeigen;
+:Muster erkennen;
+if (Kritische Entwicklung erkannt?) then (ja)
+ :Warnung anzeigen;
+ :Empfehlungen vorschlagen;
 else (nein)
- :Aufgabe speichern;
+ :Positive Entwicklung hervorheben;
 endif
-:Aufgabe in Übersicht anzeigen;
+:Wochenreflexion anzeigen;
 stop
 
 @enduml
@@ -225,17 +224,21 @@ stop
 |===
 | Schritt | Beteiligte Persona | Anmerkung
 
-| Aufgabe erstellen
+| Diagramme anzeigen
 | Max (Student)
-| Vergleichbar mit To-do-App
+| Langfristige Muster sichtbar machen
 
-| Belastung einschätzen
+| Warnungen
 | Max
-| Verknüpfung zwischen Aufgaben und Stress
+| Frühwarnsystem bei Überlastung
 
-| Warnhinweise
+| Empfehlungen
 | Max
-| Frühzeitige Prävention von Überlastung
+| Handlungsorientierter Mehrwert
+
+| Reflexion
+| Max
+| Unterstützung der Selbstreflexion
 |===
 
 ---
