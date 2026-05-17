@@ -298,19 +298,20 @@ Wireframes und UI-Implementierungen._
 |===
 | Aspekt | Entscheidung & Begründung
 
-| Aufgabe erstellen
-| [z. B. Primärfarbe: Hochschulblau #003D6E; Akzent: #E87722;
-  Begründung: Corporate Identity der Hochschule]
+| Farbpalette
+| [Ruhige Blau- und Grüntöne vermitteln Balance und Vertrauen]
+
+| Akzentfarben
+| [Warme Farben für Warnungen und Hinweise]
 
 | Typografie
-| [z. B. Fließtext: Inter 16px; Überschriften: Inter Bold;
-  Begründung: Hohe Lesbarkeit auf kleinen Bildschirmen]
+| [Gut lesbare serifenlose Schrift mit Fokus auf mobile Nutzung]
 
 | Ikonografie
-| [z. B. Material Icons; konsistentes Icon-Set im gesamten Produkt]
+| [Klare und einfache Icons für Energie, Stress, Aufgaben und Analyse]
 
 | Bildsprache
-| [z. B. Keine Stock-Fotos; Illustrationen im Flat-Design-Stil]
+| [Minimalistisch und beruhigend statt überfordernd]
 |===
 
 === Interaktionsprinzipien
