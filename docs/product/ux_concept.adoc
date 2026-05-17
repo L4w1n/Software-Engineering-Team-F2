@@ -323,24 +323,26 @@ wird begründet, damit sie nicht aus Unwissenheit verletzt wird._
 |===
 | Prinzip | Beschreibung & Begründung
 
-| Destruktive Aktionen werden immer bestätigt.
-| Lösch- oder Stornieraktionen erfordern eine explizite Bestätigung durch die Nutzenden.
-  Verhindert unbeabsichtigte Datenverluste.
+| Einfachheit zuerst
+| Alle Kernfunktionen müssen intuitiv und schnell erreichbar sein.
 
-| Leerzustände erklären sich und schlagen eine Aktion vor.
-| Wenn eine Liste leer ist, zeigen wir eine kurze Erklärung und einen Call-to-Action —
-  niemals nur eine leere Fläche. Reduziert Orientierungslosigkeit.
+| Tracking darf nicht anstrengend sein
+| Tägliche Eingaben dauern maximal eine Minute.
 
-| Fehlermeldungen sind verständlich und handlungsorientiert.
-| Fehlermeldungen nennen die Ursache in einfacher Sprache und schlagen einen
-  nächsten Schritt vor. Kein technischer Jargon für Endnutzer:innen.
+| Personalisierung ist zentral
+| Kategorien, Farben und Eingabemethoden anpassbar.
 
-| Kernfunktionen sind mit einer Hand erreichbar.
-| Primäre Aktionen befinden sich im unteren Bildschirmbereich (Daumenzone).
-  Optimiert für einhändige Smartphone-Nutzung.
+| Empfehlungen statt nur Daten
+| Die App gibt konkrete und verständliche Handlungsvorschläge.
 
-| [Weiteres Prinzip]
-| [Beschreibung & Begründung]
+| Positive Kommunikation
+| Hinweise unterstützen statt Druck aufzubauen.
+
+| Datenkontrolle bleibt beim Nutzer
+| Freigaben sind freiwillig und transparent.
+
+| Mobile-First
+| Hauptnutzung erfolgt auf dem Smartphone.
 |===
 
 === Barrierefreiheit
