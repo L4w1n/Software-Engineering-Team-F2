@@ -142,9 +142,9 @@ _Dieser Abschnitt beschreibt Abläufe, die mehrere Features oder Bereiche des Pr
 umfassen. Einzelne Feature-Wireframes werden in den jeweiligen User Stories gepflegt.
 Hier dokumentieren wir nur Flüsse auf Systemebene, z.B. mit UML-Aktivitätsdiagrammen._
 
-=== [Flussname, z. B. Onboarding-Flow]
+=== [Flow 1: Onboarding & erster Check-in]
 
-_Beschreibe kurz, was dieser Fluss abdeckt und welche Personas er betrifft._
+_Dieser Flow beschreibt den Einstieg neuer Nutzer:innen sowie die erste Erfassung von Energie und Stress._
 
 [plantuml, onboarding-flow, svg]
 ....
@@ -154,14 +154,20 @@ skinparam defaultFontSize 13
 
 start
 :App öffnen;
-if (Bereits registriert?) then (ja)
-  :Login;
+if (Neuer Nutzer?) then (ja)
+ :Kurze Einführung anzeigen;
+ :Datenschutz erklären;
+ :Account erstellen;
 else (nein)
-  :Registrierung;
-  :Bestätigungs-E-Mail;
-  :E-Mail bestätigen;
+ :Login;
 endif
-:Startseite;
+:Startseite anzeigen;
+:Täglichen Check-in starten;
+:Energielevel auswählen;
+:Stresswert auswählen;
+:Optional Notiz hinzufügen;
+:Check-in speichern;
+:Rückmeldung anzeigen;
 stop
 
 @enduml
@@ -172,16 +178,20 @@ stop
 | Schritt | Beteiligte Persona | Anmerkung
 
 | App öffnen
-| Maria (Studierende)
-| Erster Einstiegspunkt; muss sofort orientieren
+| Max (Student)
+| Der Einstieg muss sofort verständlich sein
 
-| Login / Registrierung
-| Alle Personas
-| Registrierung nur beim ersten Besuch; danach automatischer Login
+| Datenschutz erklären
+| Max
+| Sensible Daten benötigen Vertrauen
 
-| Startseite
-| Alle Personas
-| Zeigt direkt die wichtigste Funktion — keine unnötige Zwischenseite
+| Check-in
+| Max
+| Kernfunktion der Anwendung
+
+|Rückmeldung
+|Max
+|Direkter Nutzen motiviert zur Nutzung
 |===
 
 ---
