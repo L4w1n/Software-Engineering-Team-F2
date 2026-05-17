@@ -185,7 +185,8 @@ technischen Entscheidungen, die sich daraus ergeben — ohne sie hier zu wiederh
 
 | Benutzbarkeit
 | Das Produkt soll intuitiv und ohne lange Einarbeitung nutzbar sein.
-| Neue Nutzer können innerhalb von 2 Minuten ein Energielevel erfassen.
+| Nutzer können ihr Energie- und Stresslevel mit maximal 3 Klicks und in unter 15 Sekunden erfassen. Mindestens 80 % der Testpersonen schaffen Kerntasks ohne fremde Hilfe.
+
 | Performance
 | Das System soll schnell auf Eingaben und Abfragen reagieren.
 | Ladezeiten unter 2 Sekunden bei normalen Nutzerinteraktionen.
@@ -198,9 +199,21 @@ technischen Entscheidungen, die sich daraus ergeben — ohne sie hier zu wiederh
 | Sensible Nutzerdaten müssen geschützt gespeichert werden.
 | Zugriff nur auf Authentifizierung, keine unverschlüsselte Datenspeicherung.
 
+| Datenschutz
+| Nutzer müssen vollständige Kontrolle über ihre persönlichen Daten haben. Die App erfasst nur das Minimum an notwendigen Daten.
+| Nutzer können alle eigenen Daten einsehen, exportieren und dauerhaft löschen. Datenschutzerklärung vor Erstnutzung bestätigt.
+
 | Verständlichkeit
 | Die dargestellten Auswertungen müssen leicht interpretierbar sein.
-| Nutzer verstehen Diagramme ohne zusätzliche Erklärungen.
+| ≥ 85 % der Nutzer verstehen Diagramme ohne Erklärung. Alle Visualisierungen enthalten Kurzbeschriftungen und farbliche Legende. (Prototyp für Testpersonen)
+
+| Zuverlässigkeit der Daten
+| Eingetragene Werte dürfen nicht verloren gehen – auch bei schlechter Internetverbindung oder App-Absturz. (Lokale Version)
+| Offline-Erfassung mit automatischer Synchronisation bei Verbindungswiederherstellung. 
+
+| Akzeptanz & Motivation
+| Studierende sollen die App regelmäßig und freiwillig nutzen, nicht nur einmalig. Gamification und Reminder sollen die Kontinuität fördern.
+| Retentionsrate nach 4 Wochen ≥ 50 %. Implementierung eines Reward-/Streaksytems, beispielsweise eine Flamme oder Pflanze die wächst, etc.
 |===
 
 === Einschränkungen
