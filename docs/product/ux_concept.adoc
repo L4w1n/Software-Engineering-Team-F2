@@ -87,18 +87,17 @@ _Der Nutzungskontext gemäß DIN EN ISO 9241-11 beschreibt die Lebenswirklichkei
 | [Hauptsächlich Studierende mit unterschiedlicher Erfahrung in Selbstorganisation.]
  
 | Ziele & Aufgaben
-| [Was wollen Nutzende erreichen?
-Welche konkreten Aufgaben führen sie dazu aus?]
+| [Energielevel erfassen, Stress dokumentieren, Aufgaben planen, Muster erkennen, Überlastung vermeiden.]
  
 | Ressourcen
-| [Hardware, Software, Eingabegeräte, Hilfsmittel, die zur Nutzung des Produkts benötigt werden oder vorhanden sind.]
+| [Smartphone, Laptop, Web-App, Internetzugang, Hochschulaccount oder eigenes Login.]
  
 | Umgebung
-| [Technische Umgebung: Netzwerk, Plattformen, Betriebssysteme, Interoperabilität.
+| [Technische Umgebung: Mobile App als Hauptplattform, ergänzend Web-App. 
 
- Physische Umgebung: Ort der Nutzung, Lichtverhältnisse, Lärm, Mobilität.
+ Physische Umgebung: Nutzung unterwegs, in der Hochschule, zu Hause oder während Lernphasen.
 
-Soziale & organisatorische Umgebung: Organisationsstruktur, Zusammenarbeit, Unterbrechungen, rechtliche oder regulatorische Rahmenbedingungen.]
+Soziale & organisatorische Umgebung: Studium, Prüfungsstress, Nebenjob, Gruppenarbeiten, Beratungssituationen.]
  
 |===
 
