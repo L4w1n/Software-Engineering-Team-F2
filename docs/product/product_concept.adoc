@@ -226,7 +226,7 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 | Einschränkung | Beschreibung | Kategorie
 
 | Projektlaufzeit
-| Das Produkt muss innerhalb von zwei Semestern umgesetzt werden.
+| Das Produkt wird in zwei Semestern umgesetzt, gegliedert in Sprints. Jeder Sprint endet mit einem Review. 
 | Zeitlich
 
 | DSGVO-Konformität
@@ -237,8 +237,24 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 | Das System ist auf Studierende und deren Alltag ausgerichtet.
 | Organisatorisch
 
+| GitHub & Scrum-Prozess
+| Versionskontrolle erfolgt ausschließlich über GitHub. Aufgaben werden als Issues im GitHub Project Board verwaltet. Der Scrum-Prozess (Sprint Planning, Review, Retrospective) ist verpflichtend.
+| Organisatorisch
+
+| Verantwortungsvoller KI-Einsatz
+| KI-Werkzeuge dürfen unterstützend eingesetzt werden, müssen aber transparent gemacht und kritisch geprüft werden. KI-Nutzung wird im Repository dokumentiert (gemäß Hochschulvorgabe).
+| Organisatorisch
+
 | Technische Infrastruktur
 | Einsatz gängiger Webtechnologien (bestehend aus:Frontend/Backend) ohne Spezialhardware.
+| Technisch
+
+| Programmiersprache
+| 
+| Technisch
+
+| Offline-Grundfähigkeit
+| Einträge müssen auch ohne aktive Internetverbindung erfassbar sein. Sobald eine Internetverbindung hergestellt wurde, sollen die Daten automatisch geupdated werden.
 | Technisch
 |===
 
