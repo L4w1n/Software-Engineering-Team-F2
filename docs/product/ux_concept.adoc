@@ -20,7 +20,7 @@ auf Annahmen allein._
 
 _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur benannt. Hier werden sie als Personas ausgearbeitet._
 
-=== Persona 1: [Max, Mustermann]
+=== Persona 1: Max, Mustermann
 
 [cols="1,3"]
 |===
@@ -28,48 +28,48 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 | Studierende im 4. Semester, Wirtschaftsinformatik
 
 | *Alter*
-| [22 Jahre]
+| 22 Jahre
 
 | *Zitat*
-| _„[Ich merke oft erst zu spät, dass alles zu viel wird.]"_
+| _„Ich merke oft erst zu spät, dass alles zu viel wird."_
 
 | *Ziele*
-| [Max will seine Aufgaben besser planen um Stress frühzeitig zu erkennen und zu vermeiden.]
+| Max will seine Aufgaben besser planen um Stress frühzeitig zu erkennen und zu vermeiden.
 
 | *Frustrationen*
-| [Er nutzt Kalender und To-do-Listen, sieht dort aber nicht, wie belastend einzelne Aufgaben für ihn wirklich sind.]
+| Er nutzt Kalender und To-do-Listen, sieht dort aber nicht, wie belastend einzelne Aufgaben für ihn wirklich sind.
 
 | *Verhalten & Kontext*
-| [Er nutzt hauptsächlich sein Smartphone zwischen Vorlesungen, in der Bahn oder abends zu Hause. Eingaben müssen schnell und einfach sein.]
+| Er nutzt hauptsächlich sein Smartphone zwischen Vorlesungen, in der Bahn oder abends zu Hause. Eingaben müssen schnell und einfach sein.
 
 | *Bezug zum Produkt*
-| [EnergyBalance hilft Max, täglich Energielevel und Stress zu erfassen und diese Werte mit Aufgaben zu verknüpfen.]
+| EnergyBalance hilft Max, täglich Energielevel und Stress zu erfassen und diese Werte mit Aufgaben zu verknüpfen.
 |===
 
-=== Persona 2: [Maja Schneider]
+=== Persona 2: Maja Schneider
 
 [cols="1,3"]
 |===
 | *Rolle*
-| [Studienanfängerin im 1.Semester]
+| Studienanfängerin im 1.Semester
 
 | *Alter*
-| [18 Jahre]
+| 18 Jahre
 
 | *Zitat*
-| _„[Ich weiß oft nicht, ob ich zu wenig mache oder mich schon überlaste.]"_
+| _„Ich weiß oft nicht, ob ich zu wenig mache oder mich schon überlaste."_
 
 | *Ziele*
-| [Sie möchte eine gesunde Lernroutine aufbauen, ihre Arbeitsbelastung realistischer einschätzen und sich im Studium besser organisieren können.]
+| Sie möchte eine gesunde Lernroutine aufbauen, ihre Arbeitsbelastung realistischer einschätzen und sich im Studium besser organisieren können.
 
 | *Frustrationen*
-| [Sie hat Schwierigkeiten, ihren Lernaufwand realistisch einzuschätzen und sich im Studium effektiv selbst zu organisieren.]
+| Sie hat Schwierigkeiten, ihren Lernaufwand realistisch einzuschätzen und sich im Studium effektiv selbst zu organisieren.
 
 | *Verhalten & Kontext*
-| [Maja nutzt digitale Tools täglich und arbeitet hauptsächlich mobil am Smartphone oder Tablet. Er benötigt klare Visualisierungen und einfache Funktionen.]
+| Maja nutzt digitale Tools täglich und arbeitet hauptsächlich mobil am Smartphone oder Tablet. Er benötigt klare Visualisierungen und einfache Funktionen.
 
 | *Bezug zum Produkt*
-| [EnergyBalance unterstützt sie dabei, ihre Belastung besser einzuschätzen, Lernphasen zu planen und gesunde Gewohnheiten aufzubauen.]
+| EnergyBalance unterstützt sie dabei, ihre Belastung besser einzuschätzen, Lernphasen zu planen und gesunde Gewohnheiten aufzubauen.
 |===
 
 NOTE: Für jedes Projekt sind 2–4 Personas ausreichend. Mehr Personas verwässern
@@ -84,20 +84,20 @@ _Der Nutzungskontext gemäß DIN EN ISO 9241-11 beschreibt die Lebenswirklichkei
 | Aspekt | Beschreibung
  
 | Benutzer
-| [Hauptsächlich Studierende mit unterschiedlicher Erfahrung in Selbstorganisation.]
+| Hauptsächlich Studierende mit unterschiedlicher Erfahrung in Selbstorganisation.
  
 | Ziele & Aufgaben
-| [Energielevel erfassen, Stress dokumentieren, Aufgaben planen, Muster erkennen, Überlastung vermeiden.]
+| Energielevel erfassen, Stress dokumentieren, Aufgaben planen, Muster erkennen, Überlastung vermeiden.
  
 | Ressourcen
-| [Smartphone, Laptop, Web-App, Internetzugang, Hochschulaccount oder eigenes Login.]
+| Smartphone, Laptop, Web-App, Internetzugang, Hochschulaccount oder eigenes Login.
  
 | Umgebung
-| [Technische Umgebung: Mobile App als Hauptplattform, ergänzend Web-App. 
+| Technische Umgebung: Mobile App als Hauptplattform, ergänzend Web-App. 
 
  Physische Umgebung: Nutzung unterwegs, in der Hochschule, zu Hause oder während Lernphasen.
 
-Soziale & organisatorische Umgebung: Studium, Prüfungsstress, Nebenjob, Gruppenarbeiten, Beratungssituationen.]
+Soziale & organisatorische Umgebung: Studium, Prüfungsstress, Nebenjob, Gruppenarbeiten, Beratungssituationen.
  
 |===
 
@@ -117,23 +117,23 @@ _Was könnte die Akzeptanz oder Nutzung des Produkts beeinträchtigen?_
 |===
 | Hürde / Risiko | Mögliche Reaktion im Design
 
-| [Datenschutzbedenken bei sensiblen Daten]
-| [Transparente Datenschutzhinweise und vollständige Kontrolle über Datenfreigaben]
+| Datenschutzbedenken bei sensiblen Daten
+| Transparente Datenschutzhinweise und vollständige Kontrolle über Datenfreigaben
 
-| [Zu hoher Eingabeaufwand]
-| [Check-ins in weniger als einer Minute]
+| Zu hoher Eingabeaufwand
+| Check-ins in weniger als einer Minute
 
-| [Gefahr der Überforderung durch zu viele Funktionen]
-| [Klare Struktur und Fokus auf Kernfunktionen]
+| Gefahr der Überforderung durch zu viele Funktionen
+| Klare Struktur und Fokus auf Kernfunktionen
 
-| [Fehlende Motivation zur langfristigen Nutzung]
-| [Erinnerungen, Wochenrückblicke und sichtbarer Mehrwert]
+| Fehlende Motivation zur langfristigen Nutzung
+| Erinnerungen, Wochenrückblicke und sichtbarer Mehrwert
 
-| [Unverständliche Diagramme]
-| [Einfache Visualisierung mit kurzen Erklärungen]
+| Unverständliche Diagramme
+| Einfache Visualisierung mit kurzen Erklärungen
 
-| [Unterschiedliche Stressfaktoren zwischen Nutzenden]
-| [Hohe Personalisierbarkeit der Eingaben]
+| Unterschiedliche Stressfaktoren zwischen Nutzenden
+| Hohe Personalisierbarkeit der Eingaben
 |===
 
 == Systemweite Interaktionsflüsse
@@ -142,7 +142,7 @@ _Dieser Abschnitt beschreibt Abläufe, die mehrere Features oder Bereiche des Pr
 umfassen. Einzelne Feature-Wireframes werden in den jeweiligen User Stories gepflegt.
 Hier dokumentieren wir nur Flüsse auf Systemebene, z.B. mit UML-Aktivitätsdiagrammen._
 
-=== [Flow 1: Onboarding & erster Check-in]
+=== Flow 1: Onboarding & erster Check-in
 
 _Dieser Flow beschreibt den Einstieg neuer Nutzer:innen sowie die erste Erfassung von Energie und Stress._
 
@@ -196,11 +196,11 @@ stop
 
 ---
 
-=== [Flow 2: Aufgaben mit Belastung verknüpfen]
+=== Flow 2: Aufgaben mit Belastung verknüpfen
 
 _Dieser Flow beschreibt, wie Aufgaben mit Stress und Energie verbunden werden._
 
-[plantuml, error-flow, svg]
+plantuml, error-flow, svg
 ....
 @startuml
 skinparam monochrome true
@@ -239,7 +239,7 @@ stop
 |===
 ---
 
-=== [Flow 3: Analyse & Empfehlungen]
+=== Flow 3: Analyse & Empfehlungen
 
 _Dieser Flow zeigt die Analysefunktionen und personalisierte Empfehlungen._
 
@@ -299,19 +299,19 @@ Wireframes und UI-Implementierungen._
 | Aspekt | Entscheidung & Begründung
 
 | Farbpalette
-| [Ruhige Blau- und Grüntöne vermitteln Balance und Vertrauen]
+| Ruhige Blau- und Grüntöne vermitteln Balance und Vertrauen
 
 | Akzentfarben
-| [Warme Farben für Warnungen und Hinweise]
+| Warme Farben für Warnungen und Hinweise
 
 | Typografie
-| [Gut lesbare serifenlose Schrift mit Fokus auf mobile Nutzung]
+| Gut lesbare serifenlose Schrift mit Fokus auf mobile Nutzung
 
 | Ikonografie
-| [Klare und einfache Icons für Energie, Stress, Aufgaben und Analyse]
+| Klare und einfache Icons für Energie, Stress, Aufgaben und Analyse
 
 | Bildsprache
-| [Minimalistisch und beruhigend statt überfordernd]
+| Minimalistisch und beruhigend statt überfordernd
 |===
 
 === Interaktionsprinzipien
