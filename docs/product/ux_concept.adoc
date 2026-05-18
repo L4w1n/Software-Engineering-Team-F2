@@ -161,8 +161,8 @@ if (Neuer Nutzer?) then (ja)
 else (nein)
  :Login;
 endif
-:Startseite anzeigen;
 :Täglichen Check-in starten;
+:Startseite anzeigen;
 :Energielevel auswählen;
 :Stresswert auswählen;
 :Optional Notiz hinzufügen;
@@ -200,7 +200,7 @@ stop
 
 _Dieser Flow beschreibt, wie Aufgaben mit Stress und Energie verbunden werden._
 
-plantuml, error-flow, svg
+[plantuml, error-flow, svg]
 ....
 @startuml
 skinparam monochrome true
