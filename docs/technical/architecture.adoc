@@ -186,6 +186,8 @@ sind in <<Architekturentscheidungen>> dokumentiert._
 | Render, Railway oder Fly.io
 | Deployment des Spring-Boot-Backend. Geeignet für Webservices und Docker-basierte Deployments.
 | ADR-011
+|===
+
 == Architekturrelevante Anforderungen
 
 _Dieser Abschnitt dokumentiert, welche Qualitätsziele und Einschränkungen aus dem
@@ -367,7 +369,7 @@ Die Anwendung soll wartbar, testbar und innerhalb des Projektrahmens realistisch
 | 26.05.2026
 
 | *Kontext*
-| Die Anwendung benötigt eine relationale Datenbakn für strukturierte Daten, zum Beispiel für Nutzerprofile, Aufgaben, Statuswerte, Einträge oder Reflexionen. Relationale Datenbanken wurden bereits im Studium behandelt.
+| Die Anwendung benötigt eine relationale Datenbank für strukturierte Daten, zum Beispiel für Nutzerprofile, Aufgaben, Statuswerte, Einträge oder Reflexionen. Relationale Datenbanken wurden bereits im Studium behandelt.
 
 | *Entscheidung*
 | Wir verwenden Supabase PostgreSQL als Datenbank.
