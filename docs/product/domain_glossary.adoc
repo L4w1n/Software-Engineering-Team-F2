@@ -862,7 +862,7 @@ Beschreibung der wichtigsten Beziehungen zwischen den Entitäten, sofern diese b
 | Analyse
 | Warnung
 | 1 zu 0..*
-| Eine Analyse kann keine, eine oder mehrere Empfehlungen erzeugen. Empfehlungen entstehen auf GRundlage ausgewerteter Daten.
+| Eine Analyse kann keine, eine oder mehrere Warnung erzeugen. Warnungen entstehen auf Grundlage ausgewerteter Daten.
 
 | Analyse
 | Empfehlung

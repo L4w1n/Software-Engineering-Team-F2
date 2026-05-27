@@ -128,39 +128,63 @@ sind in <<Architekturentscheidungen>> dokumentiert._
 | Bereich | Technologie | Begründung | Entscheidung
 
 | Frontend
-| [z. B. React 18]
-| [z. B. Teamkenntnisse; große Community; Komponentenmodell]
-| [z. B. ADR-002]
+| React + JavaScript + Vite
+| Benutzeroberfläche/ PWA. Es sind erste Erfahrungen mit React und JavaScript im Team bekannt. Vite vereinfacht die Projektstruktur, Entwicklung und Build-Prozess
+| ADR-003
 
 | Backend
-| [z. B. Spring Boot 3]
-| [z. B. Vorgabe im Studiengang; gute Dokumentation]
-| [z. B. ADR-001]
+| Spring Boot + Spring Web
+| REST-API und Fachlogik. Passt zu den Java-Grundlagen des Teams. Darüber hinaus sind auch hier erste Erfahrungen vorhanden. Spring Boot ermöglicht eine saubere Schichtenarchitektur mit Controller, Service und Repository.
+| ADR-004
 
-| Datenbank
-| [z. B. PostgreSQL 15]
-| [z. B. Relationales Modell passend; auf Hochschulinfrastruktur verfügbar]
-| [z. B. ADR-003]
+| Datenzugriff
+| Spring Data JPA
+| Zugriff auf relationale Daten. Reduziert SQL-Aufwand und passt gut zu PostgreSQL und Spring Boot.
+| ADR-004
 
 | Authentifizierung
-| [z. B. OAuth2 / Hochschul-SSO]
-| [z. B. Pflichtintegration; kein eigenes Nutzermanagement nötig]
-| [z. B. ADR-004]
+| Supabase PostgreSQL
+| Registrierung, Login und Sitzungen. Spart Eigenbau einer sicherheitskritischen Authentifizierung.
+| ADR-006
 
-| Containerisierung
-| [z. B. Docker / Docker Compose]
-| [z. B. Reproduzierbare Umgebung für alle Teammitglieder]
-| [z. B. ADR-005]
+| API-Kommunikation
+| REST API mit JSON
+| Kommunikation zwischen Frontend und Backend. Standardisiert, aus dem Studium bekannt, gut testbar und klar dokumentierbar.
+| ADR-007
+
+| Versionsverwaltung
+| GitHub
+| Teamarbeit, Issues und Pull Requests. Zentral für gemeinsame Entwicklung, Nachvollziehbarkeit und Review-Prozess.
+| ADR-007
 
 | CI/CD
-| [z. B. GitHub Actions]
-| [z. B. Direkte Integration mit Repository; kostenlos für Studierende]
-| [z. B. ADR-006]
+| GitHub Actions
+| Automatisierte Builds und Tests. Änderungen können automatisch geprüft werden, bevor diese integriert werden.
+| ADR-007
 
-| [Weiterer Bereich]
-| [Technologie]
-| [Begründung]
-| [ADR-Referenz oder —]
+
+| Frontend-Testing
+| Jest + React Testing Library
+| Komponenten- und UI-Tests. Prüft, ob UI-Komponenten korrekt funktionieren.
+| ADR-007
+
+
+| Backend-Testing
+| JUnit + Spring Boot Test
+| Backend- und API-Tests. Passt zu Java/Spring Boot und ist wahrscheinlich aus dem Studium bekannt.
+| ADR-007
+
+
+| Frontend-Hosting
+| Vercel und Netlify
+| Deployment des Frontends. Sehr gut für React/Vite-Projekte geeignet und einfach mit Github integrierbar.
+| ADR-007
+
+
+| Backend-Hosting
+| Render, Railway oder Fly.io
+| Deployment des Spring-Boot-Backend. Geeignet für Webservices und Docker-basierte Deployments.
+| ADR-007
 |===
 
 == Architekturrelevante Anforderungen
@@ -240,29 +264,212 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
   Welche neuen Risiken entstehen?]
 |===
 
-=== ADR-002: [Titel der Entscheidung]
+=== ADR-002 Wahl der grundlegenden Systemarchitektur
 
 [cols="1,3"]
 |===
 | *Status*
-| [Vorgeschlagen \| Akzeptiert \| Abgelehnt \| Ersetzt durch ADR-XXX]
+| Vorgeschlagen
 
 | *Datum*
-| [Datum]
+| 26.05.2026
 
 | *Kontext*
-| [Kontext]
+| Wir entwickeln eine Webanwendung, die eine klare Trennung zwischen Benutzeroberfläche, Fachlogik und Datenhaltung benötigt. Das Team hat Vorkenntnisse in Java und JavaScript.
+Die Anwendung soll wartbar, testbar und innerhalb des Projektrahmens realistisch umsetzbar sein.
 
 | *Entscheidung*
-| [Entscheidung]
+| Wir verwenden React/Vite im Frontend, Spring Boot im Backend und Supabase PostgreSQL für die Datenhaltung. Frontend und Backend kommunizieren über eine REST API mit JSON.
 
 | *Alternativen*
-| [Alternativen]
+| Supabase only ohne eigenes Backend; Node.js/Express als Backend; klassische serverseitige Webanwendung ohne getrenntes Frontend.
 
 | *Konsequenzen*
-| [Konsequenzen]
+| Die Architektur ist sauber trennbar und gut dokumentierbar. Der Nachteil ist mehr Aufwand, weil Frontend, Backend und Datenbak seperat entwickelt, integriert und getestet werden müssen.
 |===
 
+=== ADR-003: Verwendung von React, JavaScript und Vite im Frontend
+
+[cols="1,3"]
+|===
+| *Status*
+| Vorgeschlagen
+
+| *Datum*
+| 25.05.2026
+
+| *Kontext*
+| Die Anwendung benötigt eine moderne und interaktive Benutzeroberfläche. JavaScript ist dem Team bereits bekannt. Die Anwendung soll für mobile Geräte geeignet sein und perspektivisch als PW funktionieren.
+
+| *Entscheidung*
+| Wir verwenden React mit JavaScript und Vite für das Frontend.
+
+| *Alternativen*
+| Vue.js/Nuxt.js; React Native; Thymeleaf mit Spring Boot.
+
+| *Konsequenzen*
+| React ermöglicht komponentenbasierte Entwicklung. Vite vereinfacht Entwicklung und Build-Prozess. Das Risiko ist, dass Fachlogik versehentlich in UI-Komponenten landen. Deshalb müssen Komponenten, Services und API-Zugriffe getrennt werden.
+|===
+
+=== ADR-004: Verwendung von Spring Boot als Backend
+
+[cols="1,3"]
+|===
+| *Status*
+| Vorgeschlagen
+
+| *Datum*
+| 26.05.2026
+
+| *Kontext*
+| Die Anwendung braucht eine zentrale Schicht für Fachlogik, Validierung und Schnittstellen. Das Team hat Java-Grundlagen aus dem Studium.
+
+| *Entscheidung*
+| Wir verwenden Spring Boot mit Spring Web als Backend. Die Fachlogik liegt in Services. REST-Endpunkte stellen die Funktionen für das Frontend bereit.
+
+| *Alternativen*
+| Node.js/Express; Supabase only; Spring Boot zusammen mit Node.js/Express.
+
+| *Konsequenzen*
+| Spring Boot ermöglicht eine klare Struktur mit Controller, Service und Repository. Backend-Tests können mit JUnit und Spring Boot Test umgesetzt werden. Der Nachteil ist ein höherer Aufwand gegenüber Supabase only.
+|===
+
+=== ADR-005: Verwendung von Supabase PostgreSQL als Datenbank
+
+[cols="1,3"]
+|===
+| *Status*
+| Vorgeschlagen
+
+| *Datum*
+| 26.05.2026
+
+| *Kontext*
+| Die Anwendung benötigt eine relationale Datenbakn für strukturierte Daten, zum Beispiel für Nutzerprofile, Aufgaben, Statuswerte, Einträge oder Reflexionen. Relationale Datenbanken wurden bereits im Studium behandelt.
+
+| *Entscheidung*
+| Wir verwenden Supabase PostgreSQL als Datenbank.
+
+| *Alternativen*
+| Lokale PostgreSQL-Datenbank; Firebase; SQLite; MySQL
+
+| *Konsequenzen*
+| PostgreSQL passt gut zu relationalen Daten. Supabase reduziert den Aufwand für Einrichtung und Betrieb. Das Risiko ist die Abhängigkeit von Supabase als externen Dienst. Datenmodell, Rechte und Backups müssen bewusst geplant werden.
+|===
+
+=== ADR-006: Verwendung von Supabase für Authentifizierung
+
+[cols="1,3"]
+|===
+| *Status*
+| Vorgeschlagen
+
+| *Datum*
+| 26.05.2026
+
+| *Kontext*
+| Die Anwendung benötigt Registrierung, Login und Sitzungsverwaltung. Authentifizierung ist sicherheitskritisch und sollte nicht unnötig selbst gebaut werden.
+
+| *Entscheidung*
+| Wir verwenden Supabase Auth für Registrierung, Login und Sitzungsverwaltung.
+
+| *Alternativen*
+| Eigene Authentifizierung im Spring-Boot-Backend; Spring Security; keine Authentifizierung
+
+| *Konsequenzen*
+| Supabase Auth spart Entwicklungszeit und reduziert Sicherheitsrisiken durch Eigenbau. Das Team muss aber klären, wie das Frontend Authentifizierungsinformationen an das Backend weitergibt und wie das Backend diese prüft. Rollen und Rechte müssen sauber definiert werden.
+|===
+
+=== ADR-007: Kommunikation über REST API mit JSON
+
+[cols="1,3"]
+|===
+| *Status*
+| Vorgeschlagen
+
+| *Datum*
+| 26.05.2026
+
+| *Kontext*
+| Frontend und Backend werden getrennt entwickelt. Deshalb wird eine klare Schnittstelle benötigt, über die Daten zwischen React/Vite und Spring Boot ausgetauscht werden.
+
+| *Entscheidung*
+| Die Kommunikation zwischen Frontend und Backend erfolgt über eine REST API mit JSON.
+
+| *Alternativen*
+| GraphQL; direkte Kommunikation des Frontends mit der Datenbank; serverseitiges Rendering ohne API.
+
+| *Konsequenzen*
+| REST mit JSON ist verständlich, testbar und gut dokumentierbar. Die API-Endpunkte müssen aber früh abgestimmt werden, damit Frontend und Backend unabhängig arbeiten können. Änderungen an Schnittstellen müssen im Team kommuniziert werden.
+|===
+
+=== ADR-008: Verwendung von GitHub für Versionsverwaltung und Zusammenarbeit
+
+[cols="1,3"]
+|===
+| *Status*
+| Vorgeschlagen
+
+| *Datum*
+| 27.05.2026
+
+| *Kontext*
+| Das Projekt wird im Team entwickelt. Änderungen am Code, an Dokumentation und Architekturentscheidungen müssen nachvollziehbar sein. Außerdem braucht das Team eine gemeinsame Plattform für Pull Requests, Issues und Review-Prozesse.
+| *Entscheidung*
+| Wir verwenden GitHub als zentrale Plattform für Versionsverwaltung, Zusammenarbeit, Issues und Pull-Requests.
+
+| *Alternativen*
+| GitLab, lokale Git-Repositories ohne zentrale Plattform, manuelle Dateiverwaltung.
+
+| *Konsequenzen*
+| Änderungen sind nachvollziehbar und können im Team überprüft werden. Pull Requests unterstützen Code Reviews. Der Nachteil ist, dass das Team Git-Workflows wie Branches, Commits, Pull Requests und Merge Konflikte sicher beherrschen muss. 
+|===
+
+=== ADR-009: Automatisierte Qualitätssicherung mit GitHub Actions, Jest und JUnit
+
+[cols="1,3"]
+|===
+| *Status*
+| Vorgeschlagen
+
+| *Datum*
+| 27.05.2026
+
+| *Kontext*
+| Frontend und Backend sollen nicht nur manuell geprüft werden. Fehler sollen früh erkannt werden, bevor Änderungen in den Hauptstand übernommen werden. Dafür werden automatisierte Tests und ein automatisierter Prüfprozess benötigt.
+
+| *Entscheidung*
+| Wir verwenden GitHub Actions für automatisierte Builds und Tests. Frontend-Komponenten werden mit Jest und React Testing Library getestet. Backend- und API-Funktionen werden mit JUnit und Spring-Boot-Test getestet.
+
+| *Alternativen*
+| Nur manuelle teams, lokale tests ohne CI/CD, andere CI/CD-Plattformen wie GitLab CI.
+
+| *Konsequenzen*
+| Änderungen können automatisch geprüft werden. Die Codequalität und Stabilität der Anwendung steigen. Der Nachteil ist zusätzlicher Einrichtungsaufwand für Testskripte, Workflows und Testdaten. Außerdem müssen fehlgeschlagene Tests im Team konsequent behoben werden.
+|===
+
+=== ADR-010: Deployment- und Hostingstrategie für Frontend und Backend
+
+[cols="1,3"]
+|===
+| *Status*
+| Vorgeschlagen
+
+| *Datum*
+| 27.05.2026
+
+| *Kontext*
+| Die Anwendung soll nicht nur lokal laufen, sondern auch als nutzbares Produktinkrement bereitgestellt werden. Frontend und Backend werden getrennt entwickelt und benötigen daher passende Hosting-Optionen.
+
+| *Entscheidung*
+| Das Frontend wird über Vercel oder Netlify bereitgestellt. Das Spring-Boot-Backend wird über Render, Railway oder Fly.io bereitgestellt. Die konkrete Plattform wird nach einem technischen Durchstich final festgelegt.
+
+| *Alternativen*
+| Lokale Ausführung ohne Deployment, eigener Server, Hochschulserver, vollständiges Deployment über eine einzige Plattform.
+
+| *Konsequenzen*
+| Frontend und Backend können unabhängig bereitgestellt werden. Vercel und Netlify sind gut für React/Vite-Projekte geeignet. Render, Railway und Fly.io eignen sich für Webservices und Docker-basierte Deployments. Der Nachteil ist zusätzlicher Konfigurationsaufwand für Umgebungsvariablen, CORS, Backend-URL, Datenbankzugang und Deployment-Pipeline.
+|===
 
 NOTE: Weitere ADRs nach demselben Schema hinzufügen. Die Nummerierung ist
 fortlaufend und wird nie wiederverwendet.
@@ -279,21 +486,75 @@ Punkte in Vergessenheit geraten._
 |===
 | Risiko | Auswirkung | Wahrscheinlichkeit | Maßnahme
 
-| [z. B. LDAP-Schnittstelle der Hochschule ist undokumentiert]
+| Integration zwischen React/Vite-Frontend und Spring-Boot-backend funktioniert nicht reibungslos
 | Hoch
 | Mittel
-| [z. B. Frühzeitiger Prototyp zur Validierung; Fallback auf lokale Authentifizierung]
+| Früh einen technischen Durchstich bauen; einfache React-Seite ruft einen Spring-Boot-REST-Endpunkt auf und zeigt Daten an.
 
-| [z. B. Performance bei > 200 gleichzeitigen Nutzenden unbekannt]
+| Authentifizierung mit Supabase Auth und Spring Boot ist unklar
+| Hoch
+| Mittel
+| Früh klären, wie Login-Token vom Frontend an das Backend übergeben und dort geprüft werden. Auth-Flow dokumentieren und testen.
+
+| Zugriff von Spring Boot auf Supabase PostgreSQL verursacht Konfigurationsprobleme
+| Hoch
+| Mittel
+| Datenbankverbindung früh testen. Verbindung, Umgebungsvariablen und Zugriffsdaten dokumentieren.
+
+
+| Fachlogik landet versehentlich im Frontend statt im Backend
 | Mittel
 | Niedrig
-| [z. B. Lasttest ab Sprint 4 eingeplant]
+| Klare Projektstruktur festlegen: UI in React-Komponenten, Fachlogik in Spring-Boot-Services, Datenzugriff in Repository-Schicht
 
-| [Weiteres Risiko]
-| [Hoch / Mittel / Niedrig]
-| [Hoch / Mittel / Niedrig]
-| [Maßnahme oder Akzeptanz]
+
+| REST API wird nicht früh genug abgestimmt
+| Mittel
+| Mittel
+| API-Endpunkte früh definieren, z.B. Pfade, Request-Body, Response-Body und Fehlerfälle. Optional einfache API-Dokumentation erstellen.
+
+
+| Team unterschätzt Aufwand durch getrenntes Frontend, Backend und Datenbank
+| Hoch
+| Hoch
+| MVP klein halten. Erst Walking Skeleton bauen, danach Funktionen erweitern. Keine unnötigen Zusatzfeatures in Sprint 2.
+
+
+| Deployment von Frontend und Backend verursacht Probleme
+| Mittel
+| Mittel
+| Deployment erst als vorgeschlagen behandeln. Vor finaler Entscheidung einen Deployment-Test mit Vercel/Netlify und Render/Railway/Fly.io durchführen.
+
+| CORS-Probleme zwischen Frontend und Backend
+| Mittel
+| Mittel
+| CORS-Konfiguration in Spring Boot früh testen. Lokale und spätere Deployment-URLs berücksichtigen.
+
+
+| GitHub Actions / automatisierte Tests funktionieren nicht direkt
+| Niedrig
+| Mittel
+| CI/CD zunächst minimal aufsetzen: Projekt bauen und einfache Tests ausführen. Komplexe Workflows später ergänzen.
+
+
+| Docker/ Docker Compose kostet mehr Zeit als erwartet
+| Mittel
+| Niedrig
+| Docker nur verwenden, wenn es wirklich hilft. Zuerst lokale Ausführung ohne Docker sicherstellen, danach Containerisierung ergänzen.
+
+
+| Supabase-Abhängigkeit führt zu Vendor-Lock-in
+| Mittel
+| Mittel
+| Supabase bewusst nur für Datenbank/Auth nutzen. Fachlogik im Spring-Boot-Backend halten, damit ein Wechsel später realistischer bleibt.
+
+
+| Sicherheitsregeln/ Rollen sind unklar
+| Hoch
+| Mittel
+| Rollenmodell früh definieren. Prüfen, welche Daten welcher Nutzer sehen oder ändern darf. Zugriff nicht nur im Frontend absichern.
 |===
+
 
 === Technische Schulden
 
