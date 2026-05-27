@@ -155,36 +155,36 @@ sind in <<Architekturentscheidungen>> dokumentiert._
 | Versionsverwaltung
 | GitHub
 | Teamarbeit, Issues und Pull Requests. Zentral für gemeinsame Entwicklung, Nachvollziehbarkeit und Review-Prozess.
-| ADR-007
+| ADR-008
 
 | CI/CD
 | GitHub Actions
 | Automatisierte Builds und Tests. Änderungen können automatisch geprüft werden, bevor diese integriert werden.
-| ADR-007
+| ADR-009
 
 
 | Frontend-Testing
 | Jest + React Testing Library
 | Komponenten- und UI-Tests. Prüft, ob UI-Komponenten korrekt funktionieren.
-| ADR-007
+| ADR-009
 
 
 | Backend-Testing
 | JUnit + Spring Boot Test
 | Backend- und API-Tests. Passt zu Java/Spring Boot und ist wahrscheinlich aus dem Studium bekannt.
-| ADR-007
+| ADR-009
 
 
 | Frontend-Hosting
 | Vercel und Netlify
 | Deployment des Frontends. Sehr gut für React/Vite-Projekte geeignet und einfach mit Github integrierbar.
-| ADR-007
+| ADR-010
 
 
 | Backend-Hosting
 | Render, Railway oder Fly.io
 | Deployment des Spring-Boot-Backend. Geeignet für Webservices und Docker-basierte Deployments.
-| ADR-007
+| ADR-010
 |===
 
 == Architekturrelevante Anforderungen
