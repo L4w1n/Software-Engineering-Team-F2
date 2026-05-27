@@ -129,64 +129,63 @@ sind in <<Architekturentscheidungen>> dokumentiert._
 
 | Frontend
 | React + JavaScript + Vite
-| Benutzeroberfläche/ PWA. Es sind erste Erfahrungen mit React und JavaScript im Team bekannt. Vite vereinfacht die Projektstruktur, Entwicklung und Build-Prozess
+| Entwicklung der Benutzeroberfläche und Progressive Web App (PWA). Im Team bestehen bereits erste Erfahrungen mit React und JavaScript. Vite vereinfacht Projektstruktur, Entwicklung und Build-Prozess durch schnelle Entwicklungsserver und einfache Konfiguration.
 | ADR-003
 
 | Backend
 | Spring Boot + Spring Web
-| REST-API und Fachlogik. Passt zu den Java-Grundlagen des Teams. Darüber hinaus sind auch hier erste Erfahrungen vorhanden. Spring Boot ermöglicht eine saubere Schichtenarchitektur mit Controller, Service und Repository.
+| Entwicklung des serverseitigen Backends mit REST-Schnittstellen zur Kommunikation mit dem Frontend sowie Umsetzung der Fachlogik. Spring Boot unterstützt eine klare Schichtenarchitektur mit Controller-, Service- und Repository-Schicht und passt zu den vorhandenen Java-Kenntnissen im Team.
 | ADR-004
 
 | Datenzugriff
 | Spring Data JPA
-| Zugriff auf relationale Daten. Reduziert SQL-Aufwand und passt gut zu PostgreSQL und Spring Boot.
-| ADR-004
+| Vereinfachter Zugriff auf relationale Datenbanken durch ORM (Object Relational Mapping). Spring Data JPA reduziert manuellen SQL- und JDBC-Aufwand durch Repository-Abstraktionen und integriert sich nahtlos in Spring Boot und PostgreSQL. Die eigentliche ORM-Implementierung erfolgt über Hibernate.
+| ADR-005
+
+| Datenbank
+| Supabase PostgreSQL
+| Relationale Datenbank zur persistenten Speicherung von Anwendungsdaten. PostgreSQL ist zuverlässig, weit verbreitet und gut mit Spring Boot kompatibel. Supabase vereinfacht Hosting, Verwaltung und Bereitstellung der Datenbank.
+| ADR-006
 
 | Authentifizierung
-| Supabase PostgreSQL
-| Registrierung, Login und Sitzungen. Spart Eigenbau einer sicherheitskritischen Authentifizierung.
-| ADR-006
+| Supabase Auth
+| Verwaltung von Registrierung, Login und Sitzungen. Vermeidet die Eigenentwicklung sicherheitskritischer Authentifizierungsmechanismen und bietet integrierte Sicherheitsfunktionen wie JWT-basierte Authentifizierung.
+| ADR-007
 
 | API-Kommunikation
 | REST API mit JSON
-| Kommunikation zwischen Frontend und Backend. Standardisiert, aus dem Studium bekannt, gut testbar und klar dokumentierbar.
-| ADR-007
+| Standardisierte Kommunikation zwischen Frontend und Backend über HTTP und JSON. REST-APIs sind weit verbreitet, gut dokumentierbar und einfach testbar.
+| ADR-008
 
 | Versionsverwaltung
 | GitHub
-| Teamarbeit, Issues und Pull Requests. Zentral für gemeinsame Entwicklung, Nachvollziehbarkeit und Review-Prozess.
-| ADR-008
+| Plattform zur Versionsverwaltung und Zusammenarbeit im Team. Unterstützt Branches, Pull Requests, Code Reviews und Nachvollziehbarkeit von Änderungen.
+| ADR-009
 
 | CI/CD
 | GitHub Actions
-| Automatisierte Builds und Tests. Änderungen können automatisch geprüft werden, bevor diese integriert werden.
-| ADR-009
-
+| Automatisierung von Builds, Tests und Deployments direkt über GitHub. Änderungen können automatisch geprüft werden, bevor sie integriert oder veröffentlicht werden.
+| ADR-010
 
 | Frontend-Testing
 | Jest + React Testing Library
-| Komponenten- und UI-Tests. Prüft, ob UI-Komponenten korrekt funktionieren.
-| ADR-009
-
+| Durchführung von Komponenten- und UI-Tests im Frontend. Prüft das Verhalten von React-Komponenten aus Nutzersicht und unterstützt stabile Benutzeroberflächen.
+| ADR-010
 
 | Backend-Testing
 | JUnit + Spring Boot Test
-| Backend- und API-Tests. Passt zu Java/Spring Boot und ist wahrscheinlich aus dem Studium bekannt.
-| ADR-009
-
+| Durchführung von Unit- und Integrationstests im Backend. Gut in Spring Boot integriert und passend zu den vorhandenen Java-Kenntnissen des Teams.
+| ADR-010
 
 | Frontend-Hosting
 | Vercel und Netlify
 | Deployment des Frontends. Sehr gut für React/Vite-Projekte geeignet und einfach mit Github integrierbar.
-| ADR-010
-
+| ADR-011
 
 | Backend-Hosting
 | Render, Railway oder Fly.io
 | Deployment des Spring-Boot-Backend. Geeignet für Webservices und Docker-basierte Deployments.
-| ADR-010
-|===
-
+| ADR-011
 == Architekturrelevante Anforderungen
 
 _Dieser Abschnitt dokumentiert, welche Qualitätsziele und Einschränkungen aus dem
@@ -311,7 +310,7 @@ Die Anwendung soll wartbar, testbar und innerhalb des Projektrahmens realistisch
 | React ermöglicht komponentenbasierte Entwicklung. Vite vereinfacht Entwicklung und Build-Prozess. Das Risiko ist, dass Fachlogik versehentlich in UI-Komponenten landen. Deshalb müssen Komponenten, Services und API-Zugriffe getrennt werden.
 |===
 
-=== ADR-004: Verwendung von Spring Boot als Backend
+=== ADR-004: Verwendung von Spring Boot und Spring Web als Backend
 
 [cols="1,3"]
 |===
@@ -334,7 +333,30 @@ Die Anwendung soll wartbar, testbar und innerhalb des Projektrahmens realistisch
 | Spring Boot ermöglicht eine klare Struktur mit Controller, Service und Repository. Backend-Tests können mit JUnit und Spring Boot Test umgesetzt werden. Der Nachteil ist ein höherer Aufwand gegenüber Supabase only.
 |===
 
-=== ADR-005: Verwendung von Supabase PostgreSQL als Datenbank
+=== ADR-005: Verwendung von Spring Data JPA für den Datenzugriff
+
+[cols="1,3"]
+|===
+| *Status*
+| Vorgeschlagen
+
+| *Datum*
+| 26.05.2026
+
+| *Kontext*
+| [Text]
+
+| *Entscheidung*
+| [Text]
+
+| *Alternativen*
+| Prisma, Sequelize
+
+| *Konsequenzen*
+| [Text]
+|===
+
+=== ADR-006: Verwendung von Supabase PostgreSQL als Datenbank
 
 [cols="1,3"]
 |===
@@ -357,7 +379,7 @@ Die Anwendung soll wartbar, testbar und innerhalb des Projektrahmens realistisch
 | PostgreSQL passt gut zu relationalen Daten. Supabase reduziert den Aufwand für Einrichtung und Betrieb. Das Risiko ist die Abhängigkeit von Supabase als externen Dienst. Datenmodell, Rechte und Backups müssen bewusst geplant werden.
 |===
 
-=== ADR-006: Verwendung von Supabase für Authentifizierung
+=== ADR-007: Verwendung von Supabase für Authentifizierung
 
 [cols="1,3"]
 |===
@@ -380,7 +402,7 @@ Die Anwendung soll wartbar, testbar und innerhalb des Projektrahmens realistisch
 | Supabase Auth spart Entwicklungszeit und reduziert Sicherheitsrisiken durch Eigenbau. Das Team muss aber klären, wie das Frontend Authentifizierungsinformationen an das Backend weitergibt und wie das Backend diese prüft. Rollen und Rechte müssen sauber definiert werden.
 |===
 
-=== ADR-007: Kommunikation über REST API mit JSON
+=== ADR-008: Kommunikation über REST API mit JSON
 
 [cols="1,3"]
 |===
@@ -403,7 +425,7 @@ Die Anwendung soll wartbar, testbar und innerhalb des Projektrahmens realistisch
 | REST mit JSON ist verständlich, testbar und gut dokumentierbar. Die API-Endpunkte müssen aber früh abgestimmt werden, damit Frontend und Backend unabhängig arbeiten können. Änderungen an Schnittstellen müssen im Team kommuniziert werden.
 |===
 
-=== ADR-008: Verwendung von GitHub für Versionsverwaltung und Zusammenarbeit
+=== ADR-009: Verwendung von GitHub für Versionsverwaltung und Zusammenarbeit
 
 [cols="1,3"]
 |===
@@ -425,7 +447,7 @@ Die Anwendung soll wartbar, testbar und innerhalb des Projektrahmens realistisch
 | Änderungen sind nachvollziehbar und können im Team überprüft werden. Pull Requests unterstützen Code Reviews. Der Nachteil ist, dass das Team Git-Workflows wie Branches, Commits, Pull Requests und Merge Konflikte sicher beherrschen muss. 
 |===
 
-=== ADR-009: Automatisierte Qualitätssicherung mit GitHub Actions, Jest und JUnit
+=== ADR-010: Automatisierte Qualitätssicherung mit GitHub Actions, Jest und JUnit
 
 [cols="1,3"]
 |===
@@ -448,7 +470,7 @@ Die Anwendung soll wartbar, testbar und innerhalb des Projektrahmens realistisch
 | Änderungen können automatisch geprüft werden. Die Codequalität und Stabilität der Anwendung steigen. Der Nachteil ist zusätzlicher Einrichtungsaufwand für Testskripte, Workflows und Testdaten. Außerdem müssen fehlgeschlagene Tests im Team konsequent behoben werden.
 |===
 
-=== ADR-010: Deployment- und Hostingstrategie für Frontend und Backend
+=== ADR-011: Deployment- und Hostingstrategie für Frontend und Backend
 
 [cols="1,3"]
 |===
