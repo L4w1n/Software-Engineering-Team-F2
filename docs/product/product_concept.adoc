@@ -132,37 +132,69 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 |===
 | Nutzerbedarf | Hauptfunktion | Priorität
 
-| Studierende wollen ihr tägliches Energielevel und Stressempfinden einfach erfassen können.
-| Erfassung von Energielevel und Stresswerten (Tracking)
-| Hoch
+| Studierende wollen ihr aktuelles Stress- und Energielevel einfach und regelmäßig erfassen können.
+| F1 - Eingabe von Stress- und Energiedaten
+| Must Have
 
-| Studierende wollen ihre Aufgaben und Verpflichtungen mit ihrer Belastung verknüpfen.
-| Verknüpfung von Aufgaben, Terminen und Belastungsdaten
-| Hoch
+| Studierende wollen ihre Belastungs- und Energiewerte übersichtlich visualisieren und Entwicklungen erkennen können.
+| F2 - Datenvisualisierung
+| Must Have
 
-| Studierende wollen ihre Belastung über die Zeit analysieren und Muster erkennen.
-| Visualisierung und Analyse von Energie- und Stressverläufen
-| Hoch
+| Studierende wollen wichtige Hinweise und Warnungen zu ihrer Belastung erhalten.
+| F3 - Benachrichtigungsanzeige
+| Should Have
 
-| Studierende wollen frühzeitig erkennen, wenn sie überlastet sind.
-| Frühwarnsystem bei kritischen Belastungswerten
-| Mittel
+| Studierende wollen beim Einstieg unterstützt werden und individuelle Referenzwerte für ihre Auswertungen erhalten.
+| F4 - Onboarding und Baseline-Ermittlung
+| Must Have
 
-| Studierende wollen konkrete Verbesserungsvorschläge für ihren Alltag erhalten.
-| Personalisierte Empfehlungen zur Anpassung von Arbeits- und Lernverhalten
-| Mittel
+| Studierende wollen frühzeitig auf kritische Belastungssituationen aufmerksam gemacht werden.
+| F5 - Frühwarnsystem
+| Must Have
 
-| Studierende wollen ihre Entwicklung reflektieren und bewerten.
-| Reflektions- und Feedbackfunktionen (z.B. Tages-/Wochenbewertungen)
-| Niedrig
+| Studierende wollen personalisierte Empfehlungen zur Verbesserung ihres Studien- und Arbeitsalltags erhalten.
+| F6 - Empfehlungssystem
+| Must Have
 
-| Studierende wollen ihre Daten sicher verwalten und optional teilen.
-| Datenverwaltung und optionale Freigabe für Hochschulverwaltung/Studienberater/Coaches
-| Niedrig
+| Studierende wollen ihre persönliche Entwicklung reflektieren und subjektive Eindrücke dokumentieren können.
+| F7 - Reflexion und Selbstbewertung
+| Should Have
+
+| Studierende wollen die volle Kontrolle über ihre Daten behalten und ihre Privatsphäre schützen.
+| F8 - Datenschutz und Kontrolle
+| Must Have
+
+| Das System soll alle fachlichen Daten konsistent und einheitlich verwalten können.
+| F9 - Zentrales Datenmodell
+| Technische Basis
+
+| Studierende wollen Aufgaben und Termine mit ihrer Belastung in Beziehung setzen können.
+| F10 - Aufgaben- und Kontextmodell
+| Should Have
+
+| Studierende wollen ihre Daten statistisch auswerten und Muster erkennen können.
+| F11 - Datenanalyse
+| Should Have
+
+| Studierende wollen zusätzliche Einflussfaktoren wie Schlaf, Arbeit oder körperliche Aktivität erfassen können.
+| F12 - Erweiterte Kontextdaten
+| Could Have
+
+| Studierende wollen ihre Daten dauerhaft speichern und jederzeit abrufen können.
+| F13 - Datenspeicherung
+| Must Have
+
+| Studierende wollen die Anwendung personalisiert mit Konto oder alternativ lokal ohne Konto nutzen können.
+| F14 - Benutzerverwaltung
+| Could Have
+
+| Studierende wollen ihre Daten exportieren und gezielt mit anderen Personen teilen können.
+| F15 - Export und Datenfreigabe
+| Could Have
 |===
 
-NOTE: Die Reihenfolge entspricht einer ersten groben Priorisierung und wird im Rahmen
-der Backlog-Priorisierung verfeinert.
+NOTE: Die angegebenen Prioritäten spiegeln den derzeitigen Stand der MVP-Planung wider
+und werden im Rahmen der weiteren Produkt- und Backlog-Entwicklung kontinuierlich überprüft und angepasst.
 
 == Qualitätsziele & Einschränkungen
 
