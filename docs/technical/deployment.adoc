@@ -115,30 +115,36 @@ Mal lokal zum Laufen bringen wollen.
 ----
 # 1. Repository klonen
 git clone [Repository-URL]
-cd [projektname]
+cd PWA-SE
 
-# 2. Umgebungsvariablen konfigurieren
-cp .env.example .env
-# .env mit einem Editor öffnen und ggf. anpassen
 
-# 3. Alle Dienste starten
-docker compose up --build
+# 2. Frontend-Abhängigkeiten installieren
+cd frontend
+npm install
 
-# 4. Prüfen, ob alles läuft
-# Frontend:  http://localhost:3000
-# Backend:   http://localhost:8080
-# API-Docs:  http://localhost:8080/swagger-ui
+
+# 3. Frontend starten
+npm run dev
+
+
+# Frontend erreichbar:
+# http://localhost:5173
 ----
 
 === System stoppen und aufräumen
 
 [source,bash]
 ----
-# Dienste stoppen (Daten bleiben erhalten)
-docker compose down
+#Anwendung stoppen
+STRG + C
 
-# Dienste stoppen und Volumes löschen (Datenbank wird geleert)
-docker compose down -v
+
+# Abhängigkeiten neu installieren (falls Fehler auftreten)
+Remove-Item -Recurse -Force node_modules
+Remove-Item -Force package-lock.json
+
+npm install
+npm run dev
 ----
 
 === Häufige Probleme beim lokalen Start
