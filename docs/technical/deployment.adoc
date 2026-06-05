@@ -436,11 +436,11 @@ Fehler diagnostiziert werden können.
 | Version und Build-Informationen
 | HTTP 200
 
-| GET /api/status
+| `GET /api/status`
 | Prüft, ob Backend erreichbar ist
 | HTTP 200
 
-| GET /api/users/me
+| `GET /api/users/me`
 | Prüft Login/Auth-Funktion
 | HTTP 200 bei gültigem Login
 |===
