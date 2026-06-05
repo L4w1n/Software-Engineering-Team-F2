@@ -178,25 +178,20 @@ existieren, wie sie konfiguriert werden, und wie sie zusammenarbeiten.
 |===
 | Service | Image | Zweck | Port (intern → extern)
 
-| [z. B. frontend]
-| [z. B. node:20-alpine (Build-Image)]
-| React-Anwendung — wird als statische Dateien gebaut und über nginx ausgeliefert
-| 80 → 3000
+| frontend
+| node:20-alpine (Build-Image)
+| React/Vite Anwendung wird gebaut und bereitgestellt
+| 5173 → 5173
 
-| [z. B. backend]
-| [z. B. eclipse-temurin:21-jre-alpine]
+| backend
+| eclipse-temurin:21-jre-alpine
 | Spring Boot REST-API
 | 8080 → 8080
 
-| [z. B. db]
-| [z. B. postgres:15-alpine]
-| PostgreSQL-Datenbank
-| 5432 → 5432
-
-| [z. B. mailhog]
-| [z. B. mailhog/mailhog]
-| E-Mail-Testserver (nur lokal); fängt alle ausgehenden E-Mails ab
-| 1025 (SMTP), 8025 (UI) → 8025
+| supabase
+| —
+| PostgreSQL-Datenbank + Authentifizierung über Supabase Cloud
+| extern verwaltet
 |===
 
 === Umgebungsvariablen
