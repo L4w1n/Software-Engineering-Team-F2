@@ -1,5 +1,5 @@
 = Deployment & Betrieb: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+Vince Hohfeld <vince.hohfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al jawabreh <omar.al.jawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomàs.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoang.son.david.tran@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad Alissa Alijasim <anwar.ahmad.alissa.alijasim@stud.htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
