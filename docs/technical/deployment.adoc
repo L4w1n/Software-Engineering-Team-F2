@@ -204,13 +204,13 @@ im Code. Eine vollständige Liste mit Beispielwerten befindet sich in `.env.exam
 | Variable | Beispielwert | Beschreibung | Pflicht
 
 | `DATABASE_URL`
-| `jdbc:postgresql://db:5432/projektname`
-| Verbindungs-URL zur Datenbank
+| jdbc:postgresql://[supabase-host]:5432/postgres
+| Verbindungs-URL zur Supabase PostgreSQL-Datenbank
 | Ja
 
 | `DATABASE_USER`
-| `projektname`
-| Datenbankbenutzername
+| `Project name`
+| Datenbankbenutzer von Supabase
 | Ja
 
 | `DATABASE_PASSWORD`
@@ -220,12 +220,12 @@ im Code. Eine vollständige Liste mit Beispielwerten befindet sich in `.env.exam
 
 | `JWT_SECRET`
 | `[min. 32 Zeichen]`
-| Geheimnis für JWT-Token-Signierung
+| Geheimnis für JWT-Token-Signierung, falls eigene JWTs genutzt werden
 | Ja
 
 | `SMTP_HOST`
 | `mailhog` (lokal) / `smtp.example.com` (prod)
-| E-Mail-Serveradresse
+| E-Mail-Serveradresse, falls E-Mails später genutzt werden
 | Ja
 
 | `LOG_LEVEL`
@@ -233,10 +233,30 @@ im Code. Eine vollständige Liste mit Beispielwerten befindet sich in `.env.exam
 | Log-Level: DEBUG / INFO / WARN / ERROR
 | Nein (Standard: INFO)
 
-| [Weitere Variable]
-| [Beispielwert]
-| [Beschreibung]
-| [Ja / Nein]
+| SUPABASE_URL	
+| https://[projekt-id].supabase.co	
+| URL des Supabase-Projekts	
+| Ja
+
+| SUPABASE_ANON_KEY	
+| [Supabase anon key]	
+| Öffentlicher Supabase-Key für Frontend/Auth	
+| Ja
+
+| SUPABASE_SERVICE_ROLE_KEY	
+| [Supabase service role key]	
+| Geheimer Supabase-Key nur für Backend/Server	
+| Nein
+
+| FRONTEND_URL	
+| http://localhost:5173	
+| URL des Frontends für lokale Entwicklung	
+| Ja
+
+| BACKEND_URL	
+| http://localhost:8080	
+| URL des Backends für lokale Entwicklung	
+| Ja
 |===
 
 IMPORTANT: Produktions-Secrets (Passwörter, API-Keys, JWT-Secrets) werden *nie*
