@@ -153,18 +153,17 @@ npm run dev
 |===
 | Problem | Lösung
 
-| Port bereits belegt (`address already in use`)
-| `docker compose down` ausführen oder belegten Port prüfen:
-  `lsof -i :8080` (macOS/Linux) bzw. `netstat -ano` (Windows)
+| Port bereits belegt (address already in use)
+| Anwendung stoppen oder belegten Port prüfen: netstat -ano (Windows)
 
 | Datenbank-Container startet nicht
-| Volumes löschen und neu starten: `docker compose down -v && docker compose up`
+| Supabase-Verbindung prüfen und Konfiguration kontrollieren
 
 | Umgebungsvariablen fehlen
 | Prüfen ob `.env`-Datei vorhanden ist; Beispielwerte in `.env.example` ansehen
 
-| [Weiteres Problem]
-| [Lösung]
+| Node-Version passt nicht
+| Node-Version mit node -v prüfen und ggf. aktuelle Version installieren
 |===
 
 
