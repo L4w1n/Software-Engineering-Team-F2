@@ -335,6 +335,7 @@ Kein manueller Eingriff erforderlich.
 . Tests werden ausgeführt
 . Frontend wird z. B. auf Vercel deployed
 . Backend wird z. B. auf Render/Railway deployed
+. Team wird bei Erfolg oder Fehler benachrichtigt
 
 === Release und Deployment auf Produktion (manuell)
 
