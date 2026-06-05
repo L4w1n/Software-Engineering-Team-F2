@@ -375,8 +375,14 @@ Nach jedem Deployment werden folgende Prüfungen ausgeführt:
 | Login-Flow
 | Erfolgreicher Login mit Testnutzer möglich
 
-| [Kernfunktion prüfen]
-| [Erwartetes Ergebnis]
+| Benutzerprofil laden
+| Profildaten werden erfolgreich aus Supabase geladen
+
+| Datenbankzugriff prüfen
+| Lesen und Schreiben von Daten in Supabase erfolgreich
+
+| Reflexion erstellen
+| Neuer Eintrag wird gespeichert und angezeigt
 |===
 
 == Rollback
