@@ -238,22 +238,22 @@ im Code. Eine vollständige Liste mit Beispielwerten befindet sich in `.env.exam
 | URL des Supabase-Projekts	
 | Ja
 
-| SUPABASE_ANON_KEY	
+| `SUPABASE_ANON_KEY`	
 | [Supabase anon key]	
 | Öffentlicher Supabase-Key für Frontend/Auth	
 | Ja
 
-| SUPABASE_SERVICE_ROLE_KEY	
+| `SUPABASE_SERVICE_ROLE_KEY`	
 | [Supabase service role key]	
 | Geheimer Supabase-Key nur für Backend/Server	
 | Nein
 
-| FRONTEND_URL	
+| `FRONTEND_URL`	
 | http://localhost:5173	
 | URL des Frontends für lokale Entwicklung	
 | Ja
 
-| BACKEND_URL	
+| `BACKEND_URL`	
 | http://localhost:8080	
 | URL des Backends für lokale Entwicklung	
 | Ja
