@@ -297,7 +297,7 @@ dass kein Code in `main` gelangt, der Tests bricht oder Qualitätsstandards verl
 | Jedem Push
 
 | Image-Build
-| Docker-Images für alle Services bauen
+| Frontend- und Backend-Build ausführen
 | Build-Fehler
 | Jedem Push auf `main` und PRs
 
