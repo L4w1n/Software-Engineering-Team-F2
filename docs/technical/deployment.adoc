@@ -44,13 +44,15 @@ keine andere.
 | Automatisch (GitHub Actions)
 
 | Staging
-| [z. B. https://staging.example.com]
+| z. B.
+  https://pwa-se-staging.vercel.app (Frontend)
+  https://backend-staging.onrender.com
 | Integrationstest; Abnahme durch Product Owner vor Release
-| `main`
+| `main` oder `develop` 
 | Automatisch nach Merge in `main`
 
 | Produktion
-| [z. B. https://example.com]
+| [z. B. https://pwa-se.vercel.app]
 | Live-System für Endnutzer:innen
 | `main` (getaggt)
 | Manuell mit Freigabe
@@ -75,20 +77,36 @@ Mal lokal zum Laufen bringen wollen.
 | https://docs.docker.com/get-docker/
 
 | Docker Compose
-| ≥ 2.0
-| Wird mit Docker Desktop mitgeliefert
+| ≥ 2.0 
+| Wird mit Docker Desktop installiert
 
-| [z. B. Node.js]
-| [z. B. ≥ 20 LTS]
-| [z. B. https://nodejs.org — oder via `nvm`]
+| Node.js
+| ≥ 22.0 LTS
+| https://nodejs.org/en/download — benötigt für React/Vite und npm
 
-| [z. B. Java JDK]
-| [z. B. ≥ 21]
-| [z. B. https://adoptium.net]
+| npm
+| ≥ 10.0
+| Wird automatisch mit Node.js installiert
+
+| Java JDK
+| ≥ 21
+| z. B. https://adoptium.net — benötigt für Spring Boot
 
 | Git
 | Aktuell
-| https://git-scm.com
+| https://git-scm.com — Versionsverwaltung
+
+| Maven
+| ≥ 3.9
+| Build-Tool für Spring Boot (oder über Wrapper ./mvnw)
+
+| VS Code
+| Aktuell
+| Entwicklungsumgebung für Frontend/Backend
+
+| Supabase Account
+| Aktuell	
+| https://supabase.com — PostgreSQL Datenbank + Auth
 |===
 
 === System lokal starten
