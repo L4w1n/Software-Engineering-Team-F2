@@ -331,11 +331,10 @@ Die vollständige Pipeline-Konfiguration befindet sich in:
 Jeder Merge in `main` löst automatisch ein Deployment auf Staging aus.
 Kein manueller Eingriff erforderlich.
 
-. Pipeline baut neue Docker Images
-. Images werden in die Container-Registry gepusht
-. Staging-Umgebung zieht die neuen Images
-. Smoke Tests werden automatisch ausgeführt
-. Team wird bei Erfolg oder Fehler benachrichtigt
+. GitHub Actions baut das Frontend/Backend
+. Tests werden ausgeführt
+. Frontend wird z. B. auf Vercel deployed
+. Backend wird z. B. auf Render/Railway deployed
 
 === Release und Deployment auf Produktion (manuell)
 
