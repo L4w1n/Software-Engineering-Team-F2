@@ -31,10 +31,11 @@ keine andere.
 | Umgebung | URL | Zweck | Branch | Deployment
 
 | Lokal
-| http://localhost:8080
-| Entwicklung und manuelle Tests auf dem eigenen Rechner
+| http://localhost:5173 (Frontend)
+  http://localhost:8080 (Backend)
+| Entwicklung und manuelle Tests auf dem eigenen Rechner. React/Vite Frontend, Spring Boot Backend und Supabase-Anbindung werden lokal getestet.
 | Beliebig
-| Manuell (Docker Compose)
+| Manuell über npm run dev, Spring Boot Start oder Docker Compose
 
 | CI
 | —
