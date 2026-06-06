@@ -374,7 +374,7 @@ user ||--o{ task : verwaltet
 | created_at
 | Zeitpunkt der Benutzererstellung
 
-.6+| checkin
+.7+| checkin
 | id
 | UUID als Primärschlüssel
 
@@ -396,7 +396,7 @@ user ||--o{ task : verwaltet
 | created_at
 | Zeitpunkt des Check-Ins
 
-.8+| aufgabe
+.9+| aufgabe
 | id
 | UUID als Primärschlüssel
 
@@ -423,7 +423,6 @@ user ||--o{ task : verwaltet
 
 | created_at
 | Zeitpunkt der Erstellung
-
 |===
 
 === Datenbankmigrationen
