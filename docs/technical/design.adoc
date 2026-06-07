@@ -88,7 +88,7 @@ zusammengehörige Einheit von Code mit einer klar definierten Aufgabe._
 ....
 @startuml
 
-!include <c4/C4_Component.puml>
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
 
@@ -96,57 +96,40 @@ title Component Diagram – EnergyBalance
 
 Container_Boundary(frontend, "Frontend (React PWA)") {
 
-  Component(dashboard_ui, "Dashboard UI", "React",
-  "Anzeige von Check-Ins, Aufgaben, Analysen, Warnungen und Empfehlungen") 
+    Component(dashboard_ui, "Dashboard UI", "React", "Anzeige von Check-Ins, Aufgaben, Analysen, Warnungen und Empfehlungen")
 
-  Component(checkin_ui, "Check-In UI", "React",
-  "Erfassung von Energielevel, Stimmung und Stress")
+    Component(checkin_ui, "Check-In UI", "React", "Erfassung von Energielevel, Stimmung und Stress")
 
-  Component(task_ui, "Aufgabenverwaltung UI", "React",
-  "Verwaltung von Lernaufgaben")
+    Component(task_ui, "Aufgabenverwaltung UI", "React", "Verwaltung von Lernaufgaben")
 
-  Component(shared_ui, "Shared UI Components", "React",
-  "Wiederverwendbare UI-Elemente")
-
+    Component(shared_ui, "Shared UI Components", "React", "Wiederverwendbare UI-Elemente")
 }
 
 Container_Boundary(backend, "Backend (Express)") {
 
-  Component(api_ctrl, "REST Controller", "Express",
-  "Stellt REST-Endpunkte bereit")
+    Component(api_ctrl, "REST Controller", "Express", "Stellt REST-Endpunkte bereit")
 
-  Component(checkin_service, "Check-In Service", "Business Logic",
-  "Verarbeitet Check-Ins und Nutzerangaben")
+    Component(checkin_service, "Check-In Service", "Business Logic", "Verarbeitet Check-Ins und Nutzerangaben")
 
-  Component(task_service, "Task Service", "Business Logic",
-  "Verwaltet Aufgaben und Fortschritte")
+    Component(task_service, "Task Service", "Business Logic", "Verwaltet Aufgaben und Fortschritte")
 
-  Component(analysis_service, "Analysis Service", "Business Logic",
-  "Erzeugt Analysen, Warnungen und Empfehlungen")
-
+    Component(analysis_service, "Analysis Service", "Business Logic", "Erzeugt Analysen, Warnungen und Empfehlungen")
 }
 
 Container_Boundary(auth, "Authentifizierung") {
 
-  Component(auth_service, "Auth Service", "Business Logic",
-  "Registrierung, Anmeldung und Sitzungsverwaltung")
+    Component(auth_service, "Auth Service", "Business Logic", "Registrierung, Anmeldung und Sitzungsverwaltung")
 
-  Component(supabase_auth, "Supabase Auth", "Managed Service",
-  "Authentifizierung und Benutzerverwaltung")
-
+    Component(supabase_auth, "Supabase Auth", "Managed Service", "Authentifizierung und Benutzerverwaltung")
 }
 
 Container_Boundary(persistence, "Persistenz") {
 
-  Component(memory_store, "In-Memory Storage", "JavaScript Arrays",
-  "Lokale Datenhaltung für Entwicklungszwecke")
+    Component(memory_store, "In-Memory Storage", "JavaScript Arrays", "Lokale Datenhaltung für Entwicklungszwecke")
 
-  Component(supabase_client, "Supabase Client", "SDK",
-  "Zugriff auf PostgreSQL Datenbank")
+    Component(supabase_client, "Supabase Client", "SDK", "Zugriff auf PostgreSQL Datenbank")
 
-  ContainerDb(db, "PostgreSQL (Supabase)", "Database",
-  "Persistente Speicherung")
-
+    ComponentDb(db, "PostgreSQL (Supabase)", "Database", "Persistente Speicherung")
 }
 
 Rel(dashboard_ui, api_ctrl, "REST / JSON")
@@ -161,6 +144,7 @@ Rel(api_ctrl, checkin_service, "delegiert")
 Rel(api_ctrl, task_service, "delegiert")
 Rel(api_ctrl, analysis_service, "delegiert")
 Rel(api_ctrl, auth_service, "delegiert")
+
 Rel(auth_service, supabase_auth, "nutzt")
 
 Rel(checkin_service, supabase_client, "Datenzugriff")
@@ -169,12 +153,11 @@ Rel(analysis_service, supabase_client, "Lesezugriff")
 
 Rel(supabase_client, db, "SQL")
 
-Rel(checkin_service, memory_store, "Walking Skeleton", "..")
-Rel(task_service, memory_store, "Walking Skeleton", "..")
-Rel(analysis_service, memory_store, "Walking Skeleton", "..")
+checkin_service ..> memory_store : Walking Skeleton
+task_service ..> memory_store : Walking Skeleton
+analysis_service ..> memory_store : Walking Skeleton
 
 @enduml
-
 ....
 
 === Komponentenbeschreibung
