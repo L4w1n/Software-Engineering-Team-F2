@@ -1,5 +1,5 @@
 = Deployment & Betrieb: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+Vince Hohfeld <vince.hohfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al jawabreh <omar.al.jawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomàs.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoang.son.david.tran@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad Alissa Alijasim <anwar.ahmad.alissa.alijasim@stud.htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -31,10 +31,11 @@ keine andere.
 | Umgebung | URL | Zweck | Branch | Deployment
 
 | Lokal
-| http://localhost:8080
-| Entwicklung und manuelle Tests auf dem eigenen Rechner
+| http://localhost:5173 (Frontend)
+  http://localhost:8080 (Backend)
+| Entwicklung und manuelle Tests auf dem eigenen Rechner. React/Vite Frontend, Spring Boot Backend und Supabase-Anbindung werden lokal getestet.
 | Beliebig
-| Manuell (Docker Compose)
+| Manuell über npm run dev, Spring Boot Start oder Docker Compose
 
 | CI
 | —
@@ -43,13 +44,15 @@ keine andere.
 | Automatisch (GitHub Actions)
 
 | Staging
-| [z. B. https://staging.example.com]
+| z. B.
+  https://pwa-se-staging.vercel.app (Frontend)
+  https://backend-staging.onrender.com
 | Integrationstest; Abnahme durch Product Owner vor Release
-| `main`
+| `main` oder `develop` 
 | Automatisch nach Merge in `main`
 
 | Produktion
-| [z. B. https://example.com]
+| [z. B. https://pwa-se.vercel.app]
 | Live-System für Endnutzer:innen
 | `main` (getaggt)
 | Manuell mit Freigabe
@@ -74,20 +77,36 @@ Mal lokal zum Laufen bringen wollen.
 | https://docs.docker.com/get-docker/
 
 | Docker Compose
-| ≥ 2.0
-| Wird mit Docker Desktop mitgeliefert
+| ≥ 2.0 
+| Wird mit Docker Desktop installiert
 
-| [z. B. Node.js]
-| [z. B. ≥ 20 LTS]
-| [z. B. https://nodejs.org — oder via `nvm`]
+| Node.js
+| ≥ 22.0 LTS
+| https://nodejs.org/en/download — benötigt für React/Vite und npm
 
-| [z. B. Java JDK]
-| [z. B. ≥ 21]
-| [z. B. https://adoptium.net]
+| npm
+| ≥ 10.0
+| Wird automatisch mit Node.js installiert
+
+| Java JDK
+| ≥ 21
+| z. B. https://adoptium.net — benötigt für Spring Boot
 
 | Git
 | Aktuell
-| https://git-scm.com
+| https://git-scm.com — Versionsverwaltung
+
+| Maven
+| ≥ 3.9
+| Build-Tool für Spring Boot (oder über Wrapper ./mvnw)
+
+| VS Code
+| Aktuell
+| Entwicklungsumgebung für Frontend/Backend
+
+| Supabase Account
+| Aktuell	
+| https://supabase.com — PostgreSQL Datenbank + Auth
 |===
 
 === System lokal starten
@@ -96,30 +115,36 @@ Mal lokal zum Laufen bringen wollen.
 ----
 # 1. Repository klonen
 git clone [Repository-URL]
-cd [projektname]
+cd PWA-SE
 
-# 2. Umgebungsvariablen konfigurieren
-cp .env.example .env
-# .env mit einem Editor öffnen und ggf. anpassen
 
-# 3. Alle Dienste starten
-docker compose up --build
+# 2. Frontend-Abhängigkeiten installieren
+cd frontend
+npm install
 
-# 4. Prüfen, ob alles läuft
-# Frontend:  http://localhost:3000
-# Backend:   http://localhost:8080
-# API-Docs:  http://localhost:8080/swagger-ui
+
+# 3. Frontend starten
+npm run dev
+
+
+# Frontend erreichbar:
+# http://localhost:5173
 ----
 
 === System stoppen und aufräumen
 
 [source,bash]
 ----
-# Dienste stoppen (Daten bleiben erhalten)
-docker compose down
+#Anwendung stoppen
+STRG + C
 
-# Dienste stoppen und Volumes löschen (Datenbank wird geleert)
-docker compose down -v
+
+# Abhängigkeiten neu installieren (falls Fehler auftreten)
+Remove-Item -Recurse -Force node_modules
+Remove-Item -Force package-lock.json
+
+npm install
+npm run dev
 ----
 
 === Häufige Probleme beim lokalen Start
@@ -128,18 +153,17 @@ docker compose down -v
 |===
 | Problem | Lösung
 
-| Port bereits belegt (`address already in use`)
-| `docker compose down` ausführen oder belegten Port prüfen:
-  `lsof -i :8080` (macOS/Linux) bzw. `netstat -ano` (Windows)
+| Port bereits belegt (address already in use)
+| Anwendung stoppen oder belegten Port prüfen: netstat -ano (Windows)
 
 | Datenbank-Container startet nicht
-| Volumes löschen und neu starten: `docker compose down -v && docker compose up`
+| Supabase-Verbindung prüfen und Konfiguration kontrollieren
 
 | Umgebungsvariablen fehlen
 | Prüfen ob `.env`-Datei vorhanden ist; Beispielwerte in `.env.example` ansehen
 
-| [Weiteres Problem]
-| [Lösung]
+| Node-Version passt nicht
+| Node-Version mit node -v prüfen und ggf. aktuelle Version installieren
 |===
 
 
@@ -154,25 +178,20 @@ existieren, wie sie konfiguriert werden, und wie sie zusammenarbeiten.
 |===
 | Service | Image | Zweck | Port (intern → extern)
 
-| [z. B. frontend]
-| [z. B. node:20-alpine (Build-Image)]
-| React-Anwendung — wird als statische Dateien gebaut und über nginx ausgeliefert
-| 80 → 3000
+| frontend
+| node:20-alpine (Build-Image)
+| React/Vite Anwendung wird gebaut und bereitgestellt
+| 5173 → 5173
 
-| [z. B. backend]
-| [z. B. eclipse-temurin:21-jre-alpine]
+| backend
+| eclipse-temurin:21-jre-alpine
 | Spring Boot REST-API
 | 8080 → 8080
 
-| [z. B. db]
-| [z. B. postgres:15-alpine]
-| PostgreSQL-Datenbank
-| 5432 → 5432
-
-| [z. B. mailhog]
-| [z. B. mailhog/mailhog]
-| E-Mail-Testserver (nur lokal); fängt alle ausgehenden E-Mails ab
-| 1025 (SMTP), 8025 (UI) → 8025
+| supabase
+| —
+| PostgreSQL-Datenbank + Authentifizierung über Supabase Cloud
+| extern verwaltet
 |===
 
 === Umgebungsvariablen
@@ -185,13 +204,13 @@ im Code. Eine vollständige Liste mit Beispielwerten befindet sich in `.env.exam
 | Variable | Beispielwert | Beschreibung | Pflicht
 
 | `DATABASE_URL`
-| `jdbc:postgresql://db:5432/projektname`
-| Verbindungs-URL zur Datenbank
+| jdbc:postgresql://[supabase-host]:5432/postgres
+| Verbindungs-URL zur Supabase PostgreSQL-Datenbank
 | Ja
 
 | `DATABASE_USER`
-| `projektname`
-| Datenbankbenutzername
+| `Project name`
+| Datenbankbenutzer von Supabase
 | Ja
 
 | `DATABASE_PASSWORD`
@@ -201,12 +220,12 @@ im Code. Eine vollständige Liste mit Beispielwerten befindet sich in `.env.exam
 
 | `JWT_SECRET`
 | `[min. 32 Zeichen]`
-| Geheimnis für JWT-Token-Signierung
+| Geheimnis für JWT-Token-Signierung, falls eigene JWTs genutzt werden
 | Ja
 
 | `SMTP_HOST`
 | `mailhog` (lokal) / `smtp.example.com` (prod)
-| E-Mail-Serveradresse
+| E-Mail-Serveradresse, falls E-Mails später genutzt werden
 | Ja
 
 | `LOG_LEVEL`
@@ -214,10 +233,30 @@ im Code. Eine vollständige Liste mit Beispielwerten befindet sich in `.env.exam
 | Log-Level: DEBUG / INFO / WARN / ERROR
 | Nein (Standard: INFO)
 
-| [Weitere Variable]
-| [Beispielwert]
-| [Beschreibung]
-| [Ja / Nein]
+| SUPABASE_URL	
+| https://[projekt-id].supabase.co	
+| URL des Supabase-Projekts	
+| Ja
+
+| `SUPABASE_ANON_KEY`	
+| [Supabase anon key]	
+| Öffentlicher Supabase-Key für Frontend/Auth	
+| Ja
+
+| `SUPABASE_SERVICE_ROLE_KEY`	
+| [Supabase service role key]	
+| Geheimer Supabase-Key nur für Backend/Server	
+| Nein
+
+| `FRONTEND_URL`	
+| http://localhost:5173	
+| URL des Frontends für lokale Entwicklung	
+| Ja
+
+| `BACKEND_URL`	
+| http://localhost:8080	
+| URL des Backends für lokale Entwicklung	
+| Ja
 |===
 
 IMPORTANT: Produktions-Secrets (Passwörter, API-Keys, JWT-Secrets) werden *nie*
@@ -258,7 +297,7 @@ dass kein Code in `main` gelangt, der Tests bricht oder Qualitätsstandards verl
 | Jedem Push
 
 | Image-Build
-| Docker-Images für alle Services bauen
+| Frontend- und Backend-Build ausführen
 | Build-Fehler
 | Jedem Push auf `main` und PRs
 
@@ -292,10 +331,10 @@ Die vollständige Pipeline-Konfiguration befindet sich in:
 Jeder Merge in `main` löst automatisch ein Deployment auf Staging aus.
 Kein manueller Eingriff erforderlich.
 
-. Pipeline baut neue Docker Images
-. Images werden in die Container-Registry gepusht
-. Staging-Umgebung zieht die neuen Images
-. Smoke Tests werden automatisch ausgeführt
+. GitHub Actions baut das Frontend/Backend
+. Tests werden ausgeführt
+. Frontend wird z. B. auf Vercel deployed
+. Backend wird z. B. auf Render/Railway deployed
 . Team wird bei Erfolg oder Fehler benachrichtigt
 
 === Release und Deployment auf Produktion (manuell)
@@ -336,8 +375,14 @@ Nach jedem Deployment werden folgende Prüfungen ausgeführt:
 | Login-Flow
 | Erfolgreicher Login mit Testnutzer möglich
 
-| [Kernfunktion prüfen]
-| [Erwartetes Ergebnis]
+| Benutzerprofil laden
+| Profildaten werden erfolgreich aus Supabase geladen
+
+| Datenbankzugriff prüfen
+| Lesen und Schreiben von Daten in Supabase erfolgreich
+
+| Reflexion erstellen
+| Neuer Eintrag wird gespeichert und angezeigt
 |===
 
 == Rollback
@@ -391,9 +436,13 @@ Fehler diagnostiziert werden können.
 | Version und Build-Informationen
 | HTTP 200
 
-| [Weiterer Endpunkt]
-| [Beschreibung]
-| [Erwartetes Ergebnis]
+| `GET /api/status`
+| Prüft, ob Backend erreichbar ist
+| HTTP 200
+
+| `GET /api/users/me`
+| Prüft Login/Auth-Funktion
+| HTTP 200 bei gültigem Login
 |===
 
 === Logs

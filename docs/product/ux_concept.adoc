@@ -20,56 +20,82 @@ auf Annahmen allein._
 
 _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur benannt. Hier werden sie als Personas ausgearbeitet._
 
-=== Persona 1: [Max, Mustermann]
+=== Persona 1: Max, Mustermann
 
 [cols="1,3"]
 |===
 | *Rolle*
-| [Studierende im 4. Semester, Wirtschaftsinformatik]
+| Studierende im 4. Semester, Wirtschaftsinformatik
 
 | *Alter*
-| [22 Jahre]
+| 22 Jahre
 
 | *Zitat*
-| _„[Ein prägnanter Satz, der ihre Haltung oder ihr Problem auf den Punkt bringt.]"_
+| _„Ich merke oft erst zu spät, dass alles zu viel wird."_
 
 | *Ziele*
-| [Was will diese Person erreichen? Was motiviert sie?]
+| Max will seine Aufgaben besser planen um Stress frühzeitig zu erkennen und zu vermeiden.
 
 | *Frustrationen*
-| [Was hindert sie heute daran, ihre Ziele zu erreichen?]
+| Er nutzt Kalender und To-do-Listen, sieht dort aber nicht, wie belastend einzelne Aufgaben für ihn wirklich sind.
 
 | *Verhalten & Kontext*
-| [Wie und wann nutzt sie digitale Produkte? Welche Geräte? Welche Erfahrung?]
+| Er nutzt hauptsächlich sein Smartphone zwischen Vorlesungen, in der Bahn oder abends zu Hause. Eingaben müssen schnell und einfach sein.
 
 | *Bezug zum Produkt*
-| [Warum ist dieses Produkt für sie relevant? Was ist ihr primärer Nutzen?]
+| EnergyBalance hilft Max, täglich Energielevel und Stress zu erfassen und diese Werte mit Aufgaben zu verknüpfen.
 |===
 
-=== Persona 2: [Name]
+=== Persona 2: Maja, Schneider
 
 [cols="1,3"]
 |===
 | *Rolle*
-| [z. B. Verwaltungsangestellte, zuständig für Raumvergabe]
+| Studienanfängerin im 1.Semester
 
 | *Alter*
-| [z. B. 45 Jahre]
+| 18 Jahre
 
 | *Zitat*
-| _„[Prägnantes Zitat]"_
+| _„Ich weiß oft nicht, ob ich zu wenig mache oder mich schon überlaste."_
 
 | *Ziele*
-| [Ziele]
+| Sie möchte eine gesunde Lernroutine aufbauen, ihre Arbeitsbelastung realistischer einschätzen und sich im Studium besser organisieren können.
 
 | *Frustrationen*
-| [Frustrationen]
+| Sie hat Schwierigkeiten, ihren Lernaufwand realistisch einzuschätzen und sich im Studium effektiv selbst zu organisieren.
 
 | *Verhalten & Kontext*
-| [Verhalten & Kontext]
+| Maja nutzt digitale Tools täglich und arbeitet hauptsächlich mobil am Smartphone oder Tablet. Er benötigt klare Visualisierungen und einfache Funktionen.
 
 | *Bezug zum Produkt*
-| [Bezug zum Produkt]
+| EnergyBalance unterstützt sie dabei, ihre Belastung besser einzuschätzen, Lernphasen zu planen und gesunde Gewohnheiten aufzubauen.
+|===
+
+=== Persona 3: Thai Minh, Nguyen
+
+[cols="1,3"]
+|===
+| *Rolle*
+| Student im 2.Semester
+
+| *Alter*
+| 20 Jahre
+
+| *Zitat*
+| _„Es gibt nur zwei arten von Menschen. Die Macher und die Lacher."_
+
+| *Ziele*
+| Er will seinen bereits bestehenden Lernplan maximieren, um sein Studium auf eine neue Ebene zu heben.  
+
+| *Frustrationen*
+| Er möchte seine humanen Schwankungen die sich in seinen Noten wiederspiegeln auslöschen.
+
+| *Verhalten & Kontext*
+| Thai Minh nutzt digitale Tools täglich und arbeitet hauptsächlich am PC oder Smartphone. Funktionen sollten eindeutig und selbsterklärend sein.
+
+| *Bezug zum Produkt*
+| EnergyBalance assistiert ihn dabei, Lernphasen und freie Tage für neue Kompetenzen zu planen.
 |===
 
 NOTE: Für jedes Projekt sind 2–4 Personas ausreichend. Mehr Personas verwässern
@@ -84,22 +110,20 @@ _Der Nutzungskontext gemäß DIN EN ISO 9241-11 beschreibt die Lebenswirklichkei
 | Aspekt | Beschreibung
  
 | Benutzer
-| [Eigenschaften, Kenntnisse, Erfahrung, Motivation der Nutzenden.
-(Verweis auf Personas für ausführliche Beschreibungen)]
+| Hauptsächlich Studierende mit unterschiedlicher Erfahrung in Selbstorganisation.
  
 | Ziele & Aufgaben
-| [Was wollen Nutzende erreichen?
-Welche konkreten Aufgaben führen sie dazu aus?]
+| Energielevel erfassen, Stress dokumentieren, Aufgaben planen, Muster erkennen, Überlastung vermeiden.
  
 | Ressourcen
-| [Hardware, Software, Eingabegeräte, Hilfsmittel, die zur Nutzung des Produkts benötigt werden oder vorhanden sind.]
+| Smartphone, Laptop, Web-App, Internetzugang, Hochschulaccount oder eigenes Login.
  
 | Umgebung
-| [Technische Umgebung: Netzwerk, Plattformen, Betriebssysteme, Interoperabilität.
+| Technische Umgebung: Mobile App als Hauptplattform, ergänzend Web-App. 
 
- Physische Umgebung: Ort der Nutzung, Lichtverhältnisse, Lärm, Mobilität.
+ Physische Umgebung: Nutzung unterwegs, in der Hochschule, zu Hause oder während Lernphasen.
 
-Soziale & organisatorische Umgebung: Organisationsstruktur, Zusammenarbeit, Unterbrechungen, rechtliche oder regulatorische Rahmenbedingungen.]
+Soziale & organisatorische Umgebung: Studium, Prüfungsstress, Nebenjob, Gruppenarbeiten, Beratungssituationen.
  
 |===
 
@@ -119,14 +143,23 @@ _Was könnte die Akzeptanz oder Nutzung des Produkts beeinträchtigen?_
 |===
 | Hürde / Risiko | Mögliche Reaktion im Design
 
-| [z. B. Datenschutzbedenken bei Registrierungspflicht]
-| [z. B. Gastzugang für erste Nutzung anbieten]
+| Datenschutzbedenken bei sensiblen Daten
+| Transparente Datenschutzhinweise und vollständige Kontrolle über Datenfreigaben
 
-| [z. B. Schlechte WLAN-Verfügbarkeit in Gebäudeteilen]
-| [z. B. Offline-Ansicht für zuletzt geladene Daten]
+| Zu hoher Eingabeaufwand
+| Check-ins in weniger als einer Minute
 
-| [Weitere Hürde]
-| [Reaktion]
+| Gefahr der Überforderung durch zu viele Funktionen
+| Klare Struktur und Fokus auf Kernfunktionen
+
+| Fehlende Motivation zur langfristigen Nutzung
+| Erinnerungen, Wochenrückblicke und sichtbarer Mehrwert
+
+| Unverständliche Diagramme
+| Einfache Visualisierung mit kurzen Erklärungen
+
+| Unterschiedliche Stressfaktoren zwischen Nutzenden
+| Hohe Personalisierbarkeit der Eingaben
 |===
 
 == Systemweite Interaktionsflüsse
@@ -135,9 +168,9 @@ _Dieser Abschnitt beschreibt Abläufe, die mehrere Features oder Bereiche des Pr
 umfassen. Einzelne Feature-Wireframes werden in den jeweiligen User Stories gepflegt.
 Hier dokumentieren wir nur Flüsse auf Systemebene, z.B. mit UML-Aktivitätsdiagrammen._
 
-=== [Flussname, z. B. Onboarding-Flow]
+=== Flow 1: Onboarding & erster Check-in
 
-_Beschreibe kurz, was dieser Fluss abdeckt und welche Personas er betrifft._
+_Dieser Flow beschreibt den Einstieg neuer Nutzer:innen sowie die erste Erfassung von Energie und Stress._
 
 [plantuml, onboarding-flow, svg]
 ....
@@ -147,14 +180,20 @@ skinparam defaultFontSize 13
 
 start
 :App öffnen;
-if (Bereits registriert?) then (ja)
-  :Login;
+if (Neuer Nutzer?) then (ja)
+ :Kurze Einführung anzeigen;
+ :Datenschutz erklären;
+ :Account erstellen;
 else (nein)
-  :Registrierung;
-  :Bestätigungs-E-Mail;
-  :E-Mail bestätigen;
+ :Login;
 endif
-:Startseite;
+:Täglichen Check-in starten;
+:Startseite anzeigen;
+:Energielevel auswählen;
+:Stresswert auswählen;
+:Optional Notiz hinzufügen;
+:Check-in speichern;
+:Rückmeldung anzeigen;
 stop
 
 @enduml
@@ -165,23 +204,27 @@ stop
 | Schritt | Beteiligte Persona | Anmerkung
 
 | App öffnen
-| Maria (Studierende)
-| Erster Einstiegspunkt; muss sofort orientieren
+| Max (Student)
+| Der Einstieg muss sofort verständlich sein
 
-| Login / Registrierung
-| Alle Personas
-| Registrierung nur beim ersten Besuch; danach automatischer Login
+| Datenschutz erklären
+| Max
+| Sensible Daten benötigen Vertrauen
 
-| Startseite
-| Alle Personas
-| Zeigt direkt die wichtigste Funktion — keine unnötige Zwischenseite
+| Check-in
+| Max
+| Kernfunktion der Anwendung
+
+|Rückmeldung
+|Max
+|Direkter Nutzen motiviert zur Nutzung
 |===
 
 ---
 
-=== [Weiterer Fluss, z. B. Buchungsabbruch & Fehlerbehandlung]
+=== Flow 2: Aufgaben mit Belastung verknüpfen
 
-_Beschreibe den Fluss und ergänze ein Diagramm nach demselben Muster._
+_Dieser Flow beschreibt, wie Aufgaben mit Stress und Energie verbunden werden._
 
 [plantuml, error-flow, svg]
 ....
@@ -189,18 +232,85 @@ _Beschreibe den Fluss und ergänze ein Diagramm nach demselben Muster._
 skinparam monochrome true
 
 start
-:Buchung starten;
-if (Raum noch verfügbar?) then (ja)
-  :Buchung bestätigen;
-  :Bestätigung anzeigen;
+:Aufgabe erstellen;
+:Titel und Deadline eingeben;
+:Geschätzte Belastung auswählen;
+:Mit Lernphase verknüpfen;
+if (Belastung kritisch?) then (ja)
+ :Warnhinweis anzeigen;
+ :Pausen oder Anpassung empfehlen;
 else (nein)
-  :Fehlermeldung anzeigen;
-  :Alternative Räume vorschlagen;
+ :Aufgabe speichern;
 endif
+:Aufgabe in Übersicht anzeigen;
 stop
 
 @enduml
 ....
+[cols="1,1,2", options="header"]
+|===
+| Schritt | Beteiligte Persona | Anmerkung
+
+| Aufgabe erstellen
+| Max (Student)
+| Vergleichbar mit To-do-App
+
+| Belastung einschätzen
+| Max
+| Verknüpfung zwischen Aufgaben und Stress
+
+| Warnhinweise
+| Max
+| Frühzeitige Prävention von Überlastung
+|===
+---
+
+=== Flow 3: Analyse & Empfehlungen
+
+_Dieser Flow zeigt die Analysefunktionen und personalisierte Empfehlungen._
+
+[plantuml, error-flow, svg]
+....
+@startuml
+skinparam monochrome true
+
+start
+:Analysebereich öffnen;
+:Energie- und Stressdiagramme anzeigen;
+:Muster erkennen;
+if (Kritische Entwicklung erkannt?) then (ja)
+ :Warnung anzeigen;
+ :Empfehlungen vorschlagen;
+else (nein)
+ :Positive Entwicklung hervorheben;
+endif
+:Wochenreflexion anzeigen;
+stop
+
+@enduml
+....
+[cols="1,1,2", options="header"]
+|===
+| Schritt | Beteiligte Persona | Anmerkung
+
+| Diagramme anzeigen
+| Max (Student)
+| Langfristige Muster sichtbar machen
+
+| Warnungen
+| Max
+| Frühwarnsystem bei Überlastung
+
+| Empfehlungen
+| Max
+| Handlungsorientierter Mehrwert
+
+| Reflexion
+| Max
+| Unterstützung der Selbstreflexion
+|===
+
+---
 
 == Designsystem & Interaktionsprinzipien
 
@@ -215,18 +325,19 @@ Wireframes und UI-Implementierungen._
 | Aspekt | Entscheidung & Begründung
 
 | Farbpalette
-| [z. B. Primärfarbe: Hochschulblau #003D6E; Akzent: #E87722;
-  Begründung: Corporate Identity der Hochschule]
+| Ruhige Blau- und Grüntöne vermitteln Balance und Vertrauen
+
+| Akzentfarben
+| Warme Farben für Warnungen und Hinweise
 
 | Typografie
-| [z. B. Fließtext: Inter 16px; Überschriften: Inter Bold;
-  Begründung: Hohe Lesbarkeit auf kleinen Bildschirmen]
+| Gut lesbare serifenlose Schrift mit Fokus auf mobile Nutzung
 
 | Ikonografie
-| [z. B. Material Icons; konsistentes Icon-Set im gesamten Produkt]
+| Klare und einfache Icons für Energie, Stress, Aufgaben und Analyse
 
 | Bildsprache
-| [z. B. Keine Stock-Fotos; Illustrationen im Flat-Design-Stil]
+| Minimalistisch und beruhigend statt überfordernd
 |===
 
 === Interaktionsprinzipien
@@ -238,24 +349,26 @@ wird begründet, damit sie nicht aus Unwissenheit verletzt wird._
 |===
 | Prinzip | Beschreibung & Begründung
 
-| Destruktive Aktionen werden immer bestätigt.
-| Lösch- oder Stornieraktionen erfordern eine explizite Bestätigung durch die Nutzenden.
-  Verhindert unbeabsichtigte Datenverluste.
+| Einfachheit zuerst
+| Alle Kernfunktionen müssen intuitiv und schnell erreichbar sein.
 
-| Leerzustände erklären sich und schlagen eine Aktion vor.
-| Wenn eine Liste leer ist, zeigen wir eine kurze Erklärung und einen Call-to-Action —
-  niemals nur eine leere Fläche. Reduziert Orientierungslosigkeit.
+| Tracking darf nicht anstrengend sein
+| Tägliche Eingaben dauern maximal eine Minute.
 
-| Fehlermeldungen sind verständlich und handlungsorientiert.
-| Fehlermeldungen nennen die Ursache in einfacher Sprache und schlagen einen
-  nächsten Schritt vor. Kein technischer Jargon für Endnutzer:innen.
+| Personalisierung ist zentral
+| Kategorien, Farben und Eingabemethoden anpassbar.
 
-| Kernfunktionen sind mit einer Hand erreichbar.
-| Primäre Aktionen befinden sich im unteren Bildschirmbereich (Daumenzone).
-  Optimiert für einhändige Smartphone-Nutzung.
+| Empfehlungen statt nur Daten
+| Die App gibt konkrete und verständliche Handlungsvorschläge.
 
-| [Weiteres Prinzip]
-| [Beschreibung & Begründung]
+| Positive Kommunikation
+| Hinweise unterstützen statt Druck aufzubauen.
+
+| Datenkontrolle bleibt beim Nutzer
+| Freigaben sind freiwillig und transparent.
+
+| Mobile-First
+| Hauptnutzung erfolgt auf dem Smartphone.
 |===
 
 === Barrierefreiheit
@@ -276,8 +389,11 @@ wird begründet, damit sie nicht aus Unwissenheit verletzt wird._
 | Schriftgröße
 | Keine Schrift unter 14px; Nutzer:innen können Systemschriftgröße nutzen
 
-| [Weiterer Aspekt]
-| [Anforderung]
+| Diagramme
+| Informationen zusätzlich textlich erklären
+
+| Sprache
+| Verständliche und nicht-technische Formulierungen
 |===
 
 

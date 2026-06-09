@@ -1,5 +1,5 @@
-= Softwaredesign: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+= Softwaredesign: F2 - EnergyBalance
+Vince Hohfeld <vince.hohlfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al Jawabreh <omar.al.jawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomas.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoang.son.david.tran@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad Alissa Alijasim <anwar.ahmad.alissa.alijasim@stud.htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -28,22 +28,23 @@ skinparam monochrome true
 skinparam defaultFontSize 13
 skinparam rectangleBorderThickness 1
 
-rectangle "Präsentationsschicht\n(Frontend / API-Controller)" as presentation
-rectangle "Anwendungsschicht\n(Services / Use Cases)" as application
-rectangle "Domänenschicht\n(Entitäten / Geschäftslogik)" as domain
-rectangle "Persistenzschicht\n(Repositories / Datenbank)" as persistence
+rectangle "Präsentationsschicht\n(React PWA)" as presentation
+rectangle "Anwendungsschicht\n(REST Controller / Services)" as application
+rectangle "Domänenschicht\n(Fachmodelle / Geschäftslogik)" as domain
+rectangle "Persistenzschicht\n(aktuell In-Memory Storage\nspäter Supabase Client / Supabase PostgreSQL)" as persistence
 
-presentation -down-> application : ruft auf
+presentation -down-> application : REST / JSON
 application -down-> domain : verwendet
 application -down-> persistence : liest / schreibt
 domain -[hidden]down- persistence
 
-note right of presentation : HTTP-Anfragen,\nSerialisierung, Routing
-note right of application : Koordination,\nTransaktionen
-note right of domain : Fachliche Regeln,\nValidierung
-note right of persistence : Datenbankzugriff,\nMapping
+note right of presentation : Dashboard,\nCheck-Ins,\nAufgabenverwaltung
+note right of application : REST-Endpunkte,\nKoordination,\nUse Cases
+note right of domain : Fachliche Regeln,\nAnalysen,\nEmpfehlungen
+note right of persistence : In-Memory Storage,\nSupabase Client,\nPostgreSQL 
 
 @enduml
+
 ....
 
 === Beschreibung der Schichten
@@ -53,28 +54,20 @@ note right of persistence : Datenbankzugriff,\nMapping
 | Schicht | Verantwortung | Darf abhängen von
 
 | Präsentationsschicht
-| HTTP-Anfragen entgegennehmen und beantworten;
-  Eingaben validieren; Antworten serialisieren;
-  Routing und Fehlerbehandlung auf API-Ebene
+| Darstellung der Benutzeroberfläche; Erfassung von Check-Ins, Aufgaben und Reflexionen; Anzeige von Analysen, Warnungen und Empfehlungen; Kommunikation mit dem Backend über REST/JSON
 | Anwendungsschicht
 
 | Anwendungsschicht
-| Fachliche Abläufe koordinieren (Use Cases);
-  Transaktionen verwalten; externe Dienste aufrufen;
-  zwischen Schichten vermitteln
+| Verarbeitung von HTTP-Anfragen; Bereitstellung von REST-Endpunkten; Implementierung von Use Cases; Koordination von Geschäftslogik, Authentifizierung und Datenzugriff
 | Domänenschicht, Persistenzschicht
 
 | Domänenschicht
-| Fachliche Entitäten und Regeln kapseln;
-  Invarianten sicherstellen;
-  Kernlogik unabhängig von Infrastruktur halten
+| Fachliche Modelle wie Nutzer, Check-In, Aufgabe und Reflexion; fachliche Regeln zur Auswertung von Stress-, Energie- und Aktivitätsdaten sowie zur Ableitung von Analysen, Warnungen und Empfehlungen 
 | Keine äußeren Schichten
 
 | Persistenzschicht
-| Datenbankzugriff abstrahieren;
-  Entitäten auf Datenbankstrukturen mappen;
-  Abfragelogik kapseln
-| Domänenschicht (Entitäten)
+| Speicherung und Abruf von Anwendungsdaten; aktuell temporäre Speicherung für das Walking Skeleton, später Persistenz über Supabase Client und Supabase PostgreSQL 
+| Keine
 |===
 
 NOTE: Die Domänenschicht darf *nicht* von Persistenz- oder Präsentationsschicht
@@ -95,44 +88,74 @@ zusammengehörige Einheit von Code mit einer klar definierten Aufgabe._
 ....
 @startuml
 
-' source: https://github.com/plantuml-stdlib/C4-PlantUML
-' C4 Model
-!include <c4/C4_Component.puml>
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
 LAYOUT_WITH_LEGEND()
 
-title Component Diagram – [Systemname]
+title Component Diagram – EnergyBalance
 
-Container_Boundary(frontend, "Frontend") {
-  Component(booking_ui, "Buchungskomponente", "z. B. React / Angular", "Ermöglicht Nutzern das Erstellen und Verwalten von Buchungen")
-  Component(auth_ui, "Authentifizierungskomponente", "z. B. React / Angular", "Handhabt Login, Logout und Session-Management")
-  Component(shared_ui, "Gemeinsame UI-Komponenten", "z. B. Design System", "Wiederverwendbare UI-Elemente wie Buttons, Formulare, Navigation")
+Container_Boundary(frontend, "Frontend (React PWA)") {
+
+    Component(dashboard_ui, "Dashboard UI", "React", "Anzeige von Check-Ins, Aufgaben, Analysen, Warnungen und Empfehlungen")
+
+    Component(checkin_ui, "Check-In UI", "React", "Erfassung von Energielevel, Stimmung und Stress")
+
+    Component(task_ui, "Aufgabenverwaltung UI", "React", "Verwaltung von Lernaufgaben")
+
+    Component(shared_ui, "Shared UI Components", "React", "Wiederverwendbare UI-Elemente")
 }
 
-Container_Boundary(backend, "Backend") {
-  Component(booking_ctrl, "Buchungs-Controller", "z. B. REST Controller", "Nimmt eingehende Buchungsanfragen entgegen und delegiert an den Service")
-  Component(booking_svc, "Buchungs-Service", "z. B. Spring Service", "Enthält die Buchungslogik und orchestriert Repository und Benachrichtigung")
-  Component(user_svc, "Nutzer-Service", "z. B. Spring Service", "Verwaltung von Nutzerdaten und Authentifizierungslogik")
-  Component(notification_svc, "Benachrichtigungs-Service", "z. B. Spring Service", "Erstellt und versendet Benachrichtigungen an Nutzer:innen")
+Container_Boundary(backend, "Backend (Express)") {
+
+    Component(api_ctrl, "REST Controller", "Express", "Stellt REST-Endpunkte bereit")
+
+    Component(checkin_service, "Check-In Service", "Business Logic", "Verarbeitet Check-Ins und Nutzerangaben")
+
+    Component(task_service, "Task Service", "Business Logic", "Verwaltet Aufgaben und Fortschritte")
+
+    Component(analysis_service, "Analysis Service", "Business Logic", "Erzeugt Analysen, Warnungen und Empfehlungen")
+}
+
+Container_Boundary(auth, "Authentifizierung") {
+
+    Component(auth_service, "Auth Service", "Business Logic", "Registrierung, Anmeldung und Sitzungsverwaltung")
+
+    Component(supabase_auth, "Supabase Auth", "Managed Service", "Authentifizierung und Benutzerverwaltung")
 }
 
 Container_Boundary(persistence, "Persistenz") {
-  Component(booking_repo, "Buchungs-Repository", "z. B. JPA Repository", "Datenzugriff für Buchungsentitäten")
-  Component(user_repo, "Nutzer-Repository", "z. B. JPA Repository", "Datenzugriff für Nutzerentitäten")
-  ContainerDb(db, "Datenbank", "z. B. PostgreSQL", "Persistente Datenhaltung für alle Entitäten")
+
+    Component(memory_store, "In-Memory Storage", "JavaScript Arrays", "Lokale Datenhaltung für Entwicklungszwecke")
+
+    Component(supabase_client, "Supabase Client", "SDK", "Zugriff auf PostgreSQL Datenbank")
+
+    ComponentDb(db, "PostgreSQL (Supabase)", "Database", "Persistente Speicherung")
 }
 
-System_Ext(ext, "Externer E-Mail-Dienst", "Zustellung von E-Mail-Benachrichtigungen, z. B. via SMTP")
+Rel(dashboard_ui, api_ctrl, "REST / JSON")
+Rel(checkin_ui, api_ctrl, "REST / JSON")
+Rel(task_ui, api_ctrl, "REST / JSON")
 
-Rel(booking_ui, booking_ctrl, "sendet Buchungsanfragen", "REST / HTTPS")
-Rel(auth_ui, user_svc, "authentifiziert Nutzer:in", "REST / HTTPS")
-Rel(booking_ctrl, booking_svc, "delegiert an", "Java API")
-Rel(booking_svc, booking_repo, "liest / schreibt Buchungen", "JPA")
-Rel(booking_svc, notification_svc, "löst Benachrichtigung aus", "Java API")
-Rel(user_svc, user_repo, "liest / schreibt Nutzerdaten", "JPA")
-Rel(booking_repo, db, "persistiert Daten", "SQL")
-Rel(user_repo, db, "persistiert Daten", "SQL")
-Rel(notification_svc, ext, "sendet E-Mails über", "SMTP")
+Rel(dashboard_ui, shared_ui, "nutzt")
+Rel(checkin_ui, shared_ui, "nutzt")
+Rel(task_ui, shared_ui, "nutzt")
+
+Rel(api_ctrl, checkin_service, "delegiert")
+Rel(api_ctrl, task_service, "delegiert")
+Rel(api_ctrl, analysis_service, "delegiert")
+Rel(api_ctrl, auth_service, "delegiert")
+
+Rel(auth_service, supabase_auth, "nutzt")
+
+Rel(checkin_service, supabase_client, "Datenzugriff")
+Rel(task_service, supabase_client, "Datenzugriff")
+Rel(analysis_service, supabase_client, "Lesezugriff")
+
+Rel(supabase_client, db, "SQL")
+
+checkin_service ..> memory_store : Walking Skeleton
+task_service ..> memory_store : Walking Skeleton
+analysis_service ..> memory_store : Walking Skeleton
 
 @enduml
 ....
@@ -143,32 +166,48 @@ Rel(notification_svc, ext, "sendet E-Mails über", "SMTP")
 |===
 | Komponente | Verantwortung | Schnittstellen
 
-| [z. B. Buchungs-Controller]
-| HTTP-Anfragen für Buchungsvorgänge entgegennehmen;
-  Eingaben validieren; Antworten zurückgeben
-| REST-API (eingehend); Buchungs-Service (ausgehend)
+| REST Controller
+| Entgegennahme von HTTP-Anfragen; Routing; Validierung von Eingabedaten; Rückgabe von JSON-Antworten
+| Frontend; Services
 
-| [z. B. Buchungs-Service]
-| Buchungslogik koordinieren; Verfügbarkeit prüfen;
-  Transaktionen verwalten; Benachrichtigungen auslösen
-| Buchungs-Repository; Benachrichtigungs-Service
+| Auth Service
+| Registrierung, Anmeldung und Sitzungsverwaltung über Supabase Auth; Verwaltung authentifizierter Benutzerzugriffe
+| REST Controller; Supabase Auth
 
-| [z. B. Buchungs-Repository]
-| Buchungsdaten lesen und schreiben;
-  Datenbankabfragen kapseln
-| Datenbank (JPA / SQL)
+| Check-In Service
+| Verwaltung von Check-Ins; Verarbeitung von Energielevel, Stresswerten, Stimmung und Reflexionen
+| REST Controller; Supabase Client
 
-| [z. B. Benachrichtigungs-Service]
-| E-Mail-Benachrichtigungen versenden;
-  Vorlagen verwalten
-| Externer SMTP-Dienst
+| Task Service
+| Erstellung, Bearbeitung und Abruf von Aufgaben; Verwaltung des Bearbeitungsstatus
+| REST Controller; Supabase Client
 
-| [Weitere Komponente]
-| [Verantwortung]
-| [Schnittstellen]
+| Analysis Service
+| Berechnung von Trends; Analyse von Stress-, Energie- und Aktivitätsdaten; Generierung von Warnungen und Empfehlungen
+| REST Controller; Supabase Client
+
+| Shared UI Components
+| Wiederverwendbare Benutzeroberflächen-Komponenten wie Buttons, Formulare, Dialoge und Layouts
+| Dashboard UI; Check-In UI; Aufgabenverwaltung UI
+
+| In-Memory Storage
+| Temporäre Datenhaltung für das Walking Skeleton und Entwicklungszwecke
+| Services
+
+| Supabase Client
+| Zugriff auf die PostgreSQL-Datenbank über das Supabase SDK; Ausführung von Datenbankoperationen
+| Services; PostgreSQL
+
+| Supabase Auth
+| Benutzerverwaltung, Authentifizierung und Sitzungsverwaltung
+| Auth Service
+
+| PostgreSQL (Supabase)
+| Persistente Speicherung aller Anwendungsdaten
+| Supabase Client
 |===
 
----
+—
 
 == Wichtige Interaktionsflüsse
 
@@ -176,61 +215,66 @@ Sequenzdiagramme zeigen, wie Komponenten bei typischen Abläufen zusammenarbeite
 Dokumentiert werden hier nur die wichtigsten und komplexesten Flüsse —
 nicht jede einfache CRUD-Operation.
 
-=== [Flussname, z. B. Raum buchen]
+=== Check-In erfassen
 
-_Beschreibe kurz, was dieser Ablauf zeigt und warum er dokumentiert wird._
+Dieser Ablauf zeigt die Erfassung eines täglichen Check-Ins durch einen Studierenden.
+Die eingegebenen Werte werden validiert und gespeichert. Die gespeicherten Daten bilden die Grundlage für spätere Analysen, Warnungen und Empfehlungen.
 
-//Beispielhaftes Sequenzdiagramm für den Buchungsprozess
-//Die tatsächlichen Flüsse müssen auf das konkrete Projekt zugeschnitten sein
-
-[plantuml, sequence-booking, svg]
+[plantuml, sequence-checkin, svg]
 ....
 @startuml
 skinparam monochrome true
 skinparam defaultFontSize 12
 
-actor "Nutzer:in" as user
-participant "Buchungs-\nController" as ctrl
-participant "Buchungs-\nService" as svc
-participant "Buchungs-\nRepository" as repo
-participant "Benachrichtigungs-\nService" as notify
+actor "Studierender" as user
+participant "Check-In UI" as ui
+participant "REST Controller" as ctrl
+participant "Check-In Service" as service
+participant "Supabase Client" as client
 
-user -> ctrl : POST /buchungen\n{raumId, zeitraum}
-ctrl -> ctrl : Eingabe validieren
-ctrl -> svc : buchungErstellen(raumId, zeitraum, nutzerId)
-svc -> repo : istVerfuegbar(raumId, zeitraum)
-repo --> svc : true
-svc -> repo : buchungSpeichern(buchung)
-repo --> svc : gespeicherteBuchung
-svc -> notify : bestaetigungSenden(buchung)
-notify --> svc : OK
-svc --> ctrl : buchung
-ctrl --> user : 201 Created\n{buchungsId, details}
+user -> ui : Check-In ausfüllen\n(Energie, Stress,\nStimmung, Reflexion)
+ui -> ctrl : POST /api/v1/checkins
+ctrl -> ctrl : Eingaben validieren
+ctrl -> service : createCheckIn()
+service -> client : speichern()
+client --> service : gespeicherter Check-In
+service --> ctrl : Erfolg
+ctrl --> ui : 201 Created
+ui --> user : Bestätigung anzeigen
 
 @enduml
 ....
 
 ---
 
-=== [Weiterer Fluss, z. B. Fehlerfall: Raum nicht verfügbar]
+=== Analyse anzeigen
 
-[plantuml, sequence-conflict, svg]
+Dieser Ablauf zeigt die Erstellung einer Analyse auf Basis gespeicherter Check-Ins und Aufgaben.
+Dabei werden Trends erkannt und daraus Warnungen sowie Empfehlungen abgeleitet.
+
+[plantuml, sequence-analysis, svg]
 ....
 @startuml
 skinparam monochrome true
 skinparam defaultFontSize 12
 
-actor "Nutzer:in" as user
-participant "Buchungs-\nController" as ctrl
-participant "Buchungs-\nService" as svc
-participant "Buchungs-\nRepository" as repo
+actor "Studierender" as user
+participant "Dashboard UI" as ui
+participant "REST Controller" as ctrl
+participant "Analysis Service" as service
+participant "Supabase Client" as client
 
-user -> ctrl : POST /buchungen\n{raumId, zeitraum}
-ctrl -> svc : buchungErstellen(raumId, zeitraum, nutzerId)
-svc -> repo : istVerfuegbar(raumId, zeitraum)
-repo --> svc : false
-svc --> ctrl : RaumNichtVerfuegbarException
-ctrl --> user : 409 Conflict\n{message, alternativen}
+user -> ui : Dashboard öffnen
+ui -> ctrl : GET /api/v1/analysis
+ctrl -> service : generateAnalysis()
+service -> client : Daten laden()
+client --> service : Check-Ins und Aufgaben
+service -> service : Trends berechnen
+service -> service : Warnungen erzeugen
+service -> service : Empfehlungen erzeugen
+service --> ctrl : Analyseergebnis
+ctrl --> ui : JSON
+ui --> user : Analyse anzeigen
 
 @enduml
 ....
@@ -250,9 +294,6 @@ Dieses Dokument zeigt ausschließlich die technische Persistenzstruktur.
 
 === Datenbankmodell
 
-//beispielhaftes ER-Diagramm für das Datenmodell
-//Die tatsächlichen Tabellen und Spalten müssen auf das konkrete Projekt zugeschnitten sein
-
 [plantuml, data-model, svg]
 ....
 @startuml
@@ -260,34 +301,39 @@ skinparam monochrome true
 skinparam defaultFontSize 12
 
 entity "nutzer" as user {
-  * id : UUID <<PK>>
+* id : UUID <<PK>>
   --
-  * email : VARCHAR(255) <<UNIQUE>>
-  * name : VARCHAR(100)
-  * erstellt_am : TIMESTAMP
-}
+* email : VARCHAR(255) <<UNIQUE>>
+* name : VARCHAR(100)
+* created_at : TIMESTAMP
+  }
 
-entity "raum" as room {
-  * id : UUID <<PK>>
+entity "checkin" as checkin {
+* id : UUID <<PK>>
   --
-  * bezeichnung : VARCHAR(100)
-  * kapazitaet : INTEGER
-  * standort : VARCHAR(100)
-}
+* user_id : UUID <<FK>>
+* energy_level : INTEGER
+* stress_level : INTEGER
+* mood : VARCHAR(50)
+* reflection : TEXT
+* created_at : TIMESTAMP
+  }
 
-entity "buchung" as booking {
-  * id : UUID <<PK>>
+entity "aufgabe" as task {
+* id : UUID <<PK>>
   --
-  * nutzer_id : UUID <<FK>>
-  * raum_id : UUID <<FK>>
-  * beginn : TIMESTAMP
-  * ende : TIMESTAMP
-  * status : VARCHAR(20)
-  * erstellt_am : TIMESTAMP
-}
+* user_id : UUID <<FK>>
+* title : VARCHAR(200)
+* description : TEXT
+* status : VARCHAR(30)
+* priority : VARCHAR(20)
+* estimated_duration : INTEGER
+* due_date : DATE
+* created_at : TIMESTAMP 
+  }
 
-user ||--o{ booking : "gibt auf"
-room ||--o{ booking : "ist Gegenstand von"
+user ||--o{ checkin : erstellt
+user ||--o{ task : verwaltet
 
 @enduml
 ....
@@ -299,42 +345,93 @@ room ||--o{ booking : "ist Gegenstand von"
 | Tabelle | Spalte | Beschreibung & Besonderheiten
 
 .4+| nutzer
-| id | UUID als Primärschlüssel; wird vom System generiert
-| email | Eindeutig; wird für Login und Benachrichtigungen verwendet
-| name | Anzeigename; kein Pflichtfeld nach DSGVO-Anforderung
-| erstellt_am | Automatisch gesetzt; nicht änderbar
+| id
+| UUID als Primärschlüssel; wird von Supabase Auth generiert
 
-.4+| buchung
-| id | UUID als Primärschlüssel
-| status | Enum-Werte: `AKTIV`, `STORNIERT`, `ABGELAUFEN`
-| beginn / ende | Beide Zeitpunkte inklusive; keine Überschneidung per DB-Constraint
-| nutzer_id / raum_id | Fremdschlüssel; kein Cascade Delete — Buchungen bleiben erhalten
+| email
+| Eindeutige E-Mail-Adresse des Nutzers
 
-| [Weitere Tabelle]
-| [Spalte]
-| [Beschreibung]
+| name
+| Anzeigename des Nutzers
+
+| created_at
+| Zeitpunkt der Benutzererstellung
+
+.7+| checkin
+| id
+| UUID als Primärschlüssel
+
+| user_id
+| Fremdschlüssel auf den Nutzer
+
+| energy_level
+| Energielevel des Nutzers, typischerweise auf einer Skala von 1 bis 10
+
+| stress_level
+| Wahrgenommener Stresslevel, typischerweise auf einer Skala von 1 bis 10
+
+| mood
+| Aktuelle Stimmung des Nutzers
+
+| reflection
+| Freitextfeld für persönliche Reflexionen
+
+| created_at
+| Zeitpunkt des Check-Ins
+
+.9+| aufgabe
+| id
+| UUID als Primärschlüssel
+
+| user_id
+| Fremdschlüssel auf den Nutzer
+
+| title
+| Kurzer Titel der Aufgabe
+
+| description
+| Detaillierte Beschreibung der Aufgabe
+
+| status
+| Bearbeitungsstatus (z. B. OFFEN, IN_BEARBEITUNG, ERLEDIGT)
+
+| priority
+| Priorität der Aufgabe (z. B. NIEDRIG, MITTEL, HOCH)
+
+| estimated_duration
+| Geschätzte Bearbeitungsdauer in Minuten
+
+| due_date
+| Optionales Fälligkeitsdatum
+
+| created_at
+| Zeitpunkt der Erstellung
 |===
 
 === Datenbankmigrationen
 
-_Schemaänderungen werden nicht manuell durchgeführt, sondern über Migrationsskripte
-versioniert. So ist der Datenbankzustand jederzeit reproduzierbar._
+Schemaänderungen werden nicht manuell durchgeführt, sondern über versionierte
+Migrationsskripte verwaltet. Dadurch bleibt die Datenbankstruktur nachvollziehbar,
+reproduzierbar und zwischen Entwicklungs- und Produktivumgebungen konsistent.
 
 [cols="1,3", options="header"]
 |===
 | Aspekt | Beschreibung
 
 | Werkzeug
-| [z. B. Flyway / Liquibase]
+| Supabase CLI Migrations
 
 | Speicherort
-| [z. B. `src/main/resources/db/migration/`]
+| `supabase/migrations/`
 
 | Namenskonvention
-| [z. B. `V001__initiales_schema.sql`, `V002__buchung_status_spalte.sql`]
+| Zeitstempelbasierte Benennung, z. B. `20250610120000_initial_schema.sql`
 
 | Regel
-| Bestehende Migrationsskripte werden *nie* verändert — nur neue hinzugefügt
+| Bereits ausgeführte Migrationen werden nicht verändert. Änderungen am Schema erfolgen ausschließlich über neue Migrationen.
+
+| Deployment
+| Migrationen werden über die Supabase CLI auf die Zielumgebung angewendet.
 |===
 
 == Eingesetzte Muster & Konventionen
@@ -349,24 +446,21 @@ Problem auf unterschiedliche Weise lösen._
 |===
 | Muster | Wo eingesetzt | Begründung
 
-| Repository Pattern
-| Persistenzschicht: alle Datenbankzugriffe
-| Datenbanklogik von Geschäftslogik trennen;
-  einfacher austauschbar und testbar
-
-| DTO (Data Transfer Object)
-| Schnittstelle zwischen Controller und Service
-| Interne Domänenobjekte nicht direkt exponieren;
-  API-Struktur unabhängig vom Datenbankmodell
-
 | Service Layer
-| Anwendungsschicht: alle Use Cases
-| Geschäftslogik zentralisieren;
-  Controller schlank halten
+| Backend (Check-In Service, Task Service, Analysis Service, Auth Service)
+| Trennung von HTTP-Verarbeitung und Geschäftslogik; Controller bleiben schlank und delegieren fachliche Aufgaben an Services
 
-| [Weiteres Muster]
-| [Wo eingesetzt]
-| [Begründung]
+| Component-Based Architecture
+| Frontend (React)
+| Benutzeroberfläche wird aus wiederverwendbaren Komponenten aufgebaut; verbessert Wartbarkeit und Wiederverwendbarkeit
+
+| Separation of Concerns
+| Gesamte Anwendung
+| Präsentation, Geschäftslogik und Datenzugriff werden in getrennten Schichten umgesetzt; reduziert Kopplung und erleichtert Erweiterungen
+
+| RESTful API Design
+| Kommunikation zwischen Frontend und Backend
+| Klare Ressourcenorientierung und standardisierte Kommunikation über HTTP und JSON
 |===
 
 === Fehlerbehandlung
@@ -375,21 +469,23 @@ Problem auf unterschiedliche Weise lösen._
 |===
 | Aspekt | Konvention
 
-| Fachliche Fehler
-| Als eigene Exception-Klassen modellieren
-  (z. B. `RaumNichtVerfuegbarException`, `BuchungNichtGefundenException`)
+| Validierungsfehler
+| Ungültige oder unvollständige Eingaben werden mit HTTP Statuscode `400 Bad Request` beantwortet
 
-| HTTP-Fehlercodes
-| 400 für Validierungsfehler; 404 für nicht gefundene Ressourcen;
-  409 für Konflikte; 500 nur für unerwartete Systemfehler
+| Nicht gefundene Ressourcen
+| Nicht vorhandene Check-Ins oder Aufgaben werden mit `404 Not Found` beantwortet
+
+| Authentifizierungsfehler
+| Fehlende oder ungültige Anmeldedaten werden mit `401 Unauthorized` beantwortet
+
+| Serverfehler
+| Unerwartete Fehler werden mit `500 Internal Server Error` beantwortet
 
 | Fehlermeldungen
-| Immer strukturiert zurückgeben:
-  `{ "fehler": "...", "details": "..." }` — kein Stack Trace an den Client
+| Fehler werden als strukturierte JSON-Antworten zurückgegeben
 
 | Logging
-| Fachliche Fehler als WARN; unerwartete Fehler als ERROR;
-  keine personenbezogenen Daten in Log-Ausgaben (DSGVO)
+| Fehler werden serverseitig protokolliert; sensible Nutzerdaten werden nicht in Logdateien gespeichert
 |===
 
 === API-Konventionen
@@ -399,17 +495,25 @@ Problem auf unterschiedliche Weise lösen._
 | Aspekt | Konvention
 
 | URL-Struktur
-| Ressourcenorientiert im Plural: `/buchungen`, `/raeume`, `/nutzer`
+| Ressourcenorientierte Endpunkte im Plural, z. B. `/api/v1/checkins`, `/api/v1/tasks`, `/api/v1/analysis`
 
 | HTTP-Methoden
-| GET = lesen; POST = erstellen; PUT = ersetzen; PATCH = teilweise ändern;
-  DELETE = löschen
+| GET = lesen; POST = erstellen; PUT = vollständiges Aktualisieren; PATCH = teilweises Aktualisieren; DELETE = löschen
 
 | Antwortformat
-| JSON in allen Fällen; Datumsformat ISO 8601: `2024-06-01T09:00:00Z`
+| JSON für alle Anfragen und Antworten
+
+| Datumsformat
+| ISO-8601 Format, z. B. `2025-06-15T14:30:00Z`
+
+| HTTP-Statuscodes
+| 200 für erfolgreiche Anfragen; 201 für erfolgreich erstellte Ressourcen; 400 für fehlerhafte Eingaben; 401 für Authentifizierungsfehler; 404 für nicht gefundene Ressourcen; 500 für unerwartete Serverfehler
+
+| Authentifizierung
+| Authentifizierte Anfragen verwenden die von Supabase Auth bereitgestellten Tokens
 
 | Versionierung
-| [z. B. URL-Präfix `/api/v1/` - Version nur erhöhen bei Breaking Changes]
+| Versionierung über URL-Präfix (`/api/v1/`); neue Hauptversionen nur bei inkompatiblen Änderungen
 |===
 
 _Diagramme in diesem Dokument sollten den aktuellen Stand des Codes widerspiegeln.
