@@ -52,34 +52,108 @@ Es beschreibt die Realität des Problemraums, nicht die Datenbankstruktur._
 === Diagramm
 
 //Fügen Sie hier ein Diagramm ein — entweder als eingebettetes PlantUML oder als exportiertes Bild.
-
 [plantuml, domain-model, svg]
 ....
 @startuml
-' Beispiel — bitte durch das echte Domänenmodell ersetzen
+' Initiales Domänenmodell für EnergyBalance
+' Fachliche Sicht: zentrale Konzepte, Attribute, Assoziationen und Multiplizitäten
 
-entity Nutzer {
+left to right direction
+
+entity Studierender {
   Name
-  E-Mail
+  EMail
 }
 
-entity Bestellung {
-  Bestellnummer
+entity Eintrag {
   Datum
-  Status
+  Stresswert
+  Energiewert
 }
 
-entity Produkt {
-  Bezeichnung
-  Preis
+entity Aufgabe {
+  Titel
+  Beschreibung
+  Datum
+  Deadline
+  Zeitaufwand
+  Prioritaet
+  Kategorie
 }
 
-Nutzer "1" --> "0..*" Bestellung : gibt auf
-Bestellung "1" --> "1..*" Produkt : enthält
+entity Reflexion {
+  Datum
+  Bewertung
+  Stimmung
+  Notiz
+}
+
+entity Baseline {
+  TypischerStresswert
+  TypischerEnergiewert
+  ErmitteltAm
+}
+
+entity Kontextdaten {
+  Datum
+  Dauer
+  Typ
+  Kategorie
+}
+
+entity Zeitraum {
+  Startdatum
+  Enddatum
+  Typ
+}
+
+entity Analyse {
+  DurchschnittStress
+  DurchschnittEnergie
+  Trend
+  Schwankung
+}
+
+entity Warnung {
+  Typ
+  Ausloeser
+  Beschreibung
+  Zeitpunkt
+}
+
+entity Empfehlung {
+  Titel
+  Beschreibung
+  Grundlage
+  ErzeugtAm
+}
+
+entity Datenexport {
+  Dateiformat
+  ErstelltAm
+}
+
+entity Datenkategorie {
+  Name
+}
+
+Studierender "1" *-- "0..*" Eintrag : besitzt
+Studierender "1" *-- "0..*" Aufgabe : besitzt
+Studierender "1" *-- "0..*" Reflexion : besitzt
+Studierender "1" *-- "0..1" Baseline : besitzt
+Studierender "1" *-- "0..*" Kontextdaten : besitzt
+
+Studierender "1" -- "0..*" Analyse : hat
+Analyse "1" --> "1" Zeitraum : bezieht sich auf
+Analyse "1" --> "0..*" Warnung : erzeugt
+Analyse "1" --> "0..*" Empfehlung : erzeugt
+
+Studierender "1" *-- "0..*" Datenexport : erstellt
+Datenexport "1" --> "1" Zeitraum : umfasst
+Datenexport "1" --> "1..*" Datenkategorie : enthaelt
 
 @enduml
 ....
-
 NOTE: Das Domänenmodell wird im Laufe des Projekts weiterentwickelt.
 Änderungen sollten immer gemeinsam im Team besprochen und hier nachgepflegt werden.
 
@@ -91,17 +165,41 @@ Kurze Erläuterung zu den im Modell enthaltenen Entitäten.
 |===
 | Entität | Beschreibung
 
-| Nutzer
-| [Beschreibung der Entität und ihrer Rolle im System]
+| Studierender
+| Zentrale Person im Domänenmodell. Der Studierende erfasst Stress- und Energiewerte, Aufgaben, Reflexionen und Kontextdaten. Alle persönlichen Daten und Auswertungen werden ihm fachlich zugeordnet.
 
-| Bestellung
-| [Beschreibung der Entität und ihrer Rolle im System]
+| Eintrag 
+| Dokumentiert Stress- und Energiewerte zu einem bestimmten Datum. Einträge bilden die Grundlage für Verläufe, Analysen, Warnungen und Empfehlungen.
 
-| Produkt
-| [Beschreibung der Entität und ihrer Rolle im System]
+| Aufgabe
+| Beschreibt eine Verpflichtung oder Tätigkeit des Studierenden. Aufgaben können mit Datum, Deadline, Zeitaufwand, Priorität und Kategorie beschrieben werden und helfen, Belastungstreiber zu erkennen.
 
-| [Weitere Entität]
-| [Beschreibung]
+| Reflexion 
+| Subjektive Bewertung eines Tages oder Zeitraums durch den Studierenden. Sie kann Bewertung, Stimmung und Notiz enthalten und ergänzt die gemessenen Stress- und Energiewerte um persönliche Wahrnehmung.
+
+| Baseline 
+| Persönlicher Referenzwert für typische Stress- und Energiewerte eines Studierenden. Diese kann Bewertung, Stimmung und Notiz enthalten und ergänzt die gemessenen Stress- und Energiewerte um persönliche Wahrnehmung.
+
+| Kontextdaten 
+| Ergänzende Information über Einflussfaktoren wie Schlaf, körperliche Aktivität oder Lern- und Arbeitsphasen. Kontextdaten helfen, Stress- und Energieverläufe besser zu interpretieren.
+
+| Analyse 
+| Fachliche Auswertung vorhandener Daten. Eine Analyse kann Durchschnittswerte, Trends und Schwankungen ermitteln und bildet die Grundlage für Warnungen und Empfehlungen.
+
+| Warnung 
+| Kritischer Hinweis an den Studierenden, wenn auffällige oder problematische Entwicklungen erkannt werden, zum Beispiel ein steigendes Stresslevel oder ein niedriges Energielevel.
+
+| Empfehlung 
+| Vorschlag zur Verbesserung von Verhalten, Zeitplanung oder Belastungssteuerung. Empfehlungen basieren auf analysierten Daten und sollen den Studierenden bei der Selbststeuerung unterstützen.
+
+| Zeitraum 
+| Zeitlicher Bereich, auf den sich eine Analyse oder ein Datenexport bezieht. Ein Zeitraum kann zum Beispiel Tag, Woche oder Monat sein.
+
+| Datenexport 
+| Fachliches Konzept zum Export ausgewählter Daten. Ein Datenexport bezieht sich auf einen Zeitraum und enthält bestimmte Datenkategorien.
+
+| Datenkategorie
+| Gruppe von Daten, die bei einem Export ausgewählt werden kann, zum Beispiel Stressdaten, Energiedaten, Aufgaben oder Reflexionen.
 |===
 
 === Beschreibung der Beziehungen
@@ -112,20 +210,65 @@ Beschreibung der wichtigsten Beziehungen zwischen den Entitäten, sofern diese b
 |===
 | Von | Zu | Kardinalität | Bedeutung
 
-| Nutzer
-| Bestellung
+| Studierender 
+| Eintrag
 | 1 zu 0..*
-| Ein Nutzer kann keine oder mehrere Bestellungen aufgeben.
+| Ein Studierender kann keine, einen oder viele Einträge besitzen. Jeder Eintrag gehört genau zu einem Studierenden.
 
-| Bestellung
-| Produkt
+| Studierender
+| Aufgabe
+| 1 zu 0..*
+| Ein Studierender kann mehrere Aufgaben verwalten. Jede Aufgabe ist genau einem Studierenden zugeordnet.
+
+| Studierender
+| Reflexion
+| 1 zu 0..*
+| Ein Studierender kann mehrere Reflexionen erfassen. Jede Reflexion gehört zu genau einem Studierenden zugeordnet.
+
+| Studierender 
+| Baseline
+| 1 zu 0..1
+| Ein Studierender kann keine oder eine aktuelle Baseline besitzen. Die Baseline ist optional, da diese erst nach einer Einführungsphase oder initialen Festlegung vorhanden sein kann.
+
+| Studierender
+| Kontextdaten
+| 1 zu 0..*
+| Ein Studierender kann mehrere Kontextdaten erfassen, zum Beispiel Schlafdaten, Aktivitätsdaten oder Lern-und Arbeitsphasen.
+
+| Studierender
+| Analyse
+| 1 zu 0..*
+|Ein Studierender kann mehrere Analysen besitzen oder durchführen lassen. Jede Analyse gehört zu genau einem Studierenden.
+
+| Analyse 
+| Warnung
+| 1 zu 0..*
+| Eine Analyse kann keine, eine oder mehrere Warnungen erzeugen. Eine Warnung entsteht nur, wenn auffällige Werte oder Entwicklungen erkannt werden.
+
+| Analyse 
+| Empfehlung
+| 1 zu 0..*
+| Eine Analyse kann keine, eine oder mehrere Empfehlungen erzeugen. Empfehlungen entstehen auf Grundlage ausgewerteter Daten.
+
+| Analyse
+| Zeitraum
+| 1 zu 1
+| Jede Analyse bezieht sich auf genau einen Zeitraum. Dadurch ist klar, für welchen zeitlichen Bereich Werte, Trends oder Schwankungen betrachtet werden.
+
+| Studierender 
+| Datenexport
+| 1 zu 0..*
+| Ein Studierender kann mehrere Datenexporte erstellen. Jeder Export gehört zu genau einem Studierenden.
+
+| Datenexport 
+| Zeitraum
+| 1 zu 1
+| Jeder Datenexport bezieht sich genau auf einen Zeitraum, aus dem Daten exportiert werden.
+
+| Datenexport 
+| Datenkategorie
 | 1 zu 1..*
-| Eine Bestellung enthält mindestens ein Produkt.
-
-| [Entität]
-| [Entität]
-| [z. B. 0..* zu 1]
-| [Beschreibung der Beziehung in natürlicher Sprache]
+| Ein Datenexport enthält mindestens eine Datenkategorie. Dadurch kann der Studierende gezielt auswählen, welche Daten exportiert werden.
 |===
 
 _Dieses Dokument wird kontinuierlich gepflegt. Änderungen an Fachbegriffen oder Beziehungen
