@@ -1,5 +1,5 @@
-= UX-Konzept: {project-name}
-Vince Hohlfeld <vince.hohlfeld@stud.htw-dresden.de>; Stefanow Armando <armando.stefanow@stud.htw-dresden.de>; Omar Al Jawabreh <omar.aljawabreh@stud.htw-dresden.de>; Anwar Ahmad Alissa Aljasim <anwar.ahmadalissaaljasim@stud.htw-dresden.de>; Tomás Kuna <tomas.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoangsondavid.tran2@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>
+= UX-Konzept: F2 - EnergyBalance
+Vince Hohfeld <vince.hohlfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al Jawabreh <omar.al.jawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomas.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoang.son.david.tran@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad Alissa Alijasim <anwar.ahmad.alissa.alijasim@stud.htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -51,7 +51,7 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 [cols="1,3"]
 |===
 | *Rolle*
-| Studienanfängerin im 1.Semester
+| Studienanfängerin im 1. Semester
 
 | *Alter*
 | 18 Jahre
@@ -66,7 +66,7 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 | Sie hat Schwierigkeiten, ihren Lernaufwand realistisch einzuschätzen und sich im Studium effektiv selbst zu organisieren.
 
 | *Verhalten & Kontext*
-| Maja nutzt digitale Tools täglich und arbeitet hauptsächlich mobil am Smartphone oder Tablet. Er benötigt klare Visualisierungen und einfache Funktionen.
+| Maja nutzt digitale Tools täglich und arbeitet hauptsächlich mobil am Smartphone oder Tablet. Sie benötigt klare Visualisierungen und einfache Funktionen.
 
 | *Bezug zum Produkt*
 | EnergyBalance unterstützt sie dabei, ihre Belastung besser einzuschätzen, Lernphasen zu planen und gesunde Gewohnheiten aufzubauen.
@@ -132,8 +132,7 @@ Soziale & organisatorische Umgebung: Studium, Prüfungsstress, Nebenjob, Gruppen
 _Wie lösen die Nutzenden ihr Problem heute? Diese Beschreibung zeigt, was das Produkt
 verbessern soll — und macht den Mehrwert explizit._
 
-[Beschreibe den heutigen Ablauf in 3–5 Sätzen oder als kurze Schrittfolge. Beispiel: „Heute fragt Maria an der Infotheke nach freien Räumen, erhält eine Liste per E-Mail, und stellt beim Ankommen fest, dass der Raum bereits belegt ist.
-Der Prozess kostet sie im Schnitt 20 Minuten pro Tag."]
+Studierende organisieren ihren Studienalltag häufig mit Kalendern, To-do-Listen oder Notizen. Das persönliche Stress- und Energielevel wird dabei meist nur subjektiv eingeschätzt und nicht systematisch dokumentiert. Dadurch bleiben Zusammenhänge zwischen Arbeitsbelastung und Wohlbefinden oft unentdeckt.
 
 === Nutzungshürden & Risiken
 
