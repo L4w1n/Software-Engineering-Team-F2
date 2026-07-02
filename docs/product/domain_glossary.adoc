@@ -1,5 +1,5 @@
-= Domänenmodell und Glossar: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+= Domänenmodell und Glossar: F2 - EnergyBalance
+Vince Hohfeld <vince.hohlfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al Jawabreh <omar.al.jawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomas.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoang.son.david.tran@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad Alissa Alijasim <anwar.ahmad.alissa.alijasim@stud.htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
