@@ -1,5 +1,5 @@
-= Produktkonzept: {project-name}
-Vince Hohfeld <vince.hohfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al jawabreh <omar.al.jawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomàs.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoang.son.david.tran@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad Alissa Alijasim <anwar.ahmad.alissa.alijasim@stud.htw-dresden.de>
+= Produktkonzept: F2 - EnergyBalance
+Vince Hohfeld <vince.hohlfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al Jawabreh <omar.al.jawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomas.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoang.son.david.tran@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad Alissa Alijasim <anwar.ahmad.alissa.alijasim@stud.htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -34,7 +34,7 @@ Für [Studierende],
 die [ihre mentale und zeitliche Belastung im Studienalltag besser verstehen und steuern möchten],
 ist [EnergyBalance]
 ein [Selbstmanagement- und Tracking-Tool],
-das [Transaprend über Energielevel, Stress und Aufgaben schafft].
+das [Transparenz über Energielevel, Stress und Aufgaben schafft].
 Im Gegensatz zu [To-Do oder Kalender-Apps]
 bietet unser Produkt [die Möglichkeit, Belastung und Wohlbefinden aktiv zu analysieren und daraus individuelle Verbesserungen abzuleiten].
 ____
@@ -59,14 +59,14 @@ _Wer sind die Zielgruppen, und wie positioniert sich das Produkt im Vergleich zu
 |===
 | Zielgruppe | Beschreibung
 
-| [Studierende]
-| [Studierende, die ihre mentale und zeitliche Belastung im Studienalltag besser verstehen und steuern möchten. Ihre Motivation besteht darin, Überforderung zu vermeiden, produktiver zu arbeiten und gleichzeitig ihr Wohlbefinden zu verbessern.]
+| Studierende
+| Studierende, die ihre mentale und zeitliche Belastung im Studienalltag besser verstehen und steuern möchten. Ihre Motivation besteht darin, Überforderung zu vermeiden, produktiver zu arbeiten und gleichzeitig ihr Wohlbefinden zu verbessern.
 
-| [Studienanfänger]
-| [Studienanfänger, die Schwierigkeiten haben, sich an die neue Struktur und Anforderungen des Studiums anzupassen. Sie benötigen Unterstützung bei der Selbstorganisation und beim Aufbau gesunder Arbeitsgewohnheiten.]
+| Studienanfänger
+| Studienanfänger, die Schwierigkeiten haben, sich an die neue Struktur und Anforderungen des Studiums anzupassen. Sie benötigen Unterstützung bei der Selbstorganisation und beim Aufbau gesunder Arbeitsgewohnheiten.
 
-| [Studienberater/Coaches(optional)]
-| [Beratende Personen, die Studierende bei der Bewältigung ihres Studienalltags unterstützen. Sie nutzen aggregierte Daten, um gezielt Hilfestellungen zu geben und Überlastung frühzeitig zu erkennen.]
+| Studienberater/Coaches
+| Beratende Personen, die Studierende bei der Bewältigung ihres Studienalltags unterstützen. Sie nutzen aggregierte Daten, um gezielt Hilfestellungen zu geben und Überlastung frühzeitig zu erkennen.
 |===
 
 NOTE: Ausführliche Beschreibungen der Nutzenden — Personas, Nutzungskontext,
@@ -78,17 +78,17 @@ typische Aufgaben — sind im link:ux_concept.adoc[UX-Konzept] dokumentiert.
 |===
 | Alternative | Beschreibung | Warum unser Produkt besser passt
 
-| [Klassische To-Do-Apps (z.B. Kalender, Notizen-App)]
-| [Nutzer organisieren ihre Aufgaben und Termine über Kalender oder To-Do-Listen. Dabei werden jedoch ausschließlich Aufgaben erfasst, ohne die persönliche Belastung oder das Energielevel zu berücksichtigen.]
-| [EnergyBalance geht über die reine Aufgabenorganisation hinaus, indem es zusätzlich das invidivuelle Energielevel und Stressverhalten erfasst. Dadurch können Zusammenhänge zwischen Aufgaben und Belastung erkannt und aktiv gesteuert werden.]
+| Klassische To-Do-Apps (z.B. Kalender, Notizen-App)
+| Nutzer organisieren ihre Aufgaben und Termine über Kalender oder To-Do-Listen. Dabei werden jedoch ausschließlich Aufgaben erfasst, ohne die persönliche Belastung oder das Energielevel zu berücksichtigen.
+| EnergyBalance geht über die reine Aufgabenorganisation hinaus, indem es zusätzlich das individuelle Energielevel und Stressverhalten erfasst. Dadurch können Zusammenhänge zwischen Aufgaben und Belastung erkannt und aktiv gesteuert werden.
 
-| [Eigenes Bauchgefühl/ keine systematische Erfassung]
-| [Viele Studierende verlassen sich auf ihr subjektives Empfinden, um ihre Belastung einzuschätzen. Eine strukturierte Dokumentation oder Analyse findet nicht statt.]
-| [EnergyBalance ermöglicht eine objektive und langfristige Analyse durch kontinuierliches tracking. Muster und Überlastungssituationen werden sichtbar, die sonst eher unbemerkt bleiben würden.]
+| Eigenes Bauchgefühl/ keine systematische Erfassung
+| Viele Studierende verlassen sich auf ihr subjektives Empfinden, um ihre Belastung einzuschätzen. Eine strukturierte Dokumentation oder Analyse findet nicht statt.
+| EnergyBalance ermöglicht eine objektive und langfristige Analyse durch kontinuierliches Tracking. Muster und Überlastungssituationen werden sichtbar, die sonst eher unbemerkt bleiben würden.
 
-| [Fitness- und Gesundheits-Apps (z.B. Fitbit, Apple Health)]
-| [Einige Apps erfassen allgemeine Gesundheitsdaten wie Schlaf oder Bewegung, sind jedoch nicht speziell auf den Stress im Studienalltag und akademische Anforderungen ausgerichtet.]
-| [EnergyBalance ist gezielt auf den Kontext Studium zugeschnitten und verknüpft Belastung direkt mit Aufgaben, Lernphasen und Verpflichtungen. Dadurch entsteht ein konkreter Mehrwert für Studierende.]
+| Fitness- und Gesundheits-Apps (z.B. Fitbit, Apple Health)
+| Einige Apps erfassen allgemeine Gesundheitsdaten wie Schlaf oder Bewegung, sind jedoch nicht speziell auf den Stress im Studienalltag und akademische Anforderungen ausgerichtet.
+| EnergyBalance ist gezielt auf den Kontext Studium zugeschnitten und verknüpft Belastung direkt mit Aufgaben, Lernphasen und Verpflichtungen. Dadurch entsteht ein konkreter Mehrwert für Studierende.
 |===
 
 
@@ -101,25 +101,25 @@ erklärt, warum bestimmte Entscheidungen getroffen wurden.
 |===
 | Stakeholder | Rolle / Interesse | Erwartungen an das Produkt | Einfluss
 
-| [Studierende]
-| [möchten ihre Belastung, Energielevel und ihren Studienalltag besser verstehen und optimieren]
-| [Einfache Bedienung, schnelle Eingabe von Daten, aussagekräftige Auswertungen und konkrete Verbesserungsvorschläge]
+| Studierende
+| möchten ihre Belastung, Energielevel und ihren Studienalltag besser verstehen und optimieren
+| Einfache Bedienung, schnelle Eingabe von Daten, aussagekräftige Auswertungen und konkrete Verbesserungsvorschläge
 | Hoch
 
-| [Studienberater/Coaches]
-| [Unterstützen Studierende bei Problemen im Studium und möchten frühzeitig Überlastung erkennen]
-| [Zugriff auf aggregierte Daten (nur mit Zustimmung), verständliche Auswertungen und Hinweise auf kritische Entwicklungen]
+| Studienberater/Coaches
+| Unterstützen Studierende bei Problemen im Studium und möchten frühzeitig Überlastung erkennen
+| Zugriff auf aggregierte Daten (nur mit Zustimmung), verständliche Auswertungen und Hinweise auf kritische Entwicklungen
 | Niedrig
 
-| [Hochschule/Verwaltung]
-| [Interesse an der Förderung des Studienerfolgs und der Reduktion von Studienabbrüchen]
-| [Datenschutz (DSGVO), anonymisierte und saubere Architektur. Einhaltung der SMART-Methode]
+| Hochschule/Verwaltung
+| Interesse an der Förderung des Studienerfolgs und der Reduktion von Studienabbrüchen
+| Einhaltung der DSGVO sowie einer datenschutzkonformen Systemarchitektur.
 | Mittel
 
-| [Dozent]
-| [Profitieren ovn besser organisierten und weniger überlasteten Studierenden]
-| [Indirekte Verbesserung der Studienleistung und Teilnahme]
-| [Niedrig]
+| Lehrende
+| Profitieren von besser organisierten und weniger überlasteten Studierenden
+| Indirekte Verbesserung der Studienleistung und Teilnahme
+| Niedrig
 |===
 
 == Hauptfunktionen
@@ -146,15 +146,15 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 
 | Studierende wollen beim Einstieg unterstützt werden und individuelle Referenzwerte für ihre Auswertungen erhalten.
 | F4 - Onboarding und Baseline-Ermittlung
-| Must Have
+| Should Have
 
 | Studierende wollen frühzeitig auf kritische Belastungssituationen aufmerksam gemacht werden.
 | F5 - Frühwarnsystem
-| Must Have
+| Should Have
 
 | Studierende wollen personalisierte Empfehlungen zur Verbesserung ihres Studien- und Arbeitsalltags erhalten.
 | F6 - Empfehlungssystem
-| Must Have
+| Should Have
 
 | Studierende wollen ihre persönliche Entwicklung reflektieren und subjektive Eindrücke dokumentieren können.
 | F7 - Reflexion und Selbstbewertung
@@ -186,11 +186,15 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 
 | Studierende wollen die Anwendung personalisiert mit Konto oder alternativ lokal ohne Konto nutzen können.
 | F14 - Benutzerverwaltung
-| Could Have
+| Must Have
 
 | Studierende wollen ihre Daten exportieren und gezielt mit anderen Personen teilen können.
 | F15 - Export und Datenfreigabe
 | Could Have
+
+| Studierende wollen zwischen den verschiedenen Ansichten der PWA navigieren können.
+| F16 - Routing und Navigation
+| Must Have
 |===
 
 NOTE: Die angegebenen Prioritäten spiegeln den derzeitigen Stand der MVP-Planung wider
@@ -217,35 +221,35 @@ technischen Entscheidungen, die sich daraus ergeben — ohne sie hier zu wiederh
 
 | Benutzbarkeit
 | Das Produkt soll intuitiv und ohne lange Einarbeitung nutzbar sein.
-| Nutzer können ihr Energie- und Stresslevel mit maximal 3 Klicks und in unter 15 Sekunden erfassen. Mindestens 80 % der Testpersonen schaffen Kerntasks ohne fremde Hilfe.
+| Nutzer können ihr Energie- und Stresslevel mit maximal 3 Klicks und in unter 15 Sekunden erfassen.
 
 | Performance
 | Das System soll schnell auf Eingaben und Abfragen reagieren.
 | Ladezeiten unter 2 Sekunden bei normalen Nutzerinteraktionen.
 
 | Verfügbarkeit
-| Das System soll zuverlässig nutzbar sein.
-| Verfügbarkeit ≥ 99 % während Nutzungszeiten.
+| Das System soll während der üblichen Nutzungszeiten zuverlässig erreichbar sein.
+| Die Anwendung ist innerhalb der Entwicklungs- und Testphase zuverlässig nutzbar. Außerdem gibt es keine ungeplanten Ausfälle während der Demonstration.
 
 | Datensicherheit
 | Sensible Nutzerdaten müssen geschützt gespeichert werden.
-| Zugriff nur auf Authentifizierung, keine unverschlüsselte Datenspeicherung.
+| Zugriff erfolgt ausschließlich nach erfolgreicher Authentifizierung; Daten werden verschlüsselt übertragen.
 
 | Datenschutz
 | Nutzer müssen vollständige Kontrolle über ihre persönlichen Daten haben. Die App erfasst nur das Minimum an notwendigen Daten.
-| Nutzer können alle eigenen Daten einsehen, exportieren und dauerhaft löschen. Datenschutzerklärung vor Erstnutzung bestätigt.
+| Nutzer können ihre eigenen Daten einsehen. Die Verarbeitung personenbezogener Daten erfolgt gemäß DSGVO.
 
 | Verständlichkeit
 | Die dargestellten Auswertungen müssen leicht interpretierbar sein.
-| ≥ 85 % der Nutzer verstehen Diagramme ohne Erklärung. Alle Visualisierungen enthalten Kurzbeschriftungen und farbliche Legende. (Prototyp für Testpersonen)
+| Diagramme verfügen über eindeutige Achsenbeschriftungen, Legenden und sind ohne zusätzliche Erklärung verständlich.
 
 | Zuverlässigkeit der Daten
-| Eingetragene Werte dürfen nicht verloren gehen – auch bei schlechter Internetverbindung oder App-Absturz. (Lokale Version)
-| Offline-Erfassung mit automatischer Synchronisation bei Verbindungswiederherstellung. 
+| Erfasste Check-Ins dürfen nach erfolgreicher Speicherung nicht verloren gehen.
+| Gespeicherte Check-Ins können nach dem erneuten Laden der Anwendung vollständig abgerufen werden.
 
 | Akzeptanz & Motivation
-| Studierende sollen die App regelmäßig und freiwillig nutzen, nicht nur einmalig. Gamification und Reminder sollen die Kontinuität fördern.
-| Retentionsrate nach 4 Wochen ≥ 50 %. Implementierung eines Reward-/Streaksytems, beispielsweise eine Flamme oder Pflanze die wächst, etc.
+| Die Anwendung soll Studierende zu einer regelmäßigen Nutzung motivieren.
+| Die Erfassung eines Check-Ins ist mit wenigen Eingaben möglich und kann innerhalb kurzer Zeit abgeschlossen werden.
 |===
 
 === Einschränkungen
@@ -278,18 +282,13 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 | Organisatorisch
 
 | Technische Infrastruktur
-| Einsatz gängiger Webtechnologien (bestehend aus:Frontend/Backend) ohne Spezialhardware.
+| Frontend als React Progressive Web App, Backend mit Node.js/Nest sowie PostgreSQL über Supabase. Es wird keine Spezialhardware benötigt.
 | Technisch
 
 | Programmiersprache
-| 
-| Technisch
-
-| Offline-Grundfähigkeit
-| Einträge müssen auch ohne aktive Internetverbindung erfassbar sein. Sobald eine Internetverbindung hergestellt wurde, sollen die Daten automatisch geupdated werden.
+| Frontend: TypeScript mit React. Backend: JavaScript mit Node.js und Nest.
 | Technisch
 |===
-
 
 == Versionsverlauf
 
@@ -301,6 +300,9 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 | [15.04.2026]
 | Initiale Version nach Kick-off-Workshop
 
+| 1.1
+| 02.07.2026
+| Aktualisierung der Produktvision, Hauptfunktionen, Qualitätsziele und technischen Rahmenbedingungen entsprechend dem aktuellen Projektstand
 |===
 
 ---
