@@ -1,4 +1,4 @@
-= Softwaredesign: F2 - EnergyBalance
+= Team Charter: F2 - EnergyBalance
 Vince Hohfeld <vince.hohlfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al Jawabreh <omar.al.jawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomas.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoang.son.david.tran@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad Alissa Alijasim <anwar.ahmad.alissa.alijasim@stud.htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
