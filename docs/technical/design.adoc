@@ -88,7 +88,8 @@ zusammengehörige Einheit von Code mit einer klar definierten Aufgabe._
 ....
 @startuml
 
-!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+' source: https://github.com/plantuml-stdlib/C4-PlantUML
+!include <c4/C4_Component.puml>
 
 LAYOUT_WITH_LEGEND()
 
@@ -105,29 +106,27 @@ Container_Boundary(frontend, "Frontend (React PWA)") {
     Component(shared_ui, "Shared UI Components", "React", "Wiederverwendbare UI-Elemente")
 }
 
-Container_Boundary(backend, "Backend (Express)") {
+Container_Boundary(backend, "Backend (NestJS)") {
 
-    Component(api_ctrl, "REST Controller", "Express", "Stellt REST-Endpunkte bereit")
+    Component(api_ctrl, "REST Controller", "NestJS", "Stellt REST-Endpunkte bereit")
 
-    Component(checkin_service, "Check-In Service", "Business Logic", "Verarbeitet Check-Ins und Nutzerangaben")
+    Component(checkin_service, "Check-In Service", "NestJS Service", "Verarbeitet Check-Ins und Nutzerangaben")
 
-    Component(task_service, "Task Service", "Business Logic", "Verwaltet Aufgaben und Fortschritte")
+    Component(task_service, "Task Service", "NestJS Service", "Verwaltet Aufgaben und Fortschritte")
 
-    Component(analysis_service, "Analysis Service", "Business Logic", "Erzeugt Analysen, Warnungen und Empfehlungen")
+    Component(analysis_service, "Analysis Service", "NestJS Service", "Erzeugt Analysen, Warnungen und Empfehlungen")
 }
 
 Container_Boundary(auth, "Authentifizierung") {
 
-    Component(auth_service, "Auth Service", "Business Logic", "Registrierung, Anmeldung und Sitzungsverwaltung")
+    Component(auth_service, "Auth Service", "NestJS Service", "Registrierung, Anmeldung und Sitzungsverwaltung")
 
     Component(supabase_auth, "Supabase Auth", "Managed Service", "Authentifizierung und Benutzerverwaltung")
 }
 
 Container_Boundary(persistence, "Persistenz") {
 
-    Component(memory_store, "In-Memory Storage", "JavaScript Arrays", "Lokale Datenhaltung für Entwicklungszwecke")
-
-    Component(supabase_client, "Supabase Client", "SDK", "Zugriff auf PostgreSQL Datenbank")
+    Component(supabase_client, "Supabase Client", "SDK", "Zugriff auf Supabase PostgreSQL")
 
     ComponentDb(db, "PostgreSQL (Supabase)", "Database", "Persistente Speicherung")
 }
@@ -152,10 +151,6 @@ Rel(task_service, supabase_client, "Datenzugriff")
 Rel(analysis_service, supabase_client, "Lesezugriff")
 
 Rel(supabase_client, db, "SQL")
-
-checkin_service ..> memory_store : Walking Skeleton
-task_service ..> memory_store : Walking Skeleton
-analysis_service ..> memory_store : Walking Skeleton
 
 @enduml
 ....
