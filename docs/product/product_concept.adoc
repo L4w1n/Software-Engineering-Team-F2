@@ -288,6 +288,10 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 | Programmiersprache
 | Frontend: TypeScript mit React. Backend: JavaScript mit Node.js und Nest.
 | Technisch
+
+| Offline-Grundfähigkeit
+| Einträge müssen auch ohne aktive Internetverbindung erfassbar sein. Sobald eine Internetverbindung hergestellt wurde, sollen die Daten automatisch geupdated werden.
+| Technisch
 |===
 
 == Versionsverlauf
