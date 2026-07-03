@@ -66,7 +66,7 @@ note right of persistence : In-Memory Storage,\nSupabase Client,\nPostgreSQL
 | Keine äußeren Schichten
 
 | Persistenzschicht
-| Speicherung und Abruf von Anwendungsdaten; aktuell temporäre Speicherung für das Walking Skeleton, später Persistenz über Supabase Client und Supabase PostgreSQL 
+| Speicherung und Abruf von Anwendungsdaten; Persistenz über Supabase Client und Supabase PostgreSQL 
 | Keine
 |===
 
@@ -184,10 +184,6 @@ Rel(supabase_client, db, "SQL")
 | Shared UI Components
 | Wiederverwendbare Benutzeroberflächen-Komponenten wie Buttons, Formulare, Dialoge und Layouts
 | Dashboard UI; Check-In UI; Aufgabenverwaltung UI
-
-| In-Memory Storage
-| Temporäre Datenhaltung für das Walking Skeleton und Entwicklungszwecke
-| Services
 
 | Supabase Client
 | Zugriff auf die PostgreSQL-Datenbank über das Supabase SDK; Ausführung von Datenbankoperationen
