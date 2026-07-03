@@ -1,5 +1,5 @@
-= Architekturdokument: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+= Architekturdokument: F2 - EnergyBalance
+Vince Hohfeld <vince.hohlfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al Jawabreh <omar.al.jawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomas.kuna@stud.htw-dresden.de>; Hoang Son David Tran <hoang.son.david.tran@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad Alissa Alijasim <anwar.ahmad.alissa.alijasim@stud.htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -30,32 +30,28 @@ _Der Systemkontext zeigt das System als Ganzes in seiner Umgebung: welche extern
 ....
 @startuml
 ' source: https://github.com/plantuml-stdlib/C4-PlantUML
-' C4 Model
 !include <c4/C4_Context.puml>
-
-' Images
-!include <office/Users/user.puml>
-!include <office/Users/mobile_user.puml>
 
 LAYOUT_WITH_LEGEND()
 
-title System Context Diagram – [Systemname]
+title System Context Diagram – EnergyBalance
 
-Person(user, "Nutzer:in", "Verwendet das System über Web oder Mobile")
-Person(admin, "Administrator:in", "Verwaltet und konfiguriert das System")
+Person(student, "Studierende", "Erfasst Stress- und Energiewerte, betrachtet Auswertungen und verwaltet eigene Daten")
 
-System(system, "[Systemname]", "Kernfunktionalität des Systems")
+System_Boundary(energybalance, "EnergyBalance") {
+System(pwa, "EnergyBalance PWA", "Webanwendung zur Erfassung und Visualisierung von Stress- und Energiedaten")
+System(api, "EnergyBalance Backend", "REST API für Fachlogik, Validierung und Datenzugriff")
+}
 
-SystemDb(db, "Datenbank", "Persistente Datenhaltung des Systems")
+System_Ext(auth, "Supabase Auth", "Registrierung, Anmeldung und Sitzungsverwaltung")
+SystemDb_Ext(db, "Supabase PostgreSQL", "Persistente Speicherung von Nutzer- und Check-In-Daten")
 
-System_Ext(ext1, "Externer Dienst\n[z. B. LDAP / SSO]", "Authentifizierung und Identitätsverwaltung")
-System_Ext(ext2, "Externer Dienst\n[z. B. E-Mail-Server]", "Versand von Benachrichtigungen")
-
-Rel(user, system, "nutzt", "Web / Mobile")
-Rel(admin, system, "verwaltet")
-Rel(system, db, "liest / schreibt", "JDBC / SQL")
-Rel(system, ext1, "authentifiziert über", "LDAP / OAuth2")
-Rel(system, ext2, "sendet Benachrichtigungen über", "SMTP")
+Rel(student, pwa, "nutzt", "Browser / PWA")
+Rel(pwa, api, "sendet und lädt Daten", "HTTPS / REST / JSON")
+Rel(pwa, auth, "registriert und authentifiziert Nutzer", "Supabase Auth SDK")
+Rel(api, auth, "prüft Authentifizierung", "JWT / Supabase")
+Rel(api, db, "liest und schreibt Daten", "Supabase Client")
+Rel(auth, db, "verwaltet Nutzerdaten", "Supabase intern")
 
 @enduml
 ....
@@ -69,44 +65,59 @@ Die interne Struktur des Systems ist im Designdokument beschrieben.
 |===
 | Schnittstelle | Typ | Beschreibung | Protokoll / Format
 
-| [z. B. Hochschul-LDAP]
-| Externes System
-| Authentifizierung und Nutzerverwaltung über bestehende Hochschulinfrastruktur
-| LDAP / TLS
-
-| [z. B. SMTP-Server]
-| Externes System
-| Versand von Benachrichtigungs-E-Mails an Nutzende
-| SMTP / TLS
-
-| [z. B. Nutzer:in via Browser]
+| Studierende über Browser / PWA
 | Menschlicher Akteur
-| Zugriff über Web-Oberfläche
-| HTTPS / REST
+| Nutzung der Anwendung zur Eingabe von Stress- und Energiewerten sowie zur Anzeige von Auswertungen
+| HTTPS / Web UI
 
-| [Weitere Schnittstelle]
-| [Typ]
-| [Beschreibung]
-| [Protokoll]
+| Supabase Auth
+| Externer Dienst
+| Registrierung, Anmeldung und Sitzungsverwaltung
+| HTTPS / Supabase Auth SDK / JWT
+
+| Supabase PostgreSQL
+| Extern verwaltete Datenbank
+| Persistente Speicherung von Nutzer- und Check-In-Daten
+| Supabase Client / PostgreSQL
+
+| GitHub
+| Entwicklungsplattform
+| Versionsverwaltung, Issues, Pull Requests und Dokumentation
+| Git / HTTPS
 |===
 
 === Laufzeitumgebungen (Container Diagramm)
 //Level 2 im C4-Modell
 Diese Sicht gibt an, welche Umgebungen für den Code vorgesehen sind, z.B. JVM, Node.js, DBMS, Browser, Android Runtime.
 
-[plantuml, "{diagramsdir}/system-context", svg]
+[plantuml, "{diagramsdir}/container-diagram", svg]
 ....
 @startuml
 ' source: https://github.com/plantuml-stdlib/C4-PlantUML
-' C4 Model
 !include <c4/C4_Container.puml>
 
-Person(personAlias, "Label", "Optional Description")
+LAYOUT_WITH_LEGEND()
 
-System_Boundary(c1, "Sample System") {
-    Container(containerAlias, "Container Name", "Technology", "Optional Description")
+title Container Diagram – EnergyBalance
+
+Person(student, "Studierende", "Nutzt EnergyBalance im Browser oder als PWA")
+
+System_Boundary(system, "EnergyBalance") {
+
+Container(frontend, "Frontend", "React + Vite", "Progressive Web App für Eingabe, Navigation und Visualisierung")
+
+Container(backend, "Backend", "Node.js + NestJS", "REST API für Fachlogik, Validierung, Authentifizierungsprüfung und Datenzugriff")
+
+ContainerDb(database, "Datenbank", "Supabase PostgreSQL", "Persistente Speicherung von Nutzer- und Check-In-Daten")
 }
-Rel(personAlias, containerAlias, "Label", "Optional Technology")
+
+System_Ext(auth, "Supabase Auth", "Authentifizierung und Sitzungsverwaltung")
+
+Rel(student, frontend, "nutzt", "Browser / PWA")
+Rel(frontend, backend, "kommuniziert mit", "REST / JSON")
+Rel(frontend, auth, "registriert und authentifiziert", "Supabase Auth SDK")
+Rel(backend, auth, "prüft Tokens", "JWT")
+Rel(backend, database, "liest / schreibt", "Supabase Client")
 
 @enduml
 ....
@@ -114,6 +125,37 @@ Rel(personAlias, containerAlias, "Label", "Optional Technology")
 === Verteilungsdiagramm (Deployment Diagramm)
 //Beschreibt die physischen Knoten (Rechner) des Systems und Komponenten, die in diesen Knoten ausgeführt werden. 
 
+[plantuml, "{diagramsdir}/deployment-diagram", svg]
+....
+@startuml
+skinparam monochrome true
+skinparam defaultFontSize 12
+
+node "Client-Gerät\n(Browser / PWA)" as client {
+artifact "EnergyBalance Frontend\nReact + Vite"
+}
+
+node "Frontend Hosting\nz. B. Vercel / Netlify" as frontendHost {
+artifact "statische Frontend-Dateien"
+}
+
+node "Backend Hosting\nz. B. Render / Railway / Fly.io" as backendHost {
+artifact "EnergyBalance Backend\nNode.js + NestJS"
+}
+
+cloud "Supabase" as supabase {
+node "Supabase Auth" as auth
+database "Supabase PostgreSQL" as db
+}
+
+client --> frontendHost : lädt PWA\nHTTPS
+client --> backendHost : REST / JSON\nHTTPS
+client --> auth : Login / Registrierung\nHTTPS
+backendHost --> auth : Tokenprüfung\nJWT
+backendHost --> db : Datenzugriff\nSupabase Client
+
+@enduml
+....
 
 == Technologie-Stack
 
@@ -129,22 +171,22 @@ sind in <<Architekturentscheidungen>> dokumentiert._
 
 | Frontend
 | React + JavaScript + Vite
-| Entwicklung der Benutzeroberfläche und Progressive Web App (PWA). Im Team bestehen bereits erste Erfahrungen mit React und JavaScript. Vite vereinfacht Projektstruktur, Entwicklung und Build-Prozess durch schnelle Entwicklungsserver und einfache Konfiguration.
+| Entwicklung der Benutzeroberfläche als Progressive Web App (PWA). React ermöglicht eine komponentenbasierte Entwicklung, während Vite eine schnelle Entwicklungsumgebung und kurze Build-Zeiten bietet.
 | ADR-003
 
 | Backend
-| Node.js + Express
-| REST-API und Fachlogik. Passt zu den JavaScript-Stack und ermöglicht eine schlanke Backend-Struktur ohne Spring-Komplexität
+| Node.js + NestJS
+| Bereitstellung der REST-API und Umsetzung der Fachlogik. Passt zum JavaScript-Stack und ermöglicht eine klar strukturierte Backend-Architektur mit Controllern, Services und Modulen.
 | ADR-004
 
 | Datenzugriff
-| Supabase Client oder Prisma
-| Zugriff auf relationale Daten. Supabase Client ist einfacher und passt direkt zu Supabase. Prisma wäre strukturierter, verursacht aber zusätzlichen Aufwand.
+| Supabase Client
+| Zugriff auf relationale Daten. Supabase Client ist einfach zu nutzen und passt direkt zu Supabase.
 | ADR-005
 
 | Datenbank
 | Supabase PostgreSQL
-| Speicherung strukturierter Daten. PostgreSQL passt zu relationalen daten wie Nutzerprofilen, Einträgen, Aufgaben, Reflexionen oder Statuswerten.
+| Speicherung strukturierter Daten. PostgreSQL passt zu relationalen Daten wie Nutzerprofilen, Einträgen, Aufgaben, Reflexionen oder Statuswerten.
 | ADR-006
 
 | Authentifizierung
@@ -164,31 +206,27 @@ sind in <<Architekturentscheidungen>> dokumentiert._
 
 | CI/CD
 | GitHub Actions
-| Automatisierte Builds und Tests. Änderungen können automatisch geprüft werden, bevor diese integriert werden.
+| Automatisierte Builds und Tests können zukünftig über GitHub Actions ausgeführt werden.
 | ADR-010
-
 
 | Frontend-Testing
 | Jest oder Vitest React Testing Library
-| Komponenten- und UI-Tests. Prüft, ob React-Komponenten und Benutzerinteraktionen korrekt funktionieren.
+| Komponenten- und UI-Tests. Prüft React-Komponenten und Benutzerinteraktionen automatisiert.
 | ADR-010
-
 
 | Backend-Testing
 | Jest oder Vitest + Supertest
-| Backend- und API-Tests. Supertest eignet sich gut, um Express-Endpunkte automatisiert zu testen.
+| Backend- und API-Tests. Supertest eignet sich zur automatisierten Überprüfung von REST-Endpunkten des NestJS-Backends.
 | ADR-010
 
-
 | Frontend-Hosting
-| Vercel und Netlify
-| Deployment des Frontends. Sehr gut für React/Vite-Projekte geeignet und einfach mit Github integrierbar.
+| Vercel
+| Deployment des React/Vite-Frontends. Lässt sich einfach mit GitHub integrieren.
 | ADR-011
-
 
 | Backend-Hosting
 | Render, Railway oder Fly.io
-| Deployment des node.js/Express-Backends. Diese Plattformen sind für Webservices geeignet und einfacher als ein eigener Server.
+| Deployment des Node.js/NestJS-Backends. Diese Plattformen sind für Webservices geeignet und einfacher als ein eigener Server.
 | ADR-011
 |===
 
@@ -214,7 +252,7 @@ diesen Anforderungen ergeben, und verweist auf die zugehörigen Entscheidungen.
 | Frontend und Backend müssen schlank bleiben. Die REST-API darf keine unnötig großen Datenmengen liefern. Frontend-Build und Hosting müssen schnelle Auslieferung unterstützen.
 | ADR-003, ADR-008, ADR-011
 
-| Verfügbarkeit: Das System soll zuverlässig nutzbar sein; Zielwert ≥ 99% während Nutzungszeiten.
+| Verfügbarkeit: Das System soll zuverlässig nutzbar sein.
 | Frontend und Backend müssen stabil bereitgestellt werden. Hosting-Plattformen müssen zuverlässig genug für das Projektinkrement sein. Deployment darf nicht nur lokal funktionieren.
 | ADR-006, ADR-007
 
@@ -231,7 +269,7 @@ diesen Anforderungen ergeben, und verweist auf die zugehörigen Entscheidungen.
 | ADR-002
 
 | Projektlaufzeit: Das Produkt wird in zwei Semestern umgesetzt, gegliedert in Sprints. Jeder Sprint endet mit einem Review.
-| Die Architektur muss inkrementell umsetzbar sein. Zuerst sollte ein Walking Skeleton entstehen: React-Frontend -> Express API -> Supabase-Datenbank
+| Die Architektur muss inkrementell umsetzbar sein. Zuerst sollte ein Walking Skeleton entstehen: React-Frontend → NestJS-Backend → Supabase PostgreSQL
 | ADR-002
 
 | DSGVO-Konformität: Personenbezogene Daten dürfen nur gemäß DSGVO verarbeitet und gespeichert werden.
@@ -251,7 +289,7 @@ diesen Anforderungen ergeben, und verweist auf die zugehörigen Entscheidungen.
 | kein ADR erforderlich
 
 | Technische Infrastruktur: Einsatz gängiger Webtechnologien, bestehend aus Frontend und Backend, ohne Spezialhardware.
-| Eine klassische Webarchitektur mit React/Vite-Frontend, Node.js/Express-Backend und Supabase-Datenbank ist ausreichend. Spezialhardware oder native-App-Technologien sind nicht notwendig.
+| Eine klassische Webarchitektur mit React/Vite-Frontend, Node.js/NestJS-Backend und Supabase-Datenbank ist ausreichend. Spezialhardware oder native-App-Technologien sind nicht notwendig.
 | ADR002, ADR-003, ADR-004, ADR-006
 
 | Programmiersprache: Verwendung bekannter, bzw. geeigneter Technologien aus dem Teamkontext.
@@ -276,39 +314,12 @@ gehören nicht hierher._
 NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 „ersetzt durch ADR-XXX" markiert. So bleibt die Entscheidungshistorie nachvollziehbar.
 
-=== ADR-001: [Titel der Entscheidung]
-
-[cols="1,3"]
-|===
-| *Status*
-| [Vorgeschlagen \| Akzeptiert \| Abgelehnt \| Ersetzt durch ADR-XXX]
-
-| *Datum*
-| [Datum]
-
-| *Kontext*
-| [Warum musste diese Entscheidung getroffen werden?
-  Welches Problem oder welche Anforderung hat sie ausgelöst?
-  Verweise auf Qualitätsziele oder Einschränkungen aus dem Produktkonzept falls relevant.]
-
-| *Entscheidung*
-| [Was wurde entschieden? Formuliere die Entscheidung als aktiven Satz:
-  „Wir verwenden X, weil..."]
-
-| *Alternativen*
-| [Welche Alternativen wurden in Betracht gezogen und warum verworfen?]
-
-| *Konsequenzen*
-| [Was wird durch diese Entscheidung einfacher? Was wird schwieriger oder teurer?
-  Welche neuen Risiken entstehen?]
-|===
-
 === ADR-002 Wahl der grundlegenden Systemarchitektur
 
 [cols="1,3"]
 |===
 | *Status*
-| Vorgeschlagen
+| Akzeptiert
 
 | *Datum*
 | 28.05.2026
@@ -317,13 +328,13 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 | Wir entwickeln eine Webanwendung, die eine klare Trennung zwischen Benutzeroberfläche, Fachlogik und Datenhaltung benötigt. Das Team arbeitet mit JavaScript im Frontend und Backend.Die Anwendung soll wartbar, testbar und innerhalb des Projektrahmens realistisch umsetzbar sein.
 
 | *Entscheidung*
-| Wir verwenden React/Vite im Frontend, Node.js/Express im Backend und Supabase PostgreSQL für die Datenhaltung. Frontend und Backend kommunizieren über eine REST API mit JSON.
+| Wir verwenden React/Vite im Frontend, Node.js/NestJS im Backend und Supabase PostgreSQL für die Datenhaltung. Frontend und Backend kommunizieren über eine REST-API mit JSON.
 
 | *Alternativen*
 | Supabase only ohne eigenes Backend; Spring Boot als Backend; klassische serverseitige Webanwendung ohne getrenntes Frontend.
 
 | *Konsequenzen*
-| Die Architektur ist sauber trennbar und gut dokumentierbar. Durch JavaScript in Frontend und backend entsteht ein einheitlicher Stack. Der Nachteil ist, dass Frontend, Backend und Datenbank separat entwickelt, integriert und getestet werden müssen.
+| Die Architektur ist klar getrennt und unterstützt eine wartbare Entwicklung. Durch JavaScript im Frontend und Backend entsteht ein einheitlicher Technologie-Stack. Frontend, Backend und Datenbank müssen jedoch getrennt entwickelt, integriert und getestet werden.
 |===
 
 === ADR-003: Verwendung von React, JavaScript und Vite im Frontend
@@ -331,7 +342,7 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 [cols="1,3"]
 |===
 | *Status*
-| Vorgeschlagen
+| Akzeptiert
 
 | *Datum*
 | 28.05.2026
@@ -349,27 +360,27 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 | React ermöglicht komponentenbasierte Entwicklung der Benutzeroberfläche. Vite vereinfacht Entwicklung und Build-Prozess. Das Risiko ist, dass Fachlogik versehentlich in UI-Komponenten landen. Deshalb müssen Komponenten, Services und API-Zugriffe getrennt werden.
 |===
 
-=== ADR-004: Verwendung von Node.js und Express als Backend
+=== ADR-004: Verwendung von Node.js und NestJS als Backend
 
 [cols="1,3"]
 |===
 | *Status*
-| Vorgeschlagen
+| Akzeptiert
 
 | *Datum*
 | 28.05.2026
 
 | *Kontext*
-| Die Anwendung braucht eine zentrale Backend-Schicht für Fachlogik, Validierung und Schnittstellen. Das Team verwendet bereits JavaScript im Frontend. Ein JavaScript-basiertes Backend reduziert den Technologiewechsel zwischen Frontend und Backend.
+| Die Anwendung benötigt eine zentrale Backend-Schicht für Fachlogik, Validierung und REST-Schnittstellen. Das Team verwendet bereits JavaScript im Frontend. Ein JavaScript-basiertes Backend reduziert den Technologiewechsel zwischen Frontend und Backend und erleichtert die Zusammenarbeit.
 
 | *Entscheidung*
-| Wir verwenden Node.js mit Express als Backend. Die Fachlogik wird in Services umgesetzt. Express-Routen stellen REST-Endpunkte für das Frontend bereit.
+| Wir verwenden Node.js mit NestJS als Backend. Die Fachlogik wird in Services umgesetzt. Controller stellen REST-Endpunkte für das Frontend bereit.
 
 | *Alternativen*
-| Spring Boot als Backend; Supabase only ohne eigenes Backend; Node.js mit NestJS.
+| Spring Boot als Backend; Supabase ohne eigenes Backend; Node.js mit Express.
 
 | *Konsequenzen*
-| Node.js und Express ermöglichen ein leichtgewichtetes Backend und einen einheitlichen JavaScript-Stack. Der Einstieg ist einfacher als bei einem umfangreicheren Backend-Framework. Der Nachteil ist, dass Architektur, Strukturierung, Validierung und Fehlerbehandlung stärker selbst organisiert werden müssen.
+| NestJS bietet eine klare Projektstruktur mit Controllern, Services und Modulen. Dadurch wird die Trennung von Verantwortlichkeiten unterstützt. Der Nachteil ist ein höherer Einstieg als bei Express, insbesondere durch die stärkeren Framework-Konventionen.
 |===
 
 === ADR-005: Verwendung des Supabase Clients für den Datenzugriff
@@ -377,7 +388,7 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 [cols="1,3"]
 |===
 | *Status*
-| Vorgeschlagen
+| Akzeptiert
 
 | *Datum*
 | 28.05.2026
@@ -386,7 +397,7 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 | Das Backend muss auf die Supabase PostgreSQL gespeicherten Daten zugreifen. Dafür wird eine einfache und projektgeeignete Zugriffsschicht benötigt.
 
 | *Entscheidung*
-| Wir verwenden den Supabase Client für den Datenzugriff aus dem Node.js/Express-Backend.
+| Wir verwenden den Supabase Client für den Datenzugriff aus dem Node.js/NestJS-Backend.
 
 | *Alternativen*
 | Prisma; node-postgres; direkter Datenbankzugriff aus dem Frontend.
@@ -400,7 +411,7 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 [cols="1,3"]
 |===
 | *Status*
-| Vorgeschlagen
+| Akzeptiert
 
 | *Datum*
 | 28.05.2026
@@ -423,7 +434,7 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 [cols="1,3"]
 |===
 | *Status*
-| Vorgeschlagen
+| Akzeptiert
 
 | *Datum*
 | 28.05.2026
@@ -435,7 +446,7 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 | Wir verwenden Supabase Auth für Registrierung, Login und Sitzungsverwaltung.
 
 | *Alternativen*
-| Eigene Authentifizierung im Node.js/Express-Backend; Auth.js; keine Authentifizierung.
+| Eigene Authentifizierung im Node.js/NestJS-Backend; Auth.js; keine Authentifizierung.
 
 | *Konsequenzen*
 | Supabase Auth spart Entwicklungszeit und reduziert Sicherheitsrisiken durch Eigenbau. Das Team muss aber klären, wie das Frontend Authentifizierungsinformationen an das Backend weitergibt und wie das Backend diese prüft. Rollen und Rechte müssen sauber definiert werden.
@@ -446,13 +457,13 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 [cols="1,3"]
 |===
 | *Status*
-| Vorgeschlagen
+| Akzeptiert
 
 | *Datum*
 | 28.05.2026
 
 | *Kontext*
-| Frontend und Backend werden getrennt entwickelt. Deshalb wird eine klare Schnittstelle benötigt, über die Daten zwischen React/Vite und Node.js/Express ausgetauscht werden.
+| Frontend und Backend werden getrennt entwickelt. Deshalb wird eine klar definierte Schnittstelle benötigt, über die Daten zwischen React/Vite und dem NestJS-Backend ausgetauscht werden.
 
 | *Entscheidung*
 | Die Kommunikation zwischen Frontend und Backend erfolgt über eine REST API mit JSON.
@@ -469,7 +480,7 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 [cols="1,3"]
 |===
 | *Status*
-| Vorgeschlagen
+| Akzeptiert
 
 | *Datum*
 | 28.05.2026
@@ -503,7 +514,7 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 | Wir verwenden GitHub Actions für automatisierte Builds und Tests. Frontend-Komponenten werden mit Jest oder Vitest und React Testing Library getestet. Backend- und API-Funktionen werden mit Jest oder Vitest und Supertest getestet.
 
 | *Alternativen*
-| Nur manuelle teams, lokale tests ohne CI/CD, andere CI/CD-Plattformen wie GitLab CI.
+| Nur manuelle Tests; lokale Tests ohne CI/CD; andere CI/CD-Plattformen wie GitLab CI.
 
 | *Konsequenzen*
 | Änderungen können automatisch geprüft werden. Die Codequalität und Stabilität der Anwendung steigen. Der Nachteil ist zusätzlicher Einrichtungsaufwand für Testskripte, Workflows und Testdaten. Außerdem müssen fehlgeschlagene Tests im Team konsequent behoben werden.
@@ -523,13 +534,13 @@ NOTE: ADRs werden nicht gelöscht oder überschrieben — sie werden als
 | Die Anwendung soll nicht nur lokal laufen, sondern auch als nutzbares Produktinkrement bereitgestellt werden. Frontend und Backend werden getrennt entwickelt und benötigen daher passende Hosting-Optionen.
 
 | *Entscheidung*
-| Das Frontend wird über Vercel oder Netlify bereitgestellt. Das Node.js/Express-Backend wird über Render, Railway oder Fly.io bereitgestellt. Die konkrete Plattform wird nach einem technischen Durchstich final festgelegt.
+| Das Frontend wird über Vercel oder Netlify bereitgestellt. Das Node.js/NestJS-Backend wird über Render, Railway oder Fly.io bereitgestellt.
 
 | *Alternativen*
 | Lokale Ausführung ohne Deployment, eigener Server, Hochschulserver, vollständiges Deployment über eine einzige Plattform.
 
 | *Konsequenzen*
-| Frontend und Backend können unabhängig bereitgestellt werden. Vercel und Netlify sind gut für React/Vite-Projekte geeignet. Render, Railway und Fly.io eignen sich für Webservices und Docker-basierte Deployments. Der Nachteil ist zusätzlicher Konfigurationsaufwand für Umgebungsvariablen, CORS, Backend-URL, Datenbankzugang und Deployment-Pipeline.
+| Frontend und Backend können unabhängig bereitgestellt werden. Vercel und Netlify sind gut für React/Vite-Projekte geeignet. Render, Railway und Fly.io eignen sich für Webservices und Docker-basierte Deployments. Der Nachteil ist zusätzlicher Konfigurationsaufwand für Umgebungsvariablen, Authentifizierung, Datenbankzugriff und Deployment-Pipeline.
 |===
 
 NOTE: Weitere ADRs nach demselben Schema hinzufügen. Die Nummerierung ist
@@ -547,43 +558,35 @@ Punkte in Vergessenheit geraten._
 |===
 | Risiko | Auswirkung | Wahrscheinlichkeit | Maßnahme
 
-| Integration zwischen React/Vite-Frontend und Node.js/Express-Backend funktioniert nicht reibungslos
+| Integration zwischen React/Vite-Frontend und Node.js/NestJS-Backend funktioniert nicht reibungslos.
 | Hoch
 | Mittel
-| Früh einen technischen Durchstich bauen; einfache React-Seite ruft einen Express-REST-Endpunkt auf und zeigt Daten an.
+| Früh einen technischen Durchstich erstellen und die Kommunikation zwischen Frontend und Backend testen.
 
-| Authentifizierung mit Supabase Auth und Express-Backend ist unklar
+| Authentifizierung mit Supabase Auth und NestJS-Backend ist unklar.
 | Hoch
 | Mittel
 | Früh klären, wie Login-Token vom Frontend an das Backend übergeben und dort geprüft werden. Auth-Flow dokumentieren und testen.
 
-| Zugriff von Express-Backend auf Supabase PostgreSQL verursacht Konfigurationsprobleme
+| Zugriff des NestJS-Backends auf Supabase PostgreSQL verursacht Konfigurationsprobleme.
 | Hoch
 | Mittel
 | Datenbankverbindung früh testen. Verbindung, Supabase-URL, API-Keys, Umgebungsvariablen und Zugriffsdaten dokumentieren.
 
-| Entscheidung zwischen Supabase Client und Prisma bleibt zu lange offen
-| Mittel
-| Mittel
-| Klare Projektstruktur festlegen: UI in React-Komponenten, Fachlogik in Express-Service, Datenzugriff in separater Repository-/API-Schicht.
-
 | Fachlogik landet versehentlich im Frontend statt im Backend
 | Mittel
 | Niedrig
-| Klare Projektstruktur festlegen: UI in React-Komponenten, Fachlogik in Spring-Boot-Services, Datenzugriff in Repository-Schicht
-
+| Klare Trennung zwischen React-Komponenten, NestJS-Services und Datenzugriff einhalten.
 
 | REST API wird nicht früh genug abgestimmt
 | Mittel
 | Mittel
 | API-Endpunkte früh definieren, z.B. Pfade, Request-Body, Response-Body und Fehlerfälle. Optional einfache API-Dokumentation erstellen.
 
-
 | Team unterschätzt Aufwand durch getrenntes Frontend, Backend und Datenbank
 | Hoch
 | Hoch
 | MVP klein halten. Erst Walking Skeleton bauen, danach Funktionen erweitern. Keine unnötigen Zusatzfeatures in Sprint 2.
-
 
 | Deployment von Frontend und Backend verursacht Probleme
 | Mittel
@@ -593,8 +596,7 @@ Punkte in Vergessenheit geraten._
 | CORS-Probleme zwischen Frontend und Backend
 | Mittel
 | Mittel
-| CORS-Konfiguration in Spring Boot früh testen. Lokale und spätere Deployment-URLs berücksichtigen.
-
+| CORS-Konfiguration im NestJS-Backend früh testen. Lokale und spätere Deployment-URLs berücksichtigen.
 
 | GitHub Actions / automatisierte Tests funktionieren nicht direkt
 | Niedrig
@@ -609,18 +611,12 @@ Punkte in Vergessenheit geraten._
 | Supabase-Abhängigkeit führt zu Vendor-Lock-in
 | Mittel
 | Mittel
-| Supabase bewusst nur für Datenbank/Auth nutzen. Fachlogik im Express-Backend halten, damit ein Wechsel später realistischer bleibt.
-
+| Supabase bewusst nur für Datenbank/Auth nutzen. Fachlogik im NestJS-Backend halten, damit ein Wechsel später realistischer bleibt.
 
 | Sicherheitsregeln/ Rollen sind unklar
 | Hoch
 | Mittel
 | Rollenmodell früh definieren. Prüfen, welche Daten welcher Nutzer sehen oder ändern darf. Zugriff nicht nur im Frontend absichern.
-
-| Offline-Erfassung und spätere Synchronisation sind technisch aufwendiger als erwartet
-| Hoch
-| Mittel
-| Offline-Fähigkeit zunächst als eigenes Risiko behandeln. Früh entscheiden, ob sie Teil des MVP ist oder später umgesetzt wird.
 
 | Hochschulserver verursacht mehr Aufwand als Nutzen
 | Mittel
@@ -635,15 +631,15 @@ Punkte in Vergessenheit geraten._
 |===
 | Beschreibung | Begründung für Kompromiss | Backlog-Eintrag
 
-| [z. B. Keine Datenbankmigrationen mit Flyway — manuelle Skripte]
-| [z. B. Zeitdruck in Sprint 2; wird in Sprint 5 nachgeholt]
-| [z. B. TECH-42]
+| Automatisierte Tests sind noch nicht vollständig umgesetzt.
+| Fokus lag zunächst auf der Fertigstellung des ersten Produktinkrements. Die Testabdeckung wird in späteren Sprints erweitert.
+| -
 
-| [z. B. Fehlerbehandlung in API-Endpunkten unvollständig]
-| [z. B. MVP-Fokus; nur Hauptpfade abgedeckt]
-| [z. B. TECH-51]
+| Fehlerbehandlung deckt bisher hauptsächlich Standardfälle ab.
+| Erweiterung erfolgt in späteren Sprints.
+| -
 
-| [Weitere technische Schuld]
-| [Begründung]
-| [Ticket-Referenz oder "-"]
+| Deployment-Pipeline ist noch nicht vollständig automatisiert.
+| Zunächst lokale Entwicklung und Integration priorisiert.
+| -
 |===
