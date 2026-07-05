@@ -32,10 +32,10 @@ keine andere.
 
 | Lokal
 | http://localhost:5173 (Frontend)
-  http://localhost:8080 (Backend)
-| Entwicklung und manuelle Tests auf dem eigenen Rechner. React/Vite Frontend, Spring Boot Backend und Supabase-Anbindung werden lokal getestet.
+  http://localhost:3000 (Backend)
+| Entwicklung und manuelle Tests auf dem eigenen Rechner. React/Vite Frontend, NestJS Backend und Supabase-Anbindung werden lokal getestet.
 | Beliebig
-| Manuell über npm run dev, Spring Boot Start oder Docker Compose
+| Manuell über 1. Terminal npm run dev (frontend), 2. Terminal npm star :dev (backend) 
 
 | CI
 | —
@@ -44,15 +44,13 @@ keine andere.
 | Automatisch (GitHub Actions)
 
 | Staging
-| z. B.
-  https://pwa-se-staging.vercel.app (Frontend)
-  https://backend-staging.onrender.com
+| —
 | Integrationstest; Abnahme durch Product Owner vor Release
 | `main` oder `develop` 
 | Automatisch nach Merge in `main`
 
 | Produktion
-| [z. B. https://pwa-se.vercel.app]
+| —
 | Live-System für Endnutzer:innen
 | `main` (getaggt)
 | Manuell mit Freigabe
@@ -72,33 +70,22 @@ Mal lokal zum Laufen bringen wollen.
 |===
 | Werkzeug | Version | Installationshinweis
 
-| Docker
-| ≥ 24.0
-| https://docs.docker.com/get-docker/
-
-| Docker Compose
-| ≥ 2.0 
-| Wird mit Docker Desktop installiert
 
 | Node.js
-| ≥ 22.0 LTS
+| ≥ v22.12.0 (LTS)
 | https://nodejs.org/en/download — benötigt für React/Vite und npm
+
+| React Native + Vite 
+| ≥ v8 0.16 
+| Download über Node.js
 
 | npm
 | ≥ 10.0
 | Wird automatisch mit Node.js installiert
 
-| Java JDK
-| ≥ 21
-| z. B. https://adoptium.net — benötigt für Spring Boot
-
 | Git
 | Aktuell
 | https://git-scm.com — Versionsverwaltung
-
-| Maven
-| ≥ 3.9
-| Build-Tool für Spring Boot (oder über Wrapper ./mvnw)
 
 | VS Code
 | Aktuell
@@ -121,10 +108,19 @@ cd PWA-SE
 # 2. Frontend-Abhängigkeiten installieren
 cd frontend
 npm install
-
+npm install react-icons
 
 # 3. Frontend starten
 npm run dev
+
+
+# 4. Backend-Abhängigkeiten installieren
+cd backend
+npm install @nestjs/mapped-types
+
+
+# 5. Backend starten
+npm start :dev
 
 
 # Frontend erreichbar:
@@ -179,14 +175,14 @@ existieren, wie sie konfiguriert werden, und wie sie zusammenarbeiten.
 | Service | Image | Zweck | Port (intern → extern)
 
 | frontend
-| node:20-alpine (Build-Image)
-| React/Vite Anwendung wird gebaut und bereitgestellt
+| —
+| —
 | 5173 → 5173
 
 | backend
-| eclipse-temurin:21-jre-alpine
-| Spring Boot REST-API
-| 8080 → 8080
+| —
+| —
+| 3000 → 3000
 
 | supabase
 | —
@@ -234,19 +230,9 @@ im Code. Eine vollständige Liste mit Beispielwerten befindet sich in `.env.exam
 | Nein (Standard: INFO)
 
 | SUPABASE_URL	
-| https://[projekt-id].supabase.co	
+| https://fwshawnhufoldhkyycor.supabase.co
 | URL des Supabase-Projekts	
 | Ja
-
-| `SUPABASE_ANON_KEY`	
-| [Supabase anon key]	
-| Öffentlicher Supabase-Key für Frontend/Auth	
-| Ja
-
-| `SUPABASE_SERVICE_ROLE_KEY`	
-| [Supabase service role key]	
-| Geheimer Supabase-Key nur für Backend/Server	
-| Nein
 
 | `FRONTEND_URL`	
 | http://localhost:5173	
@@ -254,7 +240,7 @@ im Code. Eine vollständige Liste mit Beispielwerten befindet sich in `.env.exam
 | Ja
 
 | `BACKEND_URL`	
-| http://localhost:8080	
+| http://localhost:3000	
 | URL des Backends für lokale Entwicklung	
 | Ja
 |===
