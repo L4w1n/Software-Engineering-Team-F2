@@ -622,6 +622,11 @@ Punkte in Vergessenheit geraten._
 | Mittel
 | Mittel
 | Hochschulserver nur nutzen, wenn Zugang, SSL, Ports, Deployment und Support klar geregelt sind. Sonst Render/Railway/Fly.io bevorzugen.
+
+| Offline-Erfassung und spätere Synchronisation sind technisch aufwendiger als erwartet
+| Hoch
+| Mittel
+| Offline-Fähigkeit zunächst als eigenes Risiko behandeln. Früh entscheiden, ob sie Teil des MVP ist oder später umgesetzt wird.
 |===
 
 
