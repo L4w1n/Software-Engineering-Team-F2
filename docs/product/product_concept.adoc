@@ -301,7 +301,7 @@ organisatorische, rechtliche oder zeitliche Vorgaben._
 | Version | Datum | Änderung
 
 | 1.0
-| [15.04.2026]
+| 15.04.2026
 | Initiale Version nach Kick-off-Workshop
 
 | 1.1
