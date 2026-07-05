@@ -1,9 +1,9 @@
 // --- 1. Projektthema -------------------------
 = SE I - Projektdokumentation: {project-name}
 // --- 2. Teammitglieder -----------------------
-Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>
+ ; Vince Hohfeld <vince.hohlfeld@stud.htw-dresden.de>; Armando Stefanow <armando.stefanow@stud.htw-dresden.de>; Omar Al_Jawabreh <omar.aljawabreh@stud.htw-dresden.de>; Tomàs Kuna <tomas.kuna@stud.htw-dresden.de>; Hoang_Son_David Tran <hoangsondavid.tran2@stud.htw-dresden.de>; Lewin Hantzsch <lewin.hantzsch@stud.htw-dresden.de>; Anwar Ahmad_Alissa_Aljasim <anwar.ahmadalissaaljasim@stud.htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
-01. Januar 2025
+05. Juli 2026
 // ---------------------------------------------
 :docs: ../docs
 include::{docs}/_includes/default-attributes.inc.adoc[]
