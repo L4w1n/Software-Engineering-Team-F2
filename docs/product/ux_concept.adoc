@@ -20,7 +20,7 @@ auf Annahmen allein._
 
 _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur benannt. Hier werden sie als Personas ausgearbeitet._
 
-=== Persona 1: Alexander, Heine
+=== Persona 1: Alexander Heine
 
 [cols="1,3"]
 |===
@@ -46,7 +46,7 @@ _Hinweis: Im link:product_concept.adoc[Produktkonzept] werden Zielgruppen nur be
 | EnergyBalance erlaubt es Alexander, Job-Schichten und Uni-Projekte im selben Kalender zu tracken, deren jeweiligen Stressfaktor zu bewerten und so eine verlässliche Prognose über sein tägliches Energielevel zu erhalten.
 |===
 
-=== Persona 2: Maja, Schneider
+=== Persona 2: Maja Schneider
 
 [cols="1,3"]
 |===
