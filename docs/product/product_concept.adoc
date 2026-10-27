@@ -132,69 +132,21 @@ Diese Hauptfunktionen sollten als Epics im Product Backlog für die Gruppierung 
 |===
 | Nutzerbedarf | Hauptfunktion | Priorität
 
-| Studierende wollen ihr aktuelles Stress- und Energielevel einfach und regelmäßig erfassen können.
-| F1 - Eingabe von Stress- und Energiedaten
-| Must Have
-
-| Studierende wollen ihre Belastungs- und Energiewerte übersichtlich visualisieren und Entwicklungen erkennen können.
-| F2 - Datenvisualisierung
-| Must Have
-
-| Studierende wollen wichtige Hinweise und Warnungen zu ihrer Belastung erhalten.
-| F3 - Benachrichtigungsanzeige
-| Should Have
-
-| Studierende wollen beim Einstieg unterstützt werden und individuelle Referenzwerte für ihre Auswertungen erhalten.
-| F4 - Onboarding und Baseline-Ermittlung
-| Should Have
-
-| Studierende wollen frühzeitig auf kritische Belastungssituationen aufmerksam gemacht werden.
-| F5 - Frühwarnsystem
-| Should Have
-
-| Studierende wollen personalisierte Empfehlungen zur Verbesserung ihres Studien- und Arbeitsalltags erhalten.
-| F6 - Empfehlungssystem
-| Should Have
-
-| Studierende wollen ihre persönliche Entwicklung reflektieren und subjektive Eindrücke dokumentieren können.
-| F7 - Reflexion und Selbstbewertung
-| Should Have
-
-| Studierende wollen die volle Kontrolle über ihre Daten behalten und ihre Privatsphäre schützen.
-| F8 - Datenschutz und Kontrolle
-| Must Have
-
-| Das System soll alle fachlichen Daten konsistent und einheitlich verwalten können.
-| F9 - Zentrales Datenmodell
-| Technische Basis
-
-| Studierende wollen Aufgaben und Termine mit ihrer Belastung in Beziehung setzen können.
-| F10 - Aufgaben- und Kontextmodell
-| Should Have
-
-| Studierende wollen ihre Daten statistisch auswerten und Muster erkennen können.
-| F11 - Datenanalyse
-| Should Have
-
-| Studierende wollen zusätzliche Einflussfaktoren wie Schlaf, Arbeit oder körperliche Aktivität erfassen können.
-| F12 - Erweiterte Kontextdaten
+| Studierende möchten beim Einstieg untersützt werden und ihr Profil individuell einrichten können.
+| Account, Onboarding und Personalisierung 
 | Could Have
 
-| Studierende wollen ihre Daten dauerhaft speichern und jederzeit abrufen können.
-| F13 - Datenspeicherung
+| Studierende möchten Lehrveranstaltungen, Arbeitszeiten und weitere Aktivitäten zentral planen und übersichtlich in einem Kalender verwalten können.
+| Kalender und Ereignisplaner
 | Must Have
 
-| Studierende wollen die Anwendung personalisiert mit Konto oder alternativ lokal ohne Konto nutzen können.
-| F14 - Benutzerverwaltung
+| Studierende möchten ihr Stresslevel und ihre Energie im Alltag unkompliziert erfassen und deren Entwicklung nachvollziehen können.
+| Stress- und Energietracking inklusive Analytics 
 | Must Have
 
-| Studierende wollen ihre Daten exportieren und gezielt mit anderen Personen teilen können.
-| F15 - Export und Datenfreigabe
-| Could Have
-
-| Studierende wollen zwischen den verschiedenen Ansichten der PWA navigieren können.
-| F16 - Routing und Navigation
-| Must Have
+| Studierende möchten rechtzeitig auf kritische Stress- bzw. Energiewerte hingewiesen werden, um Überlastung vermeiden zu können.
+| Alerts und Schwellenwert-Logik
+| Should Have
 |===
 
 NOTE: Die angegebenen Prioritäten spiegeln den derzeitigen Stand der MVP-Planung wider
